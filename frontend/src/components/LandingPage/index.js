@@ -9,6 +9,11 @@ function LandingPage() {
                 <div id='landing__content-main'>
                     Listening is everything
                 </div>
+                <NavLink to='/home'>
+                    <button>
+                        Let's Get Started
+                    </button>
+                </NavLink>
             </div>
         </div>
     )
