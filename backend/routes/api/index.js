@@ -2,6 +2,7 @@ const router = require("express").Router();
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
 const libraryRouter = require("./library.js");
+const playlistRouter = require("./playlist.js");
 const { route } = require("./session.js");
 
 // // GET /api/set-token-cookie
@@ -46,5 +47,6 @@ router.use("/session", sessionRouter);
 
 router.use("/users", usersRouter);
 router.use("/libraries", libraryRouter)
+router.use("/playlists", playlistRouter)
 
 module.exports = router;
