@@ -15,7 +15,7 @@ function LibraryPage() {
 
     useEffect(() => {
         dispatch(getLibraries())
-    }, [dispatch, sessionUser, library])
+    }, [dispatch])
 
     let collection;
     if ( type === 'playlists') { collection = ( <>playLists</> )
