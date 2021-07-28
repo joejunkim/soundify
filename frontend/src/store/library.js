@@ -7,8 +7,8 @@ const loadLibrary = (library) => ({
     library
 })
 
-export const getLibrary = () => async dispatch => {
-    const res = await csrfFetch('/api/libraries/:id')
+export const getLibrary = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/libraries/${id}`)
 
     if (res.ok) {
         const library = await res.json();
