@@ -1,0 +1,39 @@
+'use strict';
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('Playlists', {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
+      title: {
+        type: Sequelize.STRING(50),
+        allowNull: false,
+      },
+      imgUrl: {
+        type: Sequelize.STRING
+      },
+      description: {
+        type: Sequelize.STRING(500),
+        allowNull: false,
+      },
+      libraryId: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      }
+    });
+  },
+  down: async (queryInterface, Sequelize) => {
+    await queryInterface.dropTable('Playlists');
+  }
+};

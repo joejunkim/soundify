@@ -1,0 +1,17 @@
+#landing__container {
+    height: 95vh;
+    width: 100vw;
+    background-color: rgb(41, 65, 171);
+    display: flex;
+    align-items: center;
+}
+
+#landing__content {
+    display: flex;
+    justify-content: center;
+}
+
+#landing__content-main {
+    font-size: 8rem;
+    color: var(--text-bright-accent,#117a37)
+}

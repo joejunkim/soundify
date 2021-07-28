@@ -1,0 +1,27 @@
+#navbar__container {
+  background-color:rgba(0, 0, 0, 0.7);
+  height: 5vh;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar__title a {
+  color: white;
+  text-decoration: none;
+  margin: 100px;
+}
+
+#navbar__right a {
+  color: white;
+  text-decoration: none;
+  /* margin: 50px; */
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: flex-end; */
+}
+
+.profile-dropdown {
+  position: absolute;
+}

@@ -1,0 +1,26 @@
+#library__container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+#library__nav {
+    background-color: black;
+    height: 100vh;
+    width: 240px;
+    display: flex;
+    flex-direction: column;;
+}
+
+#library__nav a {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    padding: 15px 0px 1px 30px;
+}
+
+#library__content {
+    background-color: rgba(0, 0, 0, 0.603);
+    height: 100vh;
+    width: 85%;
+}
