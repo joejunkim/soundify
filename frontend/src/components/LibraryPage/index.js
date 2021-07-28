@@ -1,20 +1,52 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 import Navigation from '../Navigation'
 import './LibraryPage.css';
 
 function LibraryPage() {
+    const { type } = useParams();
+
+    let collection;
+    if ( type == 'playlists') {
+        collection = (
+            <>
+                playLists
+            </>
+        )
+    } else if ( type == 'songs') {
+        collection = (
+            <>
+                songs
+            </>
+        )
+    } else if ( type == 'artists') {
+        collection = (
+            <>
+                artists
+            </>
+        )
+    } else if ( type == 'albums') {
+        collection = (
+            <>
+                albums
+            </>
+        )
+    }
+
     return (
         <div id='library__container'>
             <div id='library__nav'>
-                <NavLink to='/library' >
+                <NavLink to='/home' >
+                    Soundify
+                </NavLink>
+                <NavLink to='/home' >
                     Home
                 </NavLink>
-                <NavLink to='/library/search' >
+                <NavLink to='/search' >
                     Search
                 </NavLink>
-                <NavLink to='/library/collections/:category' >
+                <NavLink to='/library/collection/playlists' >
                     Your Library
                 </NavLink>
                 <button>
@@ -22,9 +54,8 @@ function LibraryPage() {
                 </button>
             </div>
             <div id='library__content'>
-                <Route path='/library/collections/:category'>
-                    <Navigation />
-                </Route>
+                <Navigation />
+                {collection}
             </div>
         </div>
     )

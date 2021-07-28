@@ -4,13 +4,17 @@
   font-size: 1.7rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  color: white;
 }
 
-#navbar__title a {
+#navbar__arrows {
+  margin: 50px;
+}
+
+#collection-links a {
   color: white;
   text-decoration: none;
-  /* margin: 100px; */
+  margin: 10px;
 }
 
 #navbar__right a {
