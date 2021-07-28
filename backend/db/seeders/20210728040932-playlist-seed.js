@@ -6,7 +6,9 @@ module.exports = {
       {
         title: 'Test Playlist',
         description: 'This is my test playlist to see if this is working!',
-        libraryId: 1
+        libraryId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ], {})
   },

@@ -4,7 +4,9 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Libraries', [
       {
-        userId: 1
+        userId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
       }
     ])
   },

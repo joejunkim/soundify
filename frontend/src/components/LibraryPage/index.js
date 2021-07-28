@@ -1,5 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
+
+import Navigation from '../Navigation'
 import './LibraryPage.css';
 
 function LibraryPage() {
@@ -12,7 +14,7 @@ function LibraryPage() {
                 <NavLink to='/library/search' >
                     Search
                 </NavLink>
-                <NavLink to='/library/collections' >
+                <NavLink to='/library/collections/:category' >
                     Your Library
                 </NavLink>
                 <button>
@@ -20,7 +22,9 @@ function LibraryPage() {
                 </button>
             </div>
             <div id='library__content'>
-
+                <Route path='/library/collections/:category'>
+                    <Navigation />
+                </Route>
             </div>
         </div>
     )
