@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       // }
 
       // Playlist.belongsToMany(models.Song, columnMapping);
-      Playlist.belongsTo(models.Library, {foreignKey: 'libraryId'});
+      Playlist.belongsTo(models.Library, { foreignKey: 'libraryId' });
     }
   };
   Playlist.init({

@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes) => {
       return await User.scope('currentUser').findByPk(user.id);
     };
     static associate(models) {
-      User.belongsTo(models.Library, {foreignKey: 'userId'});
+      User.belongsTo(models.Library, { foreignKey: 'userId' });
     }
   };
   User.init(

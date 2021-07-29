@@ -20,8 +20,9 @@ module.exports = {
         allowNull: false,
       },
       libraryId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.INTEGER
+        references: { model: 'Libraries' }
       },
       createdAt: {
         allowNull: false,
