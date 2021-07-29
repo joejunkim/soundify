@@ -1,14 +1,14 @@
-#login__form {
+#signup__form {
     display: flex;
     flex-direction: column;
 }
 
-#login__form h1 {
+#signup__form h1 {
     display: flex;
     justify-content: center;
 }
 
-#login__form form {
+#signup__form form {
     display: flex;
     flex-direction: column;
     justify-content: center;

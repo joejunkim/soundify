@@ -18,7 +18,7 @@ export const getLibraries = () => async dispatch => {
 
 const initialState = {};
 
-const libraryReducer = (state = initialState, action) => {
+const librariesReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_LIBRARIES:
             const allLibraries = {};
@@ -34,4 +34,4 @@ const libraryReducer = (state = initialState, action) => {
     }
 }
 
-export default libraryReducer;
+export default librariesReducer;

@@ -18,7 +18,7 @@ export const getPlayLists = () => async dispatch => {
 
 const initialState = {};
 
-const playlistReducer = (state = initialState, action) => {
+const playlistsReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_PLAYLISTS:
             const allPlaylists = {};
@@ -34,4 +34,4 @@ const playlistReducer = (state = initialState, action) => {
     }
 }
 
-export default playlistReducer;
+export default playlistsReducer;

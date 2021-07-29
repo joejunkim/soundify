@@ -27,7 +27,8 @@
 #navbar__session {
   display: flex;
   justify-content: flex-end;
-  width: 70vw
+  width: 70vw;
+  margin: 50px;
 }
 
 #navbar__session a {

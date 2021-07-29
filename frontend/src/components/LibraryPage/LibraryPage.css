@@ -1,6 +1,5 @@
 #library__container {
     height: 100vh;
-    width: 100vw;
     display: flex;
     color: white;
 }
@@ -8,7 +7,7 @@
 #library__nav {
     background-color: black;
     height: 100vh;
-    width: 240px;
+    width: 10%;
     display: flex;
     flex-direction: column;;
 }
@@ -23,7 +22,7 @@
 #library__content {
     background-color: rgba(0, 0, 0, 0.603);
     height: 100vh;
-    width: 100%;
+    width: 90%;
 }
 
 #collection__title {

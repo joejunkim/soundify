@@ -1,13 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
-import libraryReducer from './library'
-import playlistReducer from './playlist';
+import librariesReducer from './library'
+import playlistsReducer from './playlist';
 
 const rootReducer = combineReducers({
   session,
-  libraries: libraryReducer,
-  playlists: playlistReducer
+  libraries: librariesReducer,
+  playlists: playlistsReducer
 });
 
 let enhancer;

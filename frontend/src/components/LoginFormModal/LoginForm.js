@@ -21,7 +21,7 @@ function LoginForm() {
   };
 
   return (
-    <>
+    <div id='login__form'>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -49,7 +49,7 @@ function LoginForm() {
         </label>
         <button type="submit">Log In</button>
       </form>
-    </>
+    </div>
   );
 }
 
