@@ -8,7 +8,7 @@ function DeletePlaylistModal() {
 
     return (
         <>
-          <button onClick={() => setShowModal(true)}>Delete</button>
+          <button onClick={() => setShowModal(true)}>Delete Playlist</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
               <DeletePlaylistForm setShowModal={setShowModal}/>

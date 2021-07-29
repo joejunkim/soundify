@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { getPlayLists } from '../../store/playlist';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
+import EditPlaylistModal from '../EditPlaylistModal'
 import DeletePlaylistModal from '../DeletePlaylistModal'
 import './PlaylistPage.css';
 
@@ -12,10 +13,11 @@ function PlaylistPage() {
     const playlist = useSelector((state) => state.playlists[id])
 
     const dispatch = useDispatch();
+    const reload = () => window.location.reload()
 
     useEffect(() => {
         dispatch(getPlayLists)
-    }, dispatch);
+    }, [dispatch]);
 
     return (
         <div id='playlist-info__container'>
@@ -31,7 +33,7 @@ function PlaylistPage() {
                     </div>
                 </div>
                 <div id='playlist-info__options'>
-                    {'EDIT'}
+                    <EditPlaylistModal playlist={playlist} onExit={reload}/>
                     <DeletePlaylistModal />
                 </div>
             </div>
