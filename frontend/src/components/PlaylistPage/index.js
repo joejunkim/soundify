@@ -21,8 +21,14 @@ function PlaylistPage() {
             <NavigationSide />
             <div id='playlist-info__content'>
                 <NavigationTop />
-                {playlist?.title}
-                {playlist?.description}
+                <div id='playlist-info__header'>
+                    <div id='playlist-info__img'></div>
+                    <div id='playlist-info__info'>
+                        <div id='playlist-info__sub'>{'PLAYLIST'}</div>
+                        <div id='playlist-info__title'>{playlist?.title}</div>
+                        <div id='playlist-info__sub'>{playlist?.description}</div>
+                    </div>
+                </div>
             </div>
         </div>
     )
