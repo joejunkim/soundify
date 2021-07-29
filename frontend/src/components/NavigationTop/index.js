@@ -37,14 +37,14 @@ function NavigationTop({ isLoaded }){
   }
 
   return (
-    <div id='navbar__container'>
-      <div id='navbar__arrows'>
+    <div id='navbar-top__container'>
+      <div id='navbar-top__arrows'>
           {'< >'}
       </div>
-      <div id='navbar__links'>
+      <div id='navbar-top__links'>
         {collectionLinks}
       </div>
-      <div id='navbar__session'>
+      <div id='navbar-top__session'>
         {sessionLinks}
       </div>
     </div>

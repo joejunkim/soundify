@@ -1,4 +1,4 @@
-#navbar__container {
+#navbar-top__container {
   background-color:rgba(0, 0, 0, 0);
   height: 75px;
   font-size: 1.3rem;
@@ -8,30 +8,30 @@
   color: white;
 }
 
-#navbar__arrows {
+#navbar-top__arrows {
   display: flex;
   justify-content: center;
   width: 7vw;
 }
 
-#navbar__links {
+#navbar-top__links {
   width: 10vw;
 }
 
-#navbar__links a {
+#navbar-top__links a {
   color: white;
   text-decoration: none;
   margin: 10px;
 }
 
-#navbar__session {
+#navbar-top__session {
   display: flex;
   justify-content: flex-end;
   width: 70vw;
   margin: 50px;
 }
 
-#navbar__session a {
+#navbar-top__session a {
   color: white;
   text-decoration: none;
   /* margin: 50px; */

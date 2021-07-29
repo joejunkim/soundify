@@ -1,0 +1,14 @@
+#navbar-side__container {
+    background-color: black;
+    height: 100vh;
+    width: 10%;
+    display: flex;
+    flex-direction: column;;
+}
+
+#navbar-side__container a {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    padding: 15px 0px 1px 30px;
+}
