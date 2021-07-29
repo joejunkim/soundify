@@ -11,7 +11,7 @@ function CreatePlaylistModal() {
           <button onClick={() => setShowModal(true)}>Create Playlist</button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <CreatePlaylistForm />
+              <CreatePlaylistForm setShowModal={setShowModal}/>
             </Modal>
           )}
         </>

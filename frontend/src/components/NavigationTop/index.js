@@ -4,12 +4,11 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
-import './Navigation.css';
+import './NavigationTop.css';
 
-function Navigation({ isLoaded }){
+function NavigationTop({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
   const { library } = useParams()
-
 
   let sessionLinks;
   if (sessionUser) {
@@ -52,4 +51,4 @@ function Navigation({ isLoaded }){
   );
 }
 
-export default Navigation;
+export default NavigationTop;

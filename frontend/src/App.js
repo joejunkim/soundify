@@ -6,6 +6,7 @@ import SignupFormModal from './components/SignupFormModal';
 import LoginFormModal from "./components/LoginFormModal";
 import * as sessionActions from './store/session';
 import LibraryPage from './components/LibraryPage'
+import PlaylistPage from './components/PlaylistPage'
 import { Modal } from './context/Modal';
 function App() {
   const dispatch = useDispatch();
@@ -29,8 +30,11 @@ function App() {
           <Route path='/' exact>
             <LandingPage />
           </Route>
-          <Route path={['/home', '/search', '/:library/collection/:type', '/playlist']}>
+          <Route path={['/home', '/search', '/:library/collection/:type']}>
             <LibraryPage />
+          </Route>
+          <Route path='/playlist/:id' exact>
+            <PlaylistPage />
           </Route>
         </Switch>
       )}

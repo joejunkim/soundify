@@ -5,7 +5,7 @@ import { createPlaylist } from "../../store/playlist"
 
 import "./CreatePlaylist.css";
 
-function CreatePlaylistForm() {
+function CreatePlaylistForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
@@ -24,7 +24,7 @@ function CreatePlaylistForm() {
         }
 
         dispatch(createPlaylist(payload))
-        history.push('/library/collection/playlists')
+        setShowModal(false);
     }
 
     return (

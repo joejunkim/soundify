@@ -5,21 +5,12 @@ import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import CreatePlaylistModal from '../CreatePlaylistModal';
 
-import Navigation from '../Navigation'
+import NavigationTop from '../NavigationTop'
 import './LibraryPage.css';
 
 function LibraryPage() {
     const { type } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
-
-    const library = useSelector((state) => state.libraries[sessionUser?.id])
-    const playlists = useSelector((state) => Object.values(state.playlists))
-    let myPlaylists;
-    if (sessionUser) {
-        myPlaylists = playlists.filter(playlist => (
-            playlist.libraryId === library?.id
-        ))
-    }
 
     const dispatch = useDispatch();
 
@@ -34,7 +25,7 @@ function LibraryPage() {
             <div id='collection__title'>
                 {type[0].toUpperCase() + type.slice(1)}
             </div>
-            <div id='playlist__container'>
+            {/* <div id='playlist__container'>
                 {myPlaylists?.map(playlist => (
                     <NavLink to={`/playlist/${playlist.id}`}>
                         <div id='playlist__card'>
@@ -47,7 +38,7 @@ function LibraryPage() {
                         </div>
                     </NavLink>
                 ))}
-            </div>
+            </div> */}
         </>
     )
     } else if ( type === 'songs') { collection = ( <>songs</> )
@@ -57,30 +48,8 @@ function LibraryPage() {
 
     return (
         <div id='library__container'>
-            <div id='library__nav'>
-                <NavLink to='/home' >
-                    Soundify
-                </NavLink>
-                <NavLink to='/home' >
-                    Home
-                </NavLink>
-                <NavLink to='/search' >
-                    Search
-                </NavLink>
-                <NavLink to='/library/collection/playlists' >
-                    Your Library
-                </NavLink>
-                <button>
-                    <CreatePlaylistModal />
-                </button>
-                {myPlaylists?.map(playlist => (
-                    <NavLink to={`/playlist/${playlist.id}`}>
-                        {playlist.title}
-                    </NavLink>
-                ))}
-            </div>
             <div id='library__content'>
-                <Navigation />
+                <NavigationTop />
                 {collection}
             </div>
         </div>
