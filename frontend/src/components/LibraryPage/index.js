@@ -10,12 +10,15 @@ import './LibraryPage.css';
 function LibraryPage() {
     const { type } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
-    const library = useSelector((state) => state.libraries[1]) // Need to query sessionUser.id
-    const playlists = useSelector((state) => Object.values(state.playlists))
 
-    const myPlaylists = playlists.filter(playlist => (
-        playlist.libraryId === library.id
-    ))
+    const library = useSelector((state) => state.libraries[sessionUser?.id])
+    const playlists = useSelector((state) => Object.values(state.playlists))
+    let myPlaylists;
+    if (sessionUser) {
+        myPlaylists = playlists.filter(playlist => (
+            playlist.libraryId === library?.id
+        ))
+    }
 
     const dispatch = useDispatch();
 

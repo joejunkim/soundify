@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+
+import { createLibrary } from '../../store/library'
 import "./SignupForm.css";
 
 function SignupForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+    const libraries = useSelector((state) => Object.values(state.libraries))
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -19,6 +22,8 @@ function SignupForm() {
       e.preventDefault();
       if (password === confirmPassword) {
         setErrors([]);
+        const userId = libraries.length + 1
+        dispatch(createLibrary({ userId }))
         return dispatch(sessionActions.signup({ email, username, password }))
           .catch(async (res) => {
             const data = await res.json();

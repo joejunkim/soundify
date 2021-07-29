@@ -1,18 +1,38 @@
 import { csrfFetch } from "./csrf.js";
 
 export const LOAD_LIBRARIES = "library/LOAD_LIBRARIES";
+export const ADD_LIBRARY = "library/ADD_LIBRARY"
 
 const loadLibrary = (libraries) => ({
     type: LOAD_LIBRARIES,
     libraries
 })
 
+const addLibrary = (library) => ({
+    type: ADD_LIBRARY,
+    library
+})
+
 export const getLibraries = () => async dispatch => {
-    const res = await csrfFetch(`/api/libraries/`)
+    const res = await csrfFetch('/api/libraries/')
 
     if (res.ok) {
         const libraries = await res.json();
         dispatch(loadLibrary(libraries));
+    }
+}
+
+export const createLibrary = (userId) => async dispatch => {
+    const res = await csrfFetch('/api/libraries/',
+    {
+        method: 'POST',
+        body: JSON.stringify(userId)
+    })
+
+    if (res.ok) {
+        const library = await res.json();
+        dispatch(addLibrary(library))
+        return;
     }
 }
 
@@ -29,6 +49,12 @@ const librariesReducer = (state = initialState, action) => {
                 ...state,
                 ...allLibraries,
             }
+        case ADD_LIBRARY:
+            const newState = {
+                ...state,
+                [action.library.id]: action.library
+            };
+            return { ...newState };
         default:
             return state;
     }
