@@ -71,12 +71,15 @@
 }
 
 #landing__content-main a {
+    display: flex;
+    justify-content: center;
     font-size: 1.5rem;
-    background-color:var(--text-bright-accent,#11df5c);
     color: rgb(41, 65, 171);
     text-decoration: none;
+    background-color:var(--text-bright-accent,#11df5c);
     border-radius: 100px;
     padding: 20px 50px 20px 50px;
+    width: 200px;
 }
 
 #landing__content-main a:hover {
