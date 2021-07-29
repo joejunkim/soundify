@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom';
 import { createPlaylist } from "../../store/playlist"
 
 import "./CreatePlaylist.css";
 
 function CreatePlaylistForm({ setShowModal }) {
     const dispatch = useDispatch();
-    const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
     const [title, setTitle] = useState("");
     const [imgUrl, setImgUrl] = useState("");

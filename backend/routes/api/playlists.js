@@ -14,4 +14,10 @@ router.post('/', asyncHandler(async (req, res) => {
     res.json(playlist)
 }));
 
+router.delete('/:id', asyncHandler(async (req, res) => {
+    const id = req.params.id;
+    await db.Playlist.destroy({ where: { id }});
+    res.json(id);
+}));
+
 module.exports = router;

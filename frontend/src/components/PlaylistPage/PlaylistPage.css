@@ -16,7 +16,7 @@
     background-color: rgba(0, 0, 0, 0.603);
     height: 230px;
     width: 230px;
-    margin: 30px;
+    margin: 25px 25px 25px 50px;
 }
 
 #playlist-info__info {
@@ -24,8 +24,7 @@
     flex-direction: column;
     justify-content: flex-end;
     color: white;
-    margin-bottom: 40px;
-    padding: 0px;
+    margin: 0px 0px 25px 10px;
 }
 
 #playlist-info__title {
@@ -34,6 +33,10 @@
 }
 
 #playlist-info__sub {
-    /* font-size: 6rem;
-    font-weight: bold; */
+    font-size: 1.3rem;
+}
+
+#playlist-info__options {
+    color: white;
+    margin: 10px 0px 10px 65px;
 }

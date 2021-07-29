@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { getPlayLists } from '../../store/playlist';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
+import DeletePlaylistModal from '../DeletePlaylistModal'
 import './PlaylistPage.css';
 
 function PlaylistPage() {
@@ -28,6 +29,10 @@ function PlaylistPage() {
                         <div id='playlist-info__title'>{playlist?.title}</div>
                         <div id='playlist-info__sub'>{playlist?.description}</div>
                     </div>
+                </div>
+                <div id='playlist-info__options'>
+                    {'EDIT'}
+                    <DeletePlaylistModal />
                 </div>
             </div>
         </div>
