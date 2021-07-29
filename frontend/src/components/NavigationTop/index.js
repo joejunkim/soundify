@@ -24,14 +24,20 @@ function NavigationTop({ isLoaded }){
     );
   }
 
-  let collectionLinks;
+  let middleNav;
   if ( library ) {
-    collectionLinks = (
+    middleNav = (
       <>
         <NavLink exact to="/library/collection/playlists">Playlists</NavLink>
         <NavLink exact to="/library/collection/songs">Songs</NavLink>
         <NavLink exact to="/library/collection/artists">Artists</NavLink>
         <NavLink exact to="/library/collection/albums">Albums</NavLink>
+      </>
+    )
+  } else {
+    middleNav = (
+      <>
+        <div>SEARCH BAR</div>
       </>
     )
   }
@@ -42,7 +48,7 @@ function NavigationTop({ isLoaded }){
           {'< >'}
       </div>
       <div id='navbar-top__links'>
-        {collectionLinks}
+        {middleNav}
       </div>
       <div id='navbar-top__session'>
         {sessionLinks}

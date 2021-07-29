@@ -1,3 +1,7 @@
+#signup__btn button {
+    background-color: none;
+}
+
 #signup__form {
     display: flex;
     flex-direction: column;

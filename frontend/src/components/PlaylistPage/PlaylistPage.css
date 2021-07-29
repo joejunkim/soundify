@@ -39,4 +39,7 @@
 #playlist-info__options {
     color: white;
     margin: 10px 0px 10px 65px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
 }

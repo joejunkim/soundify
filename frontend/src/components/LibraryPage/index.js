@@ -8,7 +8,7 @@ import NavigationSide from '../NavigationSide'
 import './LibraryPage.css';
 
 function LibraryPage() {
-    const { type } = useParams();
+    const { page, type } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
     const library = useSelector((state) => state.libraries[sessionUser?.id])
 
@@ -28,27 +28,28 @@ function LibraryPage() {
     }, [dispatch])
 
     let collection;
-    if ( type === 'playlists') { collection = (
-        <>
-            <div id='collection__title'>
-                {type[0].toUpperCase() + type.slice(1)}
-            </div>
-            <div id='playlist__container'>
-                {myPlaylists?.map(playlist => (
-                    <NavLink to={`/playlist/${playlist.id}`}>
-                        <div id='playlist__card'>
-                            <div id='playlist__img'>
-                                {playlist.imgUrl}
+    if ( type === 'playlists') {
+        collection = (
+            <>
+                <div id='collection__title'>
+                    {type[0].toUpperCase() + type.slice(1)}
+                </div>
+                <div id='playlist__container'>
+                    {myPlaylists?.map(playlist => (
+                        <NavLink to={`/playlist/${playlist.id}`}>
+                            <div id='playlist__card'>
+                                <div id='playlist__img'>
+                                    {playlist.imgUrl}
+                                </div>
+                                <div id='playlist__title'>
+                                    {playlist.title}
+                                </div>
                             </div>
-                            <div id='playlist__title'>
-                                {playlist.title}
-                            </div>
-                        </div>
-                    </NavLink>
-                ))}
-            </div>
-        </>
-    )
+                        </NavLink>
+                    ))}
+                </div>
+            </>
+        )
     } else if ( type === 'songs') { collection = ( <>songs</> )
     } else if ( type === 'artists') { collection = ( <>artists</>)
     } else if ( type === 'albums') { collection = ( <>albums</> )

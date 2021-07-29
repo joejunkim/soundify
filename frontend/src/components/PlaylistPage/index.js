@@ -33,8 +33,8 @@ function PlaylistPage() {
                     </div>
                 </div>
                 <div id='playlist-info__options'>
-                    <EditPlaylistModal playlist={playlist} onExit={reload}/>
-                    <DeletePlaylistModal />
+                    <div><EditPlaylistModal playlist={playlist} onExit={reload}/></div>
+                    <div><DeletePlaylistModal /></div>
                 </div>
             </div>
         </div>
