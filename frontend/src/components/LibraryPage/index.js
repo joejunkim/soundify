@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from 'react-router-dom';
-import { getLibraries } from '../../store/library'
-import { getPlayLists } from '../../store/playlist'
+import { getLibraries } from '../../store/library';
+import { getPlayLists } from '../../store/playlist';
+import CreatePlaylistModal from '../CreatePlaylistModal';
 
 import Navigation from '../Navigation'
 import './LibraryPage.css';
@@ -70,7 +71,7 @@ function LibraryPage() {
                     Your Library
                 </NavLink>
                 <button>
-                    Create Playlist
+                    <CreatePlaylistModal />
                 </button>
                 {myPlaylists?.map(playlist => (
                     <NavLink to={`/playlist/${playlist.id}`}>
