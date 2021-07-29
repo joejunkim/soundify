@@ -32,27 +32,32 @@ function EditPlaylistForm({ playlist, setShowModal, onExit }) {
     }
 
     return (
-        <div id='edit-playlist__form'>
-            <h1>Edit Your Playlist</h1>
+        <div id='edit__form'>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Title
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Description
-                    <textarea
-                        type="text"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
-                </label>
+            <h1>Edit Details</h1>
+                <div id='edit__info'>
+                    <div id='edit__img' />
+                    <div id='edit__input'>
+                        <label>
+                            <div>Title</div>
+                            <input
+                                type="text"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                required
+                                />
+                        </label>
+                        <label>
+                            Description
+                            <textarea
+                                type="text"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                required
+                                />
+                        </label>
+                    </div>
+                </div>
                 <button type="submit">Confirm Changes</button>
             </form>
         </div>

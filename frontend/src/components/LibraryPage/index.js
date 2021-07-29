@@ -32,18 +32,14 @@ function LibraryPage() {
         collection = (
             <>
                 <div id='collection__title'>
-                    {type[0].toUpperCase() + type.slice(1)}
+                    Playlists
                 </div>
                 <div id='playlist__container'>
                     {myPlaylists?.map(playlist => (
                         <NavLink to={`/playlist/${playlist.id}`}>
                             <div id='playlist__card'>
-                                <div id='playlist__img'>
-                                    {playlist.imgUrl}
-                                </div>
-                                <div id='playlist__title'>
-                                    {playlist.title}
-                                </div>
+                                <img src='../../images/default_playlist'/>
+                                <div id='playlist__title'>{playlist.title}</div>
                             </div>
                         </NavLink>
                     ))}

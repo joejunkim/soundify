@@ -28,7 +28,7 @@ function LoginForm({ setShowModal }) {
   return (
     <div id='login__form'>
       <h1>Soundify</h1>
-      <form onSubmit={handleSubmit} onClick={handleClick}>
+      <form onSubmit={handleSubmit}>
         <div id='login__form-info'>
           <input
             type="text"

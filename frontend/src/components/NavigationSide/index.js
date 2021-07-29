@@ -28,26 +28,33 @@ function NavigationSide() {
 
     return (
         <div id='navbar-side__container'>
-            <NavLink to='/home' >
-                Soundify
-            </NavLink>
-            <NavLink to='/home' >
-                Home
-            </NavLink>
-            <NavLink to='/search' >
-                Search
-            </NavLink>
-            <NavLink to='/library/collection/playlists' >
-                Your Library
-            </NavLink>
-            <button>
-                <CreatePlaylistModal />
-            </button>
-            {myPlaylists?.map(playlist => (
-                <NavLink to={`/playlist/${playlist.id}`}>
-                    {playlist.title}
+                <NavLink to='/home' id='navbar-side__logo' activeClassName=''>
+                    Soundify
                 </NavLink>
-            ))}
+            <div id='navbar-side__links'>
+                <NavLink to='/home' >
+                    Home
+                </NavLink>
+                <NavLink to='/search' >
+                    Search
+                </NavLink>
+                <NavLink to='/library/collection/playlists' >
+                    Your Library
+                </NavLink>
+            </div>
+            <div id='navbar-side__playlists'>
+                <div id='navbar-side__playlists-title'>
+                    Your Playlists
+                </div>
+                <div id='navbar-side__create'>
+                    <CreatePlaylistModal />
+                </div>
+                {myPlaylists?.map(playlist => (
+                    <NavLink to={`/playlist/${playlist.id}`}>
+                        {playlist.title}
+                    </NavLink>
+                ))}
+            </div>
         </div>
     )
 }

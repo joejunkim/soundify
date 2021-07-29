@@ -5,7 +5,7 @@
 #playlist-info__content {
     background-color: rgba(0, 0, 0, 0.603);
     height: 100vh;
-    width: 90%;
+    width: 85%;
 }
 
 #playlist-info__header {
@@ -16,7 +16,7 @@
     background-color: rgba(0, 0, 0, 0.603);
     height: 230px;
     width: 230px;
-    margin: 25px 25px 25px 50px;
+    margin: 50px 25px 25px 75px;
 }
 
 #playlist-info__info {
