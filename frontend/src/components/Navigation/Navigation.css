@@ -1,23 +1,36 @@
 #navbar__container {
   background-color:rgba(0, 0, 0, 0);
-  height: 5vh;
-  font-size: 1.7rem;
+  height: 75px;
+  font-size: 1.3rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   color: white;
 }
 
 #navbar__arrows {
-  margin: 50px;
+  display: flex;
+  justify-content: center;
+  width: 7vw;
 }
 
-#collection-links a {
+#navbar__links {
+  width: 10vw;
+}
+
+#navbar__links a {
   color: white;
   text-decoration: none;
   margin: 10px;
 }
 
-#navbar__right a {
+#navbar__session {
+  display: flex;
+  justify-content: flex-end;
+  width: 70vw
+}
+
+#navbar__session a {
   color: white;
   text-decoration: none;
   /* margin: 50px; */

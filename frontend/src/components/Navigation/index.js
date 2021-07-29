@@ -41,11 +41,11 @@ function Navigation({ isLoaded }){
       <div id='navbar__arrows'>
           {'< >'}
       </div>
-      <div id='collection-links'>
+      <div id='navbar__links'>
         {collectionLinks}
       </div>
-      <div id='navbar__right'>
-        {isLoaded && sessionLinks}
+      <div id='navbar__session'>
+        {sessionLinks}
       </div>
     </div>
   );
