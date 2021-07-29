@@ -22,7 +22,7 @@ module.exports = {
       libraryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'Libraries' }
+        // references: { model: 'Libraries' }
       },
       createdAt: {
         allowNull: false,
