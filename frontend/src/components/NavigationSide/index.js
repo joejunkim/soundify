@@ -28,7 +28,7 @@ function NavigationSide() {
 
     return (
         <div id='navbar-side__container'>
-                <NavLink to='/home' id='navbar-side__logo' activeClassName=''>
+                <NavLink to='/' id='navbar-side__logo' activeClassName=''>
                     Soundify
                 </NavLink>
             <div id='navbar-side__links'>

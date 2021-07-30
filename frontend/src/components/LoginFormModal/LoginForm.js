@@ -49,7 +49,7 @@ function LoginForm({ setShowModal }) {
         <div id='login__form-bottom'>
           <button type="submit">Log In</button>
           <div id='login__form-signup'>
-            Don't have an account?
+            <div>Don't have an account?</div>
             <SignupFormModal />
           </div>
         </div>

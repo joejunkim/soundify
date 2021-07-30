@@ -29,7 +29,7 @@
 }
 
 #landing__navbar-content a:hover {
-    color: var(--text-bright-accent,#11df5c);
+    color: var(--text-bright-accent,#16aa4c);
 }
 
 #landing__navbar-session {
@@ -47,7 +47,7 @@
 }
 
 #landing__navbar-session button:hover {
-    color: var(--text-bright-accent,#11df5c);
+    color: var(--text-bright-accent,#16aa4c);
     cursor: pointer;
 }
 
@@ -62,7 +62,7 @@
 #landing__content-main {
     font-size: 8.5rem;
     font-weight: bold;
-    color: var(--text-bright-accent,#11df5c);
+    color: var(--text-bright-accent,#16aa4c);
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -76,7 +76,7 @@
     font-size: 1.5rem;
     color: rgb(41, 65, 171);
     text-decoration: none;
-    background-color:var(--text-bright-accent,#11df5c);
+    background-color:var(--text-bright-accent,#16aa4c);
     border-radius: 100px;
     padding: 20px 50px 20px 50px;
     width: 200px;
@@ -84,5 +84,5 @@
 
 #landing__content-main a:hover {
     transform: scale(1.02);
-    background-color:var(--text-bright-accent,#20f06c);
+    background-color:var(--text-bright-accent,#17c757);
 }
