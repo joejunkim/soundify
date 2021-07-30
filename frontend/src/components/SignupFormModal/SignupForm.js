@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import { createLibrary } from '../../store/library'
+import LoginFormModal from '../LoginFormModal';
 import "./SignupForm.css";
 
 function SignupForm() {
@@ -35,48 +36,48 @@ function SignupForm() {
 
     return (
       <div id='signup__form'>
-        <h1>Sign Up</h1>
+        <h1>Soundify</h1>
         <form onSubmit={handleSubmit}>
-          <ul>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-          </ul>
-          <label>
+          <div id='signup__form-info'>
             Email
             <input
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-            />
-          </label>
-          <label>
+              />
             Username
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
-            />
-          </label>
-          <label>
+              />
             Password
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-            />
-          </label>
-          <label>
+              />
             Confirm Password
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
-            />
-          </label>
-          <button type="submit">Sign Up</button>
+              />
+            <ul>
+              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+            <div id='signup__form-bottom'>
+              <button type="submit">Sign Up</button>
+              <div id='signup__form-login'>
+                Already have an account?
+                <LoginFormModal />
+              </div>
+            </div>
+          </div>
         </form>
       </div>
     );

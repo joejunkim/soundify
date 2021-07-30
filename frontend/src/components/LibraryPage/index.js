@@ -5,6 +5,7 @@ import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
+import image from './default_playlist.png'
 import './LibraryPage.css';
 
 function LibraryPage() {
@@ -30,25 +31,34 @@ function LibraryPage() {
     let collection;
     if ( type === 'playlists') {
         collection = (
-            <>
-                <div id='collection__title'>
+            <><div id='collection__title'>
                     Playlists
                 </div>
                 <div id='playlist__container'>
                     {myPlaylists?.map(playlist => (
                         <NavLink to={`/playlist/${playlist.id}`}>
                             <div id='playlist__card'>
-                                <img src='../../images/default_playlist'/>
+                                <img src={image} alt='playlist image'/>
                                 <div id='playlist__title'>{playlist.title}</div>
                             </div>
                         </NavLink>
                     ))}
-                </div>
-            </>
-        )
-    } else if ( type === 'songs') { collection = ( <>songs</> )
-    } else if ( type === 'artists') { collection = ( <>artists</>)
-    } else if ( type === 'albums') { collection = ( <>albums</> )
+                </div></>)
+    } else if ( type === 'songs') {
+        collection = (
+            <><div id='collection__title'>
+                    Songs
+                </div></> )
+    } else if ( type === 'artists') {
+        collection = (
+            <><div id='collection__title'>
+                    Artists
+                </div></> )
+    } else if ( type === 'albums') {
+        collection = (
+            <><div id='collection__title'>
+                    Albums
+                </div></> )
     }
 
     return (

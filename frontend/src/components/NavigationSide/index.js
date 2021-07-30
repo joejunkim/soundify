@@ -38,23 +38,27 @@ function NavigationSide() {
                 <NavLink to='/search' >
                     Search
                 </NavLink>
-                <NavLink to='/library/collection/playlists' >
-                    Your Library
-                </NavLink>
+                { sessionUser
+                    ? (<NavLink to='/library/collection/playlists' >Your Library</NavLink>)
+                    : (<></>)
+                }
             </div>
-            <div id='navbar-side__playlists'>
-                <div id='navbar-side__playlists-title'>
-                    Your Playlists
-                </div>
-                <div id='navbar-side__create'>
-                    <CreatePlaylistModal />
-                </div>
-                {myPlaylists?.map(playlist => (
-                    <NavLink to={`/playlist/${playlist.id}`}>
-                        {playlist.title}
-                    </NavLink>
-                ))}
-            </div>
+            { sessionUser
+                ? (<div id='navbar-side__playlists'>
+                        <div id='navbar-side__playlists-title'>
+                            Your Playlists
+                        </div>
+                        <div id='navbar-side__create'>
+                            <CreatePlaylistModal />
+                        </div>
+                        {myPlaylists?.map(playlist => (
+                            <NavLink to={`/playlist/${playlist.id}`}>
+                                {playlist.title}
+                            </NavLink>
+                        ))}
+                    </div>)
+                : (<></>)
+            }
         </div>
     )
 }

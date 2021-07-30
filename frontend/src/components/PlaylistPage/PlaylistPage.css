@@ -12,7 +12,7 @@
     display: flex;
 }
 
-#playlist-info__img {
+#playlist-info__header img {
     background-color: rgba(0, 0, 0, 0.603);
     height: 230px;
     width: 230px;

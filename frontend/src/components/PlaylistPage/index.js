@@ -6,6 +6,7 @@ import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 import EditPlaylistModal from '../EditPlaylistModal'
 import DeletePlaylistModal from '../DeletePlaylistModal'
+import image from './default_playlist.png'
 import './PlaylistPage.css';
 
 function PlaylistPage() {
@@ -25,7 +26,7 @@ function PlaylistPage() {
             <div id='playlist-info__content'>
                 <NavigationTop />
                 <div id='playlist-info__header'>
-                    <div id='playlist-info__img'></div>
+                    <img src={image} alt='playlist image'/>
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
                         <div id='playlist-info__title'>{playlist?.title}</div>

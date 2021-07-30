@@ -21,26 +21,22 @@ function LoginForm({ setShowModal }) {
     );
   };
 
-  const handleClick = () => {
-    setShowModal(false);
-  }
-
   return (
     <div id='login__form'>
       <h1>Soundify</h1>
       <form onSubmit={handleSubmit}>
         <div id='login__form-info'>
+          Email or Username
           <input
             type="text"
             value={credential}
-            placeholder="Email Address or Username"
             onChange={(e) => setCredential(e.target.value)}
             required
             />
+          Password
           <input
             type="password"
             value={password}
-            placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
             required
             />
