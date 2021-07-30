@@ -52,7 +52,7 @@ function NavigationSide() {
                             <CreatePlaylistModal />
                         </div>
                         {myPlaylists?.map(playlist => (
-                            <NavLink to={`/playlist/${playlist.id}`}>
+                            <NavLink to={`/playlist/${playlist.id}`} key={playlist.id}>
                                 {playlist.title}
                             </NavLink>
                         ))}

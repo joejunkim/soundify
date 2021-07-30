@@ -35,7 +35,7 @@ export const getPlayLists = () => async dispatch => {
 }
 
 export const createPlaylist = (data) => async dispatch => {
-    const res = await csrfFetch('/api/playlists/',
+    const res = await csrfFetch('/api/playlists',
     {
         method: 'POST',
         body: JSON.stringify(data)

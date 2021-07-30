@@ -29,9 +29,9 @@ function NavigationTop({ isLoaded }){
     middleNav = (
       <>
         <NavLink exact to="/library/collection/playlists">Playlists</NavLink>
-        <NavLink exact to="/library/collection/songs">Songs</NavLink>
         <NavLink exact to="/library/collection/artists">Artists</NavLink>
         <NavLink exact to="/library/collection/albums">Albums</NavLink>
+        <NavLink exact to="/library/collection/songs">Songs</NavLink>
       </>
     )
   } else {

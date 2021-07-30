@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import LandingPage from "./components/LandingPage"
-import SignupFormModal from './components/SignupFormModal';
-import LoginFormModal from "./components/LoginFormModal";
 import * as sessionActions from './store/session';
 import LibraryPage from './components/LibraryPage'
 import PlaylistPage from './components/PlaylistPage'
-import { Modal } from './context/Modal';
+import ArtistPage from './components/ArtistPage';
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -35,6 +34,9 @@ function App() {
           </Route>
           <Route path='/playlist/:id' exact>
             <PlaylistPage />
+          </Route>
+          <Route path='/artist/:id' exact>
+            <ArtistPage />
           </Route>
         </Switch>
       )}

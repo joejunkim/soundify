@@ -1,0 +1,37 @@
+#artist-info__container {
+    display: flex;
+}
+
+#artist-info__content {
+    background-color: rgba(0, 0, 0, 0.603);
+    height: 100vh;
+    width: 85%;
+}
+
+#artist-info__header {
+    display: flex;
+}
+
+#artist-info__header img {
+    background-color: rgba(0, 0, 0, 0.603);
+    height: 230px;
+    width: 230px;
+    margin: 50px 25px 25px 75px;
+}
+
+#artist-info__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    margin: 0px 0px 25px 10px;
+}
+
+#artist-info__title {
+    font-size: 6rem;
+    font-weight: bold;
+}
+
+#artist-info__sub {
+    font-size: 1.3rem;
+}

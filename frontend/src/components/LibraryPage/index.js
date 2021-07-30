@@ -13,6 +13,8 @@ function LibraryPage() {
     const sessionUser = useSelector((state) => state.session.user);
     const library = useSelector((state) => state.libraries[sessionUser?.id])
 
+    console.log('---------->', sessionUser)
+
     const playlists = useSelector((state) => Object.values(state.playlists))
     let myPlaylists;
     if (sessionUser) {

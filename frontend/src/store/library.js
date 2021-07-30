@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf.js";
 
-export const LOAD_LIBRARIES = "library/LOAD_LIBRARIES";
-export const ADD_LIBRARY = "library/ADD_LIBRARY"
+export const LOAD_LIBRARIES = "libraries/LOAD_LIBRARIES";
+export const ADD_LIBRARY = "libraries/ADD_LIBRARY"
 
 const loadLibrary = (libraries) => ({
     type: LOAD_LIBRARIES,
