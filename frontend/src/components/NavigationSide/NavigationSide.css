@@ -75,7 +75,7 @@
     transition: all 200ms ease-in-out;
 }
 
-#navbar-side__playlists-title {
+#navbar-side__playlists-name {
     margin: 30px 0px 0px 30px;
     display: flex;
     font-size: 1.3rem;

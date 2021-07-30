@@ -29,7 +29,7 @@ function PlaylistPage() {
                     <img src={image} alt='playlist image'/>
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
-                        <div id='playlist-info__name'>{playlist?.title}</div>
+                        <div id='playlist-info__name'>{playlist?.name}</div>
                         <div id='playlist-info__sub'>{playlist?.description}</div>
                     </div>
                 </div>

@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Playlist.init({
-    title: DataTypes.STRING,
+    name: DataTypes.STRING,
     imgUrl: DataTypes.STRING,
     description: DataTypes.STRING
   }, {

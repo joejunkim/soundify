@@ -45,7 +45,7 @@ function NavigationSide() {
             </div>
             { sessionUser
                 ? (<div id='navbar-side__playlists'>
-                        <div id='navbar-side__playlists-title'>
+                        <div id='navbar-side__playlists-name'>
                             Your Playlists
                         </div>
                         <div id='navbar-side__create'>
@@ -53,7 +53,7 @@ function NavigationSide() {
                         </div>
                         {myPlaylists?.map(playlist => (
                             <NavLink to={`/playlist/${playlist.id}`} key={playlist.id}>
-                                {playlist.title}
+                                {playlist.name}
                             </NavLink>
                         ))}
                     </div>)

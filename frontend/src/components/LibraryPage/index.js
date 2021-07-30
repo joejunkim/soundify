@@ -23,6 +23,8 @@ function LibraryPage() {
 
     const dispatch = useDispatch();
 
+    console.log('---------> IN THE COMPONENT')
+
     useEffect(() => {
         dispatch(getLibraries())
         dispatch(getPlayLists())
@@ -39,7 +41,7 @@ function LibraryPage() {
                         <NavLink to={`/playlist/${playlist.id}`}>
                             <div id='playlist__card'>
                                 <img src={image} alt='playlist image'/>
-                                <div id='playlist__name'>{playlist.title}</div>
+                                <div id='playlist__name'>{playlist.name}</div>
                             </div>
                         </NavLink>
                     ))}

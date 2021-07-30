@@ -26,6 +26,7 @@ const removePlaylist = (playlist) => ({
 })
 
 export const getPlayLists = () => async dispatch => {
+    console.log('-----> IN THE THUNK')
     const res = await csrfFetch(`/api/playlists`)
 
     if (res.ok) {
@@ -75,6 +76,7 @@ let newState = {};
 const playlistsReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_PLAYLISTS:
+            console.log('-----> IN THE REDUCER')
             const allPlaylists = {};
             action.playlists.forEach((playlist) => {
                 allPlaylists[playlist.id] = playlist;

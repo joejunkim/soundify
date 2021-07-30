@@ -10,7 +10,7 @@ function EditPlaylistForm({ playlist, setShowModal, onExit }) {
     const { id } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
 
-    const [title, setTitle] = useState(playlist.title);
+    const [name, setName] = useState(playlist.name);
     const [imgUrl, setImgUrl] = useState(playlist.imgUrl);
     const [description, setDescription] = useState(playlist.description);
 
@@ -20,7 +20,7 @@ function EditPlaylistForm({ playlist, setShowModal, onExit }) {
         e.preventDefault();
 
         const payload = {
-            title,
+            name,
             imgUrl,
             description,
             libraryId: sessionUser.id
@@ -39,11 +39,11 @@ function EditPlaylistForm({ playlist, setShowModal, onExit }) {
                     <div id='edit__img' />
                     <div id='edit__input'>
                         <label>
-                            <div>Title</div>
+                            <div>Name</div>
                             <input
                                 type="text"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
                                 required
                                 />
                         </label>

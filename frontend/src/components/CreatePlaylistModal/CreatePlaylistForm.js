@@ -7,7 +7,7 @@ import "./CreatePlaylist.css";
 function CreatePlaylistForm({ setShowModal }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    const [title, setTitle] = useState("");
+    const [name, setName] = useState("");
     const [imgUrl, setImgUrl] = useState("");
     const [description, setDescription] = useState("");
 
@@ -15,7 +15,7 @@ function CreatePlaylistForm({ setShowModal }) {
         e.preventDefault();
 
         const payload = {
-            title,
+            name,
             imgUrl,
             description,
             libraryId: sessionUser.id
@@ -30,11 +30,11 @@ function CreatePlaylistForm({ setShowModal }) {
             <h1>Create Your Playlist</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Title
+                    Name
                     <input
                         type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         required
                     />
                 </label>

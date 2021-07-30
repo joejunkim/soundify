@@ -5,6 +5,7 @@ const router = express.Router();
 const db = require('../../db/models')
 
 router.get('/', asyncHandler(async(req, res) => {
+    console.log('-----> IN THE ROUTE')
     const playlists = await db.Playlist.findAll()
     res.json(playlists);
 }))
