@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getArtists } from '../../store/artist';
+import { getArtists } from '../../store/artists';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 
@@ -13,12 +13,10 @@ function ArtistPage() {
     const { id } = useParams();
     const artist = useSelector((state) => state.artists[id])
 
-    console.log('-----> IN THE COMPONENT')
-
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getArtists)
+        dispatch(getArtists())
     }, [dispatch]);
 
     return (
@@ -30,7 +28,7 @@ function ArtistPage() {
                     <img src={image} alt='artist image'/>
                     <div id='artist-info__info'>
                         <div id='artist-info__sub'>{'ARTIST'}</div>
-                        <div id='artist-info__title'>{artist?.title}</div>
+                        <div id='artist-info__name'>{artist?.name}</div>
                         <div id='artist-info__sub'>{artist?.description}</div>
                     </div>
                 </div>

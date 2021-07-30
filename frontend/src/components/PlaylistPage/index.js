@@ -17,7 +17,7 @@ function PlaylistPage() {
     const reload = () => window.location.reload()
 
     useEffect(() => {
-        dispatch(getPlayLists)
+        dispatch(getPlayLists())
     }, [dispatch]);
 
     return (
@@ -29,7 +29,7 @@ function PlaylistPage() {
                     <img src={image} alt='playlist image'/>
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
-                        <div id='playlist-info__title'>{playlist?.title}</div>
+                        <div id='playlist-info__name'>{playlist?.title}</div>
                         <div id='playlist-info__sub'>{playlist?.description}</div>
                     </div>
                 </div>

@@ -8,7 +8,6 @@ const loadArtists = (artists) => ({
 })
 
 export const getArtists = () => async dispatch => {
-    console.log('-----> IN THE THUNK')
     const res = await csrfFetch(`/api/artists`)
 
     if (res.ok) {
@@ -26,7 +25,6 @@ const artistsReducer = (state = initialState, action) => {
             action.artists.forEach((artist) => {
                 allArtists[artist.id] = artist;
             })
-            console.log('-----> IN THE REDUCER')
             return {
                 ...state,
                 ...allArtists,
