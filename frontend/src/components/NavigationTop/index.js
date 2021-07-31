@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as sessionActions from "../../store/session";
 import ProfileButton from './ProfileButton';
@@ -10,7 +10,16 @@ import './NavigationTop.css';
 function NavigationTop({ searchNav }){
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useDispatch();
   const { library } = useParams()
+
+  const goBack = () => {
+    window.history.back()
+  }
+
+  const goForward = () => {
+    window.history.forward()
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -50,7 +59,8 @@ function NavigationTop({ searchNav }){
   return (
     <div id='navbar-top__container'>
       <div id='navbar-top__arrows'>
-          {'<___>'}
+          <button type='click' onClick={goBack}>⬅</button>
+          <button type='click' onClick={goForward}>➡</button>
       </div>
       <div id='navbar-top__links'>
         {middleNav}

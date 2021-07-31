@@ -15,6 +15,10 @@ module.exports = {
       img: {
         type: Sequelize.BLOB
       },
+      year: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
       artistId: {
         allowNull: false,
         type: Sequelize.INTEGER

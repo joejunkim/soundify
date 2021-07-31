@@ -16,6 +16,17 @@
   width: 10vw;
 }
 
+#navbar-top__arrows button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  background-color:purple;
+  border: none;
+  border-radius:50px;
+}
+
 #navbar-top__links {
   width: 50vw;
 }

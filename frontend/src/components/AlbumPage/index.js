@@ -34,7 +34,7 @@ function AlbumPage() {
                     <div id='album-info__info'>
                         <div id='album-info__sub'>{'ALBUM'}</div>
                         <div id='album-info__name'>{album?.name}</div>
-                        <div id='album-info__sub'>{album?.description}</div>
+                        <div id='album-info__sub'>{album?.year}</div>
                     </div>
                 </div>
                 <div id='song__header'>Songs</div>

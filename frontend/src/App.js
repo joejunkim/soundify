@@ -9,44 +9,44 @@ import PlaylistPage from './components/PlaylistPage'
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
 
+import { MusicPlayerContext } from './context/MusicPlayerContext';
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [type, setType] = useState('album')
+  const [source, setSource] = useState('2RyIQJb2ruv5nJ55EFEwyu?theme=0')
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-      {/* <Navigation isLoaded={isLoaded} /> */}
-      {/* <button onClick={() => setShowModal(true)}>Modal</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <h1>LET'S GOOOOO</h1>
-        </Modal>
-      )} */}
       {isLoaded && (
-        <Switch>
-          <Route path='/' exact>
-            <LandingPage />
-          </Route>
-          <Route path='/search' exact>
-            <SearchPage />
-          </Route>
-          <Route path={['/home', '/:library/collection/:type']}>
-            <LibraryPage />
-          </Route>
-          <Route path='/playlist/:id' exact>
-            <PlaylistPage />
-          </Route>
-          <Route path='/artist/:id' exact>
-            <ArtistPage />
-          </Route>
-          <Route path='/album/:id' exact>
-            <AlbumPage />
-          </Route>
-        </Switch>
+        <>
+          <Switch>
+            <Route path='/' exact>
+              <LandingPage />
+            </Route>
+            <Route path='/search' exact>
+              <SearchPage />
+            </Route>
+            <Route path={['/home', '/:library/collection/:type']}>
+              <LibraryPage />
+            </Route>
+            <Route path='/playlist/:id' exact>
+              <PlaylistPage />
+            </Route>
+            <Route path='/artist/:id' exact>
+              <ArtistPage />
+            </Route>
+            <Route path='/album/:id' exact>
+              <AlbumPage />
+            </Route>
+          </Switch>
+        </>
       )}
     </>
   );

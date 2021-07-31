@@ -6,6 +6,7 @@ module.exports = {
       {
         name: 'Run River North',
         img: null,
+        year: 2014,
         artistId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -13,6 +14,7 @@ module.exports = {
       {
         name: 'Drinking From A Salt Pond',
         img: null,
+        year: 2016,
         artistId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -20,6 +22,7 @@ module.exports = {
       {
         name: 'Creatures In Your Head',
         img: null,
+        year: 2021,
         artistId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -27,6 +30,7 @@ module.exports = {
       {
         name: 'The College Dropout',
         img: null,
+        year: 2004,
         artistId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -34,13 +38,7 @@ module.exports = {
       {
         name: 'Late Registration',
         img: null,
-        artistId: 2,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        name: 'Graduation',
-        img: null,
+        year: 2005,
         artistId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -48,13 +46,7 @@ module.exports = {
       {
         name: 'Continuum',
         img: null,
-        artistId: 3,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        name: 'Battle Studies',
-        img: null,
+        year: 2006,
         artistId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
