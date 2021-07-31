@@ -25,13 +25,6 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        name: 'Creatures In Your Head',
-        img: null,
-        artistId: 1,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
         name: 'The College Dropout',
         img: null,
         artistId: 2,

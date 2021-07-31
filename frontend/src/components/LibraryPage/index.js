@@ -23,8 +23,6 @@ function LibraryPage() {
 
     const dispatch = useDispatch();
 
-    console.log('---------> IN THE COMPONENT')
-
     useEffect(() => {
         dispatch(getLibraries())
         dispatch(getPlayLists())

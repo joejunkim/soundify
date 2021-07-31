@@ -6,6 +6,7 @@ import * as sessionActions from './store/session';
 import LibraryPage from './components/LibraryPage'
 import PlaylistPage from './components/PlaylistPage'
 import ArtistPage from './components/ArtistPage';
+import AlbumPage from './components/AlbumPage'
 
 function App() {
   const dispatch = useDispatch();
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path='/artist/:id' exact>
             <ArtistPage />
+          </Route>
+          <Route path='/album/:id' exact>
+            <AlbumPage />
           </Route>
         </Switch>
       )}
