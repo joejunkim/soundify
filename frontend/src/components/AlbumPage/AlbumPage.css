@@ -81,4 +81,19 @@
 
 #song__name {
     margin-left: 15px;
+    width: 95%;
+
+}
+
+#song__heart {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 5%;
+    border: none;
+    font-size: 1.3rem;
+}
+
+#song__heart:hover {
+    color: purple;
 }

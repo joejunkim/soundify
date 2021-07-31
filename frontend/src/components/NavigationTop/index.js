@@ -5,6 +5,9 @@ import * as sessionActions from "../../store/session";
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+
+import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
+
 import './NavigationTop.css';
 
 function NavigationTop({ searchNav }){
@@ -59,8 +62,8 @@ function NavigationTop({ searchNav }){
   return (
     <div id='navbar-top__container'>
       <div id='navbar-top__arrows'>
-          <button type='click' onClick={goBack}>⬅</button>
-          <button type='click' onClick={goForward}>➡</button>
+          <button type='click' onClick={goBack}><BsCaretLeft /></button>
+          <button type='click' onClick={goForward}><BsCaretRight /></button>
       </div>
       <div id='navbar-top__links'>
         {middleNav}

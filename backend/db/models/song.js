@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       const columnMapping = {
         through: 'SongToPlaylist',
         foreignKey: 'songId',
-        otherKey: 'playListId'
+        otherKey: 'playlistId'
       }
 
       const columnMapping2 = {

@@ -5,6 +5,10 @@ import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import CreatePlaylistModal from '../CreatePlaylistModal';
 
+import { BiSearch, BiHomeAlt } from "react-icons/bi";
+import { VscLibrary } from "react-icons/vsc"
+import { RiPlayListLine } from "react-icons/ri"
+
 import './NavigationSide.css';
 
 function NavigationSide() {
@@ -33,13 +37,13 @@ function NavigationSide() {
                 </NavLink>
             <div id='navbar-side__links'>
                 <NavLink to='/home' >
-                    Home
+                    <BiHomeAlt className='navbar-icon'/>Home
                 </NavLink>
                 <NavLink to='/search' >
-                    Search
+                    <BiSearch className='navbar-icon'/>Search
                 </NavLink>
                 { sessionUser
-                    ? (<NavLink to='/library/collection/playlists' >Your Library</NavLink>)
+                    ? (<NavLink to='/library/collection/playlists' ><VscLibrary className='navbar-icon'/>Your Library</NavLink>)
                     : (<></>)
                 }
             </div>
@@ -53,7 +57,7 @@ function NavigationSide() {
                         </div>
                         {myPlaylists?.map(playlist => (
                             <NavLink to={`/playlist/${playlist.id}`} key={playlist.id}>
-                                {playlist.name}
+                                <RiPlayListLine className='navbar-icon'/> {playlist.name}
                             </NavLink>
                         ))}
                     </div>)

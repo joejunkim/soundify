@@ -25,7 +25,6 @@ function ArtistPage() {
         dispatch(getArtists())
         dispatch(getAlbums())
     }, [dispatch]);
-
     return (
         <div id='artist-info__container'>
             <NavigationSide />

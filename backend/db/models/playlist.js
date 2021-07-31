@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       const columnMapping = {
         through: 'SongToPlaylist',
-        foreignKey: 'playListId',
+        foreignKey: 'playlistId',
         otherKey: 'songId'
       }
 
