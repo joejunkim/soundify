@@ -50,7 +50,7 @@
 
 #navbar-side__playlists a {
     transition: all 200ms ease-in-out;
-    margin-right: 30px;
+    padding-right: 30px;
 }
 
 #navbar-side__playlists a:hover {
@@ -60,7 +60,6 @@
 
 #navbar-side__playlists button {
     margin: 30px;
-    width: 250px;
     border: 1px solid white;
     border-radius: 10px;
     padding: 10px;
@@ -77,7 +76,7 @@
 }
 
 #navbar-side__playlists-name {
-    margin: 30px 0px 0px 30px;
+    margin: 30px 30px 0px 30px;
     display: flex;
     font-size: 1.3rem;
 }
