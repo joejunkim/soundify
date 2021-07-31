@@ -26,8 +26,8 @@ function SearchPage() {
     if (searchValue) {
         searchPlaylists = playlists?.filter(playlist => (playlist.name.toLowerCase().includes(searchValue.toLowerCase())))
         searchArtists = artists?.filter(artist => (artist.name.toLowerCase().includes(searchValue.toLowerCase())))
-        searchAlbums = albums?.filter(album => (album.name.toLowerCase() == searchValue.toLowerCase()))
-        searchSongs = songs?.filter(song => (song.name.toLowerCase() == searchValue.toLowerCase()))
+        searchAlbums = albums?.filter(album => (album.name.toLowerCase().includes(searchValue.toLowerCase())))
+        searchSongs = songs?.filter(song => (song.name.toLowerCase().includes(searchValue.toLowerCase())))
     }
 
     const dispatch = useDispatch();
@@ -48,22 +48,50 @@ function SearchPage() {
             <NavigationSide />
             <div id='search__content'>
                 <NavigationTop searchNav={searchNav}/>
-                <div className='search__header'>Playlists</div>
-                {searchPlaylists?.map(playlist => (
-                    <div>{playlist.name}</div>
-                ))}
-                <div className='search__header'>Artists</div>
-                {searchArtists?.map(artist => (
-                    <div>{artist.name}</div>
-                ))}
-                <div className='search__header'>Albums</div>
-                {searchAlbums?.map(album => (
-                    <div>{album.name}</div>
-                ))}
-                <div className='search__header'>Songs</div>
-                {searchSongs?.map(song => (
-                    <div>{song.name}</div>
-                ))}
+                <div id='search__content-results'>
+                    <div className='search__header'>Playlists</div>
+                    <div className='search__results'>
+                        {searchPlaylists?.map(playlist => (
+                            <NavLink to={`/playlist/${playlist.id}`}>
+                                <div id='search__card'>
+                                        <img alt='playlist image'/>
+                                        {playlist.name}
+                                </div>
+                            </NavLink>
+                        ))}
+                    </div>
+                    <div className='search__header'>Artists</div>
+                    <div className='search__results'>
+                        {searchArtists?.map(artist => (
+                            <NavLink to={`/artist/${artist.id}`}>
+                                <div id='search__card'>
+                                    <img alt='artist image'/>
+                                    {artist.name}
+                                </div>
+                            </NavLink>
+                        ))}
+                    </div>
+                    <div className='search__header'>Albums</div>
+                    <div className='search__results'>
+                        {searchAlbums?.map(album => (
+                            <NavLink to={`/album/${album.id}`}>
+                                <div id='search__card'>
+                                    <img alt='album cover'/>
+                                    {album.name}
+                                </div>
+                            </NavLink>
+                        ))}
+                    </div>
+                    <div className='search__header'>Songs</div>
+                    <div className='search__results-songs'>
+                        {searchSongs?.map(song => (
+                            <div key={song.id} id='song__bar'>
+                                <div id='song__name'>{song.name}</div>
+                                {song.albumId}
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </div>
     )

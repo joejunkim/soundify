@@ -10,6 +10,7 @@
 
 #playlist-info__header {
     display: flex;
+    margin-top: 100px;
 }
 
 #playlist-info__header img {

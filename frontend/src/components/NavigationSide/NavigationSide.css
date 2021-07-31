@@ -50,6 +50,7 @@
 
 #navbar-side__playlists a {
     transition: all 200ms ease-in-out;
+    margin-right: 30px;
 }
 
 #navbar-side__playlists a:hover {
