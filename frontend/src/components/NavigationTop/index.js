@@ -7,10 +7,10 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './NavigationTop.css';
 
-function NavigationTop({ isLoaded }){
+function NavigationTop({ searchNav }){
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const { search, library } = useParams()
+  const { library } = useParams()
 
   let sessionLinks;
   if (sessionUser) {
@@ -43,18 +43,14 @@ function NavigationTop({ isLoaded }){
         <NavLink exact to="/library/collection/songs">Songs</NavLink>
       </>
     )
-  } else if (search === 'search') {
-    middleNav = (
-      <>
-        <div>SEARCH BAR</div>
-      </>
-    )
+  } else {
+    middleNav = searchNav
   }
 
   return (
     <div id='navbar-top__container'>
       <div id='navbar-top__arrows'>
-          {'< >'}
+          {'<___>'}
       </div>
       <div id='navbar-top__links'>
         {middleNav}

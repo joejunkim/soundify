@@ -2,9 +2,49 @@
     display: flex;
 }
 
+#search__container a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: white;
+}
+
 #search__content {
     background-color: rgba(0, 0, 0, 0.603);
     color: white;
     height: 100vh;
     width: 85%;
+}
+
+
+.search__header {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin: 50px 0px 25px 50px;
+}
+
+#search__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px;
+    height: 250px;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 7px;
+    transition: all 200ms ease-in-out;
+    background-color: var(--text-bright-accent,#16aa4c);;
+}
+
+#search__card:hover {
+    background-color:var(--text-bright-accent,#17c757);
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+#search__card img {
+    background-color: grey;
+    width: 200px;
+    height: 200px;
 }

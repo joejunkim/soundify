@@ -31,7 +31,7 @@ function App() {
           <Route path='/' exact>
             <LandingPage />
           </Route>
-          <Route path='/:search' exact>
+          <Route path='/search' exact>
             <SearchPage />
           </Route>
           <Route path={['/home', '/:library/collection/:type']}>
