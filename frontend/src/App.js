@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import LandingPage from "./components/LandingPage"
 import * as sessionActions from './store/session';
+import LandingPage from "./components/LandingPage"
+import SearchPage from './components/SearchPage';
 import LibraryPage from './components/LibraryPage'
 import PlaylistPage from './components/PlaylistPage'
 import ArtistPage from './components/ArtistPage';
@@ -30,7 +31,10 @@ function App() {
           <Route path='/' exact>
             <LandingPage />
           </Route>
-          <Route path={['/home', '/search', '/:library/collection/:type']}>
+          <Route path='/:search' exact>
+            <SearchPage />
+          </Route>
+          <Route path={['/home', '/:library/collection/:type']}>
             <LibraryPage />
           </Route>
           <Route path='/playlist/:id' exact>

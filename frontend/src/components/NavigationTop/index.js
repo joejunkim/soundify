@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import * as sessionActions from "../../store/session";
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
@@ -8,7 +9,8 @@ import './NavigationTop.css';
 
 function NavigationTop({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
-  const { library } = useParams()
+  const dispatch = useDispatch();
+  const { search, library } = useParams()
 
   let sessionLinks;
   if (sessionUser) {
@@ -18,11 +20,18 @@ function NavigationTop({ isLoaded }){
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal />
+        <button onClick={() => handleDemo()}>Demo User</button>
         <SignupFormModal/>
+        <LoginFormModal />
       </>
     );
   }
+
+  const handleDemo = () => {
+    const credential = 'DemoUser'
+    const password = 'password'
+    dispatch(sessionActions.login({ credential, password }))
+}
 
   let middleNav;
   if ( library ) {
@@ -34,7 +43,7 @@ function NavigationTop({ isLoaded }){
         <NavLink exact to="/library/collection/songs">Songs</NavLink>
       </>
     )
-  } else {
+  } else if (search === 'search') {
     middleNav = (
       <>
         <div>SEARCH BAR</div>

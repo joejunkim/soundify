@@ -26,9 +26,7 @@ function LandingPage() {
                         <div>Soundify</div>
                     </NavLink>
                     <div id='landing__navbar-session'>
-                        <button onClick={() => handleDemo()}>
-                            Demo User
-                        </button>
+                        <button onClick={() => handleDemo()}>Demo User</button>
                         <SignupFormModal/>
                         <LoginFormModal />
                     </div>

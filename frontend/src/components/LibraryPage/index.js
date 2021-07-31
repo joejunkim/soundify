@@ -44,11 +44,6 @@ function LibraryPage() {
                         </NavLink>
                     ))}
                 </div></>)
-    } else if ( type === 'songs') {
-        collection = (
-            <><div id='collection__name'>
-                    Songs
-                </div></> )
     } else if ( type === 'artists') {
         collection = (
             <><div id='collection__name'>
@@ -58,6 +53,11 @@ function LibraryPage() {
         collection = (
             <><div id='collection__name'>
                     Albums
+                </div></> )
+    } else if ( type === 'songs') {
+        collection = (
+            <><div id='collection__name'>
+                    Songs
                 </div></> )
     }
 
