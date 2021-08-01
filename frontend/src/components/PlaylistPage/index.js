@@ -61,7 +61,7 @@ function PlaylistPage() {
                 </div>
                 <div id='playlist-info__options'>
                     <div><EditPlaylistModal playlist={playlist} onExit={reload}/></div>
-                    <div><DeletePlaylistModal /></div>
+                    <div><DeletePlaylistModal mySongs={mySongs}/></div>
                 </div>
                 <div id='song-content'>
                     {mySongs?.map((song, i) => (

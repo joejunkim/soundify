@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import DeletePlaylistForm from './DeletePlaylistForm'
+
+import { BiTrash } from "react-icons/bi"
 import "./DeletePlaylist.css";
 
-function DeletePlaylistModal() {
+function DeletePlaylistModal({ mySongs }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
-          <button onClick={() => setShowModal(true)}>Delete</button>
+          <button onClick={() => setShowModal(true)}><BiTrash /></button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <DeletePlaylistForm setShowModal={setShowModal}/>
+              <DeletePlaylistForm setShowModal={setShowModal} mySongs={mySongs}/>
             </Modal>
           )}
         </>
