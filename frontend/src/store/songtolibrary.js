@@ -70,7 +70,6 @@ const librarySongReducer = (state = initialState, action) => {
         case ADD_LIBSONG:
             newState = {
                 ...state,
-                // [action.libSong.id]: action.libSong
             };
             return { ...newState };
         case REMOVE_LIBSONG:

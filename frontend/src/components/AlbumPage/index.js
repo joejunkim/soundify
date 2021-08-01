@@ -4,6 +4,7 @@ import { NavLink, useParams } from "react-router-dom";
 import { getAlbums } from '../../store/albums'
 import { getSongs } from '../../store/songs'
 import { getLibSongs, createLibSong, deleteLibSong } from '../../store/songtolibrary'
+import { getPlaylistSongs, createPlaylistSong, deletePlaylistSong } from '../../store/songtoplaylist'
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 
@@ -16,9 +17,18 @@ function AlbumPage() {
 
     const { id } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
+    const library = useSelector((state) => state.libraries[sessionUser?.id])
     const album = useSelector((state) => state.albums[id])
-    const songs = useSelector((state) => Object.values(state.songs))
 
+    const playlists = useSelector((state) => Object.values(state.playlists))
+    let myPlaylists;
+    if (sessionUser) {
+        myPlaylists = playlists.filter(playlist => (
+            playlist.libraryId === library?.id
+            ))
+        }
+
+    const songs = useSelector((state) => Object.values(state.songs))
     const albumSongs = songs?.filter(song => (
         song.albumId == id
     ))
@@ -38,7 +48,20 @@ function AlbumPage() {
         }
 
         dispatch(createLibSong(payload))
+        window.alert("Song added to your library")
         // setInLibrary(true)
+    }
+
+    const addToPlaylist = (song, playlistStr) => {
+        const playlistId = parseInt(playlistStr)
+
+        const payload = {
+            songId: song.id,
+            playlistId
+        }
+
+        dispatch(createPlaylistSong(payload))
+        window.alert("Song added to your playlist")
     }
 
     const removeFromLib = () => {
@@ -68,7 +91,13 @@ function AlbumPage() {
                                 { !inLibrary
                                     ?   (<div id='song__heart'>
                                             {/* <AiOutlineHeart type='click' onClick={(song) => addToLib}/> */}
-                                            <button type='click' onClick={() => addToLib(song)}>Add</button>
+                                            <button type='click' onClick={() => addToLib(song)}>Add To Library</button>
+                                            <select onChange={(e) => addToPlaylist(song, e.target.value)}>
+                                                <option value="">--Add To Playlist--</option>
+                                                {myPlaylists?.map(playlist => (
+                                                    <option value={playlist.id}>{playlist.name}</option>
+                                                ))}
+                                            </select>
                                         </div>)
                                     :   (<div id='song__heart'>
                                             <AiFillHeart type='click' onClick={() => removeFromLib(song)}/>

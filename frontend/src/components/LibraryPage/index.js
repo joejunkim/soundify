@@ -37,8 +37,6 @@ function LibraryPage() {
         })
     }
 
-    console.log('----> MYSONGS', mySongs)
-
     const dispatch = useDispatch();
 
     useEffect(() => {

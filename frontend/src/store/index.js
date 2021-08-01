@@ -7,6 +7,7 @@ import artistsReducer from './artists'
 import albumsReducer from './albums'
 import songsReducer from './songs'
 import librarySongreducer from './songtolibrary'
+import playlistSongReducer from './songtoplaylist'
 
 const rootReducer = combineReducers({
   session,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   artists: artistsReducer,
   albums: albumsReducer,
   songs: songsReducer,
-  librarySongs: librarySongreducer
+  librarySongs: librarySongreducer,
+  playlistSongs: playlistSongReducer
 });
 
 let enhancer;
