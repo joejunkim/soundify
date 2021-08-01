@@ -16,6 +16,8 @@ function LibraryPage() {
     const library = useSelector((state) => state.libraries[sessionUser?.id])
     const songs = useSelector((state) => (state.songs))
 
+    const dispatch = useDispatch();
+
     const playlists = useSelector((state) => Object.values(state.playlists))
     let myPlaylists;
     if (sessionUser) {
@@ -25,19 +27,15 @@ function LibraryPage() {
         }
 
     const libSongs = useSelector((state) => Object.values(state.librarySongs))
-    let filteredSongs;
+
     let mySongs = [];
-    if (sessionUser) {
-        filteredSongs = libSongs.filter(libSong => (
-            libSong.libraryId === library?.id
-        ))
+    const filteredSongs = libSongs.filter(libSong => (
+        libSong.libraryId === library?.id
+    ))
 
-        filteredSongs.forEach(libSong => {
-            mySongs.push(songs[libSong.songId])
-        })
-    }
-
-    const dispatch = useDispatch();
+    filteredSongs.forEach(libSong => {
+        mySongs.push(songs[libSong.songId])
+    })
 
     useEffect(() => {
         dispatch(getLibraries())
