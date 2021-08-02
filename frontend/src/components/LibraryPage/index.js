@@ -4,7 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import { getSongs } from '../../store/songs'
-import { getLibSongs, deleteLibSong } from '../../store/songtolibrary';
+import { getlibrarySongs, deletelibrarySong } from '../../store/songtolibrary';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 import image from './default_playlist.png'
@@ -26,22 +26,22 @@ function LibraryPage() {
             ))
         }
 
-    const libSongs = useSelector((state) => Object.values(state.librarySongs))
+    const librarySongs = useSelector((state) => Object.values(state.librarySongs))
 
     let mySongs = [];
-    const filteredSongs = libSongs.filter(libSong => (
-        libSong.libraryId === library?.id
+    const filteredSongs = librarySongs.filter(librarySong => (
+        librarySong.libraryId === library?.id
     ))
 
-    filteredSongs.forEach(libSong => {
-        mySongs.push(songs[libSong.songId])
+    filteredSongs.forEach(librarySong => {
+        mySongs.push(songs[librarySong.songId])
     })
 
     useEffect(() => {
         dispatch(getLibraries())
         dispatch(getPlayLists())
         dispatch(getSongs())
-        dispatch(getLibSongs())
+        dispatch(getlibrarySongs())
     }, [dispatch])
 
     const removeFromLibrary = (song) => {
@@ -50,7 +50,7 @@ function LibraryPage() {
             libraryId: sessionUser.id
         }
 
-        dispatch(deleteLibSong(payload))
+        dispatch(deletelibrarySong(payload))
         window.location.reload()
     }
 

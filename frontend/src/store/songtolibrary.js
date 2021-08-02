@@ -1,34 +1,34 @@
 import { csrfFetch } from "./csrf.js";
 
-export const LOAD_LIBSONGS = "librarysongs/LOAD_LIBSONGS";
-export const ADD_LIBSONG = "librarysongs/ADD_LIBSONG";
-export const REMOVE_LIBSONG = "librarysongs/REMOVE_LIBSONG"
+export const LOAD_librarySongs = "librarysongs/LOAD_librarySongs";
+export const ADD_librarySong = "librarysongs/ADD_librarySong";
+export const REMOVE_librarySong = "librarysongs/REMOVE_librarySong"
 
-const loadLibSongs = (libSongs) => ({
-    type: LOAD_LIBSONGS,
-    libSongs
+const loadlibrarySongs = (librarySongs) => ({
+    type: LOAD_librarySongs,
+    librarySongs
 })
 
-const addLibSong = (libSong) => ({
-    type: ADD_LIBSONG,
-    libSong
+const addlibrarySong = (librarySong) => ({
+    type: ADD_librarySong,
+    librarySong
 })
 
-const removeLibSong = (libSong) => ({
-    type: REMOVE_LIBSONG,
-    libSong
+const removelibrarySong = (librarySong) => ({
+    type: REMOVE_librarySong,
+    librarySong
 })
 
-export const getLibSongs = () => async dispatch => {
+export const getlibrarySongs = () => async dispatch => {
     const res = await csrfFetch(`/api/songstolibraries`)
 
     if (res.ok) {
-        const libSongs = await res.json();
-        dispatch(loadLibSongs(libSongs));
+        const librarySongs = await res.json();
+        dispatch(loadlibrarySongs(librarySongs));
     }
 }
 
-export const createLibSong = (data) => async dispatch => {
+export const createlibrarySong = (data) => async dispatch => {
     const res = await csrfFetch('/api/songstolibraries',
         {
             method: 'POST',
@@ -36,18 +36,18 @@ export const createLibSong = (data) => async dispatch => {
         })
 
     if (res.ok) {
-        const libSong = await res.json();
-        dispatch(addLibSong(libSong))
+        const librarySong = await res.json();
+        dispatch(addlibrarySong(librarySong))
         return;
     }
 }
 
-export const deleteLibSong = (data) => async dispatch => {
+export const deletelibrarySong = (data) => async dispatch => {
     const response = await csrfFetch(`/api/songstolibraries/`,
         { method: 'DELETE', body: JSON.stringify(data) });
 
     if (response.ok) {
-        dispatch(removeLibSong());
+        dispatch(removelibrarySong());
     }
 }
 
@@ -56,25 +56,25 @@ let newState = {};
 
 const librarySongReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_LIBSONGS:
-            const allLibSongs = {};
+        case LOAD_librarySongs:
+            const alllibrarySongs = {};
             let count = 1;
-            action.libSongs.forEach((song) => {
-                allLibSongs[count] = song;
+            action.librarySongs.forEach((song) => {
+                alllibrarySongs[count] = song;
                 count++
             })
             return {
                 ...state,
-                ...allLibSongs,
+                ...alllibrarySongs,
             }
-        case ADD_LIBSONG:
+        case ADD_librarySong:
             newState = {
                 ...state,
             };
             return { ...newState };
-        case REMOVE_LIBSONG:
+        case REMOVE_librarySong:
             newState = { ...state }
-            delete newState[action.libSong]
+            delete newState[action.librarySong]
             return { ...newState }
         default:
             return state;

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { getAlbums } from '../../store/albums'
 import { getSongs } from '../../store/songs'
-import { getLibSongs, createLibSong, deleteLibSong } from '../../store/songtolibrary'
+import { getlibrarySongs, createlibrarySong, deletelibrarySong } from '../../store/songtolibrary'
 import { getPlaylistSongs, createPlaylistSong, deletePlaylistSong } from '../../store/songtoplaylist'
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
+import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 
@@ -16,6 +17,8 @@ function AlbumPage() {
     const [inLibrary, setInLibrary] = useState(false)
 
     const { id } = useParams();
+    const { setType, setSource } = useContext(MusicPlayerContext)
+
     const sessionUser = useSelector((state) => state.session.user);
     const library = useSelector((state) => state.libraries[sessionUser?.id])
     const album = useSelector((state) => state.albums[id])
@@ -38,16 +41,16 @@ function AlbumPage() {
     useEffect(() => {
         dispatch(getAlbums())
         dispatch(getSongs())
-        dispatch(getLibSongs())
-    }, [dispatch, createLibSong]);
+        dispatch(getlibrarySongs())
+    }, [dispatch, createlibrarySong]);
 
-    const addToLib = (song) => {
+    const addToLibrary = (song) => {
         const payload = {
             songId: song.id,
             libraryId: sessionUser.id
         }
 
-        dispatch(createLibSong(payload))
+        dispatch(createlibrarySong(payload))
         window.alert("Song added to your library")
         // setInLibrary(true)
     }
@@ -64,8 +67,9 @@ function AlbumPage() {
         window.alert("Song added to your playlist")
     }
 
-    const removeFromLib = () => {
-        // setInLibrary(false)
+    const playSong = (song) => {
+        setType('track')
+        setSource('5zJKzElmt5WmrbbNVv9lUO?theme=0')
     }
 
     return (
@@ -90,17 +94,18 @@ function AlbumPage() {
                                 <div id='song__name'>{song?.name}</div>
                                 { !inLibrary
                                     ?   (<div id='song__heart'>
-                                            {/* <AiOutlineHeart type='click' onClick={(song) => addToLib}/> */}
-                                            <button type='click' onClick={() => addToLib(song)}>Add To Library</button>
+                                            {/* <AiOutlineHeart type='click' onClick={(song) => addToLibrary}/> */}
+                                            <button type='click' onClick={() => addToLibrary(song)}>Add To Library</button>
                                             <select onChange={(e) => addToPlaylist(song, e.target.value)}>
                                                 <option value="">--Add To Playlist--</option>
                                                 {myPlaylists?.map(playlist => (
-                                                    <option value={playlist.id}>{playlist.name}</option>
+                                                    <option key={playlist.id} value={playlist.id}>{playlist.name}</option>
                                                 ))}
                                             </select>
+                                            <button onClick={() => playSong(song)}>Play</button>
                                         </div>)
                                     :   (<div id='song__heart'>
-                                            <AiFillHeart type='click' onClick={() => removeFromLib(song)}/>
+                                            <AiFillHeart type='click'/>
                                         </div>)
                                 }
                             </div>

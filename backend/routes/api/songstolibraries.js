@@ -5,13 +5,13 @@ const router = express.Router();
 const db = require('../../db/models')
 
 router.get('/', asyncHandler(async(req, res) => {
-    const libSongs = await db.SongToLibrary.findAll()
-    res.json(libSongs);
+    const librarySongs = await db.SongToLibrary.findAll()
+    res.json(librarySongs);
 }))
 
 router.post('/', asyncHandler(async (req, res) => {
-    const libSong = await db.SongToLibrary.create(req.body);
-    res.json(libSong)
+    const librarySong = await db.SongToLibrary.create(req.body);
+    res.json(librarySong)
 }));
 
 router.delete('/', asyncHandler(async (req, res) => {
