@@ -11,9 +11,9 @@ import image from './default_playlist.png'
 import './LibraryPage.css';
 
 function LibraryPage() {
-    const { type } = useParams();
+    const { library, type } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
-    const library = useSelector((state) => state.libraries[sessionUser?.id])
+    const myLibrary = useSelector((state) => state.libraries[sessionUser?.id])
     const songs = useSelector((state) => (state.songs))
 
     const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function LibraryPage() {
     let myPlaylists;
     if (sessionUser) {
         myPlaylists = playlists.filter(playlist => (
-                playlist.libraryId === library?.id
+                playlist.libraryId === myLibrary?.id
             ))
         }
 
@@ -30,7 +30,7 @@ function LibraryPage() {
 
     let mySongs = [];
     const filteredSongs = librarySongs.filter(librarySong => (
-        librarySong.libraryId === library?.id
+        librarySong.libraryId === myLibrary?.id
     ))
 
     filteredSongs.forEach(librarySong => {
@@ -97,7 +97,7 @@ function LibraryPage() {
 
     return (
         <div id='library__container'>
-            <NavigationSide />
+            <NavigationSide library={library}/>
             <div id='library__content'>
                 <NavigationTop />
                 {collection}

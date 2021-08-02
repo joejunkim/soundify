@@ -8,6 +8,10 @@
     color: white;
 }
 
+#navbar-side__container .active {
+    color: var(--text-bright-accent,#16aa4c);
+}
+
 #navbar-side__container a {
     display: flex;
     align-items: center;
@@ -21,21 +25,15 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 30px;
-    transition: all 200ms ease-in-out;
 }
 
 #navbar-side__links a:hover {
-    background-color: grey;
-    transition: all 200ms ease-in-out;
+    color: var(--text-bright-accent,#16aa4c);
 }
 
 .navbar-icon {
     margin-right: 7.5px;
-}
-
-.active {
-    background-color: grey;
-    transition: all 200ms ease-in-out;
+    font-size: 1.3rem;
 }
 
 #navbar-side__container #navbar-side__logo {
@@ -55,39 +53,33 @@
 }
 
 #navbar-side__playlists a {
-    transition: all 200ms ease-in-out;
     padding-right: 30px;
 }
 
 #navbar-side__playlists a:hover {
-    background-color: grey;
-    transition: all 200ms ease-in-out;
+    color: var(--text-bright-accent,#16aa4c);
 }
 
-#navbar-side__playlists button {
-    margin: 30px;
-    border: 1px solid white;
-    border-radius: 10px;
+#navbar-side__create button {
     padding: 10px;
+    border: 0px;
     background-color: black;
     color: white;
-    font-size: 1.2rem;
-    transition: all 200ms ease-in-out;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
-#navbar-side__playlists button:hover {
+#navbar-side__create button:hover {
+    color: var(--text-bright-accent,#16aa4c);
+}
+
+#navbar-side__create:hover {
     cursor: pointer;
-    background-color: grey;
-    transition: all 200ms ease-in-out;
+    color: var(--text-bright-accent,#16aa4c);
 }
 
 #navbar-side__playlists-name {
-    margin: 30px 30px 0px 30px;
+    margin: 30px 30px 25px 30px;
     display: flex;
     font-size: 1.3rem;
-}
-
-#navbar-side__create {
-    display: flex;
-    justify-content: center;
 }

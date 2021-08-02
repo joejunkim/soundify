@@ -36,14 +36,12 @@
     margin: 30px;
     padding: 30px;
     border-radius: 7px;
-    transition: all 200ms ease-in-out;
     background-color: var(--text-bright-accent,#16aa4c);;
 }
 
 #playlist__card:hover {
     background-color:var(--text-bright-accent,#17c757);
     cursor: pointer;
-    transition: all 200ms ease-in-out;
 }
 
 #playlist__card img {

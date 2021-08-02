@@ -64,19 +64,16 @@
     height: 30px;
     padding: 10px;
     border-radius: 7px;
-    transition: all 200ms ease-in-out;
     font-size: 1.2rem;
 }
 
 #song__bar:hover {
-    background-color: var(--text-bright-accent,#16aa4c);
-    transition: all 200ms ease-in-out;
+    color: var(--text-bright-accent,#16aa4c);
     cursor: pointer;
 }
 
 .active {
-    background-color: var(--text-bright-accent,#16aa4c);
-    transition: all 200ms ease-in-out;
+    color: var(--text-bright-accent,#16aa4c);
 }
 
 #song__id {
@@ -93,6 +90,10 @@
 #song__playlist {
     margin-left: 15px;
     font-size: 1rem;
+    background-color: rgba(0, 0, 0, .3);
+    color: white;
+    border-radius: 10px;
+    padding: 7.5px;
     border: 0;
 }
 

@@ -10,6 +10,10 @@
   background-color:rgba(0, 0, 0, 0.603);
 }
 
+#navbar-top__container .active {
+  color: var(--text-bright-accent,#16aa4c);
+}
+
 #navbar-top__arrows {
   display: flex;
   justify-content: center;
@@ -58,8 +62,7 @@
 
 #navbar-top__links a:hover {
   cursor: pointer;
-  background-color: grey;
-  transition: all 200ms ease-in-out;
+  color: var(--text-bright-accent,#16aa4c);
 }
 
 #navbar-top__session {
@@ -79,13 +82,11 @@
   padding: 15px;
   width: 130px;
   border-radius: 10px;
-  transition: all 200ms ease-in-out;
 }
 
 #navbar-top__session button:hover {
   cursor: pointer;
-  background-color: grey;
-  transition: all 200ms ease-in-out;
+  color: var(--text-bright-accent,#16aa4c);
 }
 
 .profile-dropdown {

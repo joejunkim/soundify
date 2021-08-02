@@ -8,18 +8,19 @@ import CreatePlaylistModal from '../CreatePlaylistModal';
 import { BiSearch, BiHomeAlt } from "react-icons/bi";
 import { VscLibrary } from "react-icons/vsc"
 import { RiPlayListLine } from "react-icons/ri"
+import { BiPlus } from "react-icons/bi"
 
 import './NavigationSide.css';
 
-function NavigationSide() {
+function NavigationSide({ library }) {
     const sessionUser = useSelector(state => state.session.user);
-    const library = useSelector((state) => state.libraries[sessionUser?.id])
+    const myLibrary = useSelector((state) => state.libraries[sessionUser?.id])
 
     const playlists = useSelector((state) => Object.values(state.playlists))
     let myPlaylists;
     if (sessionUser) {
         myPlaylists = playlists.filter(playlist => (
-            playlist.libraryId === library?.id
+            playlist.libraryId === myLibrary?.id
         ))
     }
 
@@ -53,6 +54,7 @@ function NavigationSide() {
                             Your Playlists
                         </div>
                         <div id='navbar-side__create'>
+                            <BiPlus className='navbar-icon'/>
                             <CreatePlaylistModal />
                         </div>
                         {myPlaylists?.map(playlist => (

@@ -27,7 +27,7 @@ function NavigationTop({ searchNav }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      'Welcome ' + sessionUser.username
     );
   } else {
     sessionLinks = (

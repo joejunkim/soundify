@@ -22,7 +22,7 @@ function LandingPage() {
         <div id='landing__container'>
             <div id='landing__navbar'>
                 <div id='landing__navbar-content'>
-                    <NavLink to='/' activeClassName=''>
+                    <NavLink to='/home' activeClassName=''>
                         <div>Soundify</div>
                     </NavLink>
                     <div id='landing__navbar-session'>
