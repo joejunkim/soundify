@@ -1,45 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-import LandingPage from "./components/LandingPage"
-import SignupFormPage from './components/SignupFormPage';
-import LoginFormPage from "./components/LoginFormPage";
 import * as sessionActions from './store/session';
-import Navigation from './components/Navigation';
+import LandingPage from "./components/LandingPage"
+import SearchPage from './components/SearchPage';
 import LibraryPage from './components/LibraryPage'
-import { Modal } from './context/Modal';
+import PlaylistPage from './components/PlaylistPage'
+import ArtistPage from './components/ArtistPage';
+import AlbumPage from './components/AlbumPage'
+import {MusicPlayer} from './context/MusicPlayer.js'
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   return (
     <>
-      {/* <Navigation isLoaded={isLoaded} /> */}
-      {/* <button onClick={() => setShowModal(true)}>Modal</button>
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
-          <h1>LET'S GOOOOO</h1>
-        </Modal>
-      )} */}
       {isLoaded && (
-        <Switch>
-          <Route path='/' exact>
-            <LandingPage />
-          </Route>
-          <Route path="/login" >
-            <LoginFormPage />
-          </Route>
-          <Route path='/signup'>
-            <SignupFormPage />
-          </Route>
-          <Route path={['/home', '/search', '/:library/collection/:type']}>
-            <LibraryPage />
-          </Route>
-        </Switch>
+        <>
+          <Switch>
+            <Route path='/' exact>
+              <LandingPage />
+            </Route>
+            <Route path='/search' exact>
+              <SearchPage />
+            </Route>
+            <Route path={['/home', '/:library/collection/:type']} >
+              <LibraryPage />
+            </Route>
+            <Route path='/playlist/:id' exact>
+              <PlaylistPage />
+            </Route>
+            <Route path='/artist/:id' exact>
+              <ArtistPage />
+            </Route>
+            <Route path='/album/:id' exact>
+              <AlbumPage />
+            </Route>
+          </Switch>
+          <MusicPlayer/>
+        </>
       )}
     </>
   );

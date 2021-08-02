@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
+import { MusicPlayerProvider } from './context/MusicPlayer';
 import App from './App';
 
 import configureStore from './store';
@@ -28,16 +29,19 @@ if (process.env.NODE_ENV !== "production") {
 //   </div>
 // );
 
+const accessToken = 1;
+
 function Root() {
   return (
-    <ModalProvider>
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-          {/* <Carrot /> */}
-        </BrowserRouter>
-      </Provider>
-    </ModalProvider>
+    <MusicPlayerProvider>
+      <ModalProvider>
+        <Provider store={store}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </Provider>
+      </ModalProvider>
+    </MusicPlayerProvider>
   );
 }
 

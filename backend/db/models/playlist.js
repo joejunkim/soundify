@@ -10,18 +10,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // const columnMapping = {
-      //   through: 'song_playlist',
-      //   foreignKey: 'playlistId',
-      //   otherKey: 'songId'
-      // }
+      const columnMapping = {
+        through: 'SongToPlaylist',
+        foreignKey: 'playlistId',
+        otherKey: 'songId'
+      }
 
-      // Playlist.belongsToMany(models.Song, columnMapping);
-      Playlist.belongsTo(models.Library, {foreignKey: 'libraryId'});
+      Playlist.belongsToMany(models.Song, columnMapping);
+      Playlist.belongsTo(models.Library, { foreignKey: 'libraryId' });
     }
   };
   Playlist.init({
-    title: DataTypes.STRING,
+    name: DataTypes.STRING,
     imgUrl: DataTypes.STRING,
     description: DataTypes.STRING
   }, {

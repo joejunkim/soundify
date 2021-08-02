@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import * as sessionActions from "../../store/session";
+import SignupFormModal from '../SignupFormModal';
 import "./LoginForm.css";
 
-function LoginForm() {
+function LoginForm({ setShowModal }) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
@@ -21,35 +22,39 @@ function LoginForm() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
+    <div id='login__form'>
+      <h1>Soundify</h1>
       <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Username or Email
+        <div id='login__form-info'>
+          Email or Username
           <input
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
-          />
-        </label>
-        <label>
+            />
           Password
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
-        </label>
-        <button type="submit">Log In</button>
+            />
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+              ))}
+          </ul>
+        </div>
+        <div id='login__form-bottom'>
+          <button type="submit">Log In</button>
+          <div id='login__form-signup'>
+            <div>Don't have an account?</div>
+            <SignupFormModal />
+          </div>
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

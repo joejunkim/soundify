@@ -1,6 +1,14 @@
 const router = require("express").Router();
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
+const librariesRouter = require("./libraries.js");
+const playlistsRouter = require("./playlists.js");
+const artistsRouter = require("./artists.js")
+const albumsRouter = require("./albums.js");
+const songsRouter = require("./songs.js");
+const songsToLibrariesRouter = require("./songstolibraries")
+const songsToPlaylistsRouter = require("./songstoplaylists.js");
+const { route } = require("./session.js");
 
 // // GET /api/set-token-cookie
 // const asyncHandler = require('express-async-handler');
@@ -43,5 +51,12 @@ router.post("/test", function (req, res) {
 router.use("/session", sessionRouter);
 
 router.use("/users", usersRouter);
+router.use("/libraries", librariesRouter)
+router.use("/playlists", playlistsRouter)
+router.use("/artists", artistsRouter)
+router.use("/albums", albumsRouter)
+router.use("/songs", songsRouter)
+router.use("/songstolibraries", songsToLibrariesRouter)
+router.use("/songstoplaylists", songsToPlaylistsRouter)
 
 module.exports = router;

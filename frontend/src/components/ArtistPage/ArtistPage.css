@@ -1,0 +1,87 @@
+#artist-info__container {
+    display: flex;
+}
+
+#artist-info__content {
+    background-color: rgba(0, 0, 0, 0.603);
+    height: 100vh;
+    width: 85%;
+}
+
+#artist-info__header {
+    display: flex;
+    margin-top: 100px;
+}
+
+#artist-info__header img {
+    background-color: rgba(0, 0, 0, 0.603);
+    height: 230px;
+    width: 230px;
+    margin: 50px 25px 25px 75px;
+}
+
+#artist-info__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    margin: 0px 0px 25px 10px;
+}
+
+#artist-info__name {
+    font-size: 6rem;
+    font-weight: bold;
+}
+
+#artist-info__sub {
+    font-size: 1.3rem;
+    margin-right: 50px;
+}
+
+#album__container {
+    margin: 25px 25px 0px 75px;
+    color: white;
+}
+
+#album__header {
+    font-size: 2rem;
+    margin: 25px 0px 0px 50px;
+    font-weight: bold;
+    color: white;
+}
+
+#album__content {
+    display: flex;
+}
+
+#album__container a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: white;
+}
+
+#album__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 220px;
+    height: 250px;
+    margin: 30px;
+    padding: 30px;
+    border-radius: 7px;
+    transition: all 200ms ease-in-out;
+    background-color: var(--text-bright-accent,#16aa4c);;
+}
+
+#album__card:hover {
+    background-color:var(--text-bright-accent,#17c757);
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+#album__card img {
+    background-color: grey;
+    width: 200px;
+    height: 200px;
+}

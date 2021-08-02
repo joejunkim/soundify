@@ -1,60 +1,105 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from 'react-router-dom';
-
-import Navigation from '../Navigation'
+import { getLibraries } from '../../store/library';
+import { getPlayLists } from '../../store/playlist';
+import { getSongs } from '../../store/songs'
+import { getlibrarySongs, deletelibrarySong } from '../../store/songtolibrary';
+import NavigationTop from '../NavigationTop'
+import NavigationSide from '../NavigationSide'
+import image from './default_playlist.png'
 import './LibraryPage.css';
 
 function LibraryPage() {
     const { type } = useParams();
+    const sessionUser = useSelector((state) => state.session.user);
+    const library = useSelector((state) => state.libraries[sessionUser?.id])
+    const songs = useSelector((state) => (state.songs))
+
+    const dispatch = useDispatch();
+
+    const playlists = useSelector((state) => Object.values(state.playlists))
+    let myPlaylists;
+    if (sessionUser) {
+        myPlaylists = playlists.filter(playlist => (
+                playlist.libraryId === library?.id
+            ))
+        }
+
+    const librarySongs = useSelector((state) => Object.values(state.librarySongs))
+
+    let mySongs = [];
+    const filteredSongs = librarySongs.filter(librarySong => (
+        librarySong.libraryId === library?.id
+    ))
+
+    filteredSongs.forEach(librarySong => {
+        mySongs.push(songs[librarySong.songId])
+    })
+
+    useEffect(() => {
+        dispatch(getLibraries())
+        dispatch(getPlayLists())
+        dispatch(getSongs())
+        dispatch(getlibrarySongs())
+    }, [dispatch])
+
+    const removeFromLibrary = (song) => {
+        const payload = {
+            songId: song.id,
+            libraryId: sessionUser.id
+        }
+
+        dispatch(deletelibrarySong(payload))
+        window.location.reload()
+    }
 
     let collection;
-    if ( type == 'playlists') {
+    if ( type === 'playlists') {
+        collection = (<><div id='collection__name'>
+                            Playlists
+                        </div>
+                        <div id='playlist__container'>
+                            {myPlaylists?.map(playlist => (
+                                <NavLink to={`/playlist/${playlist.id}`}>
+                                    <div id='playlist__card'>
+                                        <img src={image} alt='playlist image'/>
+                                        <div id='playlist__name'>{playlist.name}</div>
+                                    </div>
+                                </NavLink>
+                    ))}
+                </div></>)
+    } else if ( type === 'artists') {
         collection = (
-            <>
-                playLists
-            </>
-        )
-    } else if ( type == 'songs') {
+            <><div id='collection__name'>
+                    Artists
+                </div></> )
+    } else if ( type === 'albums') {
         collection = (
-            <>
-                songs
-            </>
-        )
-    } else if ( type == 'artists') {
+            <><div id='collection__name'>
+                    Albums
+                </div></> )
+    } else if ( type === 'songs') {
         collection = (
-            <>
-                artists
-            </>
-        )
-    } else if ( type == 'albums') {
-        collection = (
-            <>
-                albums
-            </>
-        )
+            <><div id='collection__name'>
+                    Songs
+                </div>
+                <div id='song-content'>
+                    {mySongs?.map((song, i) => (
+                        <div key={song?.id} id='song__bar'>
+                            <div id='song__id'>{i + 1}</div>
+                            <div id='song__name'>{song?.name}</div>
+                            <button type='click' onClick={() => removeFromLibrary(song)}>Remove</button>
+                        </div>
+                    ))}
+                </div></>)
     }
 
     return (
         <div id='library__container'>
-            <div id='library__nav'>
-                <NavLink to='/home' >
-                    Soundify
-                </NavLink>
-                <NavLink to='/home' >
-                    Home
-                </NavLink>
-                <NavLink to='/search' >
-                    Search
-                </NavLink>
-                <NavLink to='/library/collection/playlists' >
-                    Your Library
-                </NavLink>
-                <button>
-                    Create Playlist
-                </button>
-            </div>
+            <NavigationSide />
             <div id='library__content'>
-                <Navigation />
+                <NavigationTop />
                 {collection}
             </div>
         </div>

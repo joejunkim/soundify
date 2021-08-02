@@ -4,9 +4,23 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert('Playlists', [
       {
-        title: 'Test Playlist',
-        description: 'This is my test playlist to see if this is working!',
+        name: 'Test Playlist',
+        description: 'This is my test1 playlist to see if this is working!',
         libraryId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Test Playlist 2',
+        description: 'This is my test2 playlist to see if this is working!',
+        libraryId: 1,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Test Playlist 3',
+        description: 'This is my test3 playlist to see if this is working!',
+        libraryId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }

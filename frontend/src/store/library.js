@@ -1,33 +1,63 @@
 import { csrfFetch } from "./csrf.js";
 
-export const LOAD_LIBRARY = "library/LOAD_LIBRARY";
+export const LOAD_LIBRARIES = "libraries/LOAD_LIBRARIES";
+export const ADD_LIBRARY = "libraries/ADD_LIBRARY"
 
-const loadLibrary = (library) => ({
-    type: LOAD_LIBRARY,
+const loadLibrary = (libraries) => ({
+    type: LOAD_LIBRARIES,
+    libraries
+})
+
+const addLibrary = (library) => ({
+    type: ADD_LIBRARY,
     library
 })
 
-export const getLibrary = () => async dispatch => {
-    const res = await csrfFetch('/api/libraries/:id')
+export const getLibraries = () => async dispatch => {
+    const res = await csrfFetch('/api/libraries/')
+
+    if (res.ok) {
+        const libraries = await res.json();
+        dispatch(loadLibrary(libraries));
+    }
+}
+
+export const createLibrary = (userId) => async dispatch => {
+    const res = await csrfFetch('/api/libraries/',
+    {
+        method: 'POST',
+        body: JSON.stringify(userId)
+    })
 
     if (res.ok) {
         const library = await res.json();
-        dispatch(loadLibrary(library));
+        dispatch(addLibrary(library))
+        return;
     }
 }
 
 const initialState = {};
 
-const libraryReducer = (state = initialState, action) => {
+const librariesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_LIBRARY:
+        case LOAD_LIBRARIES:
+            const allLibraries = {};
+            action.libraries.forEach((library) => {
+                allLibraries[library.id] = library;
+            })
             return {
                 ...state,
-                ...action.library
+                ...allLibraries,
             }
+        case ADD_LIBRARY:
+            const newState = {
+                ...state,
+                [action.library.id]: action.library
+            };
+            return { ...newState };
         default:
             return state;
     }
 }
 
-export default libraryReducer;
+export default librariesReducer;

@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      name: {
         type: Sequelize.STRING(50),
         allowNull: false,
       },
@@ -20,8 +20,9 @@ module.exports = {
         allowNull: false,
       },
       libraryId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.INTEGER
+        // references: { model: 'Libraries' }
       },
       createdAt: {
         allowNull: false,
