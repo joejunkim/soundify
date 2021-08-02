@@ -1,0 +1,4 @@
+#homepage__container {
+    display: flex;
+    background-image: linear-gradient(rgb(42, 42, 42), black);
+}

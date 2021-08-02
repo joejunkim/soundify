@@ -27,7 +27,7 @@ function NavigationTop({ searchNav }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      'Welcome ' + sessionUser.username
     );
   } else {
     sessionLinks = (
@@ -52,7 +52,7 @@ function NavigationTop({ searchNav }){
         <NavLink exact to="/library/collection/playlists">Playlists</NavLink>
         <NavLink exact to="/library/collection/artists">Artists</NavLink>
         <NavLink exact to="/library/collection/albums">Albums</NavLink>
-        <NavLink exact to="/library/collection/songs">Songs</NavLink>
+        <NavLink exact to="/library/collection/songs">Tracks</NavLink>
       </>
     )
   } else {

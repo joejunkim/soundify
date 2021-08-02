@@ -3,12 +3,13 @@ import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import * as sessionActions from './store/session';
 import LandingPage from "./components/LandingPage"
+import HomePage from "./components/HomePage"
 import SearchPage from './components/SearchPage';
 import LibraryPage from './components/LibraryPage'
 import PlaylistPage from './components/PlaylistPage'
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
-import {MusicPlayer} from './context/MusicPlayer.js'
+import { MusicPlayer } from './context/MusicPlayer.js'
 
 function App() {
   const dispatch = useDispatch();
@@ -27,10 +28,13 @@ function App() {
             <Route path='/' exact>
               <LandingPage />
             </Route>
+            <Route path='/home' exact>
+              <HomePage />
+            </Route>
             <Route path='/search' exact>
               <SearchPage />
             </Route>
-            <Route path={['/home', '/:library/collection/:type']} >
+            <Route path='/:library/collection/:type' >
               <LibraryPage />
             </Route>
             <Route path='/playlist/:id' exact>
@@ -43,9 +47,9 @@ function App() {
               <AlbumPage />
             </Route>
           </Switch>
-          <MusicPlayer/>
         </>
       )}
+      <MusicPlayer/>
     </>
   );
 }

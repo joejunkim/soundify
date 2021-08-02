@@ -3,8 +3,8 @@
 }
 
 #artist-info__content {
-    background-color: rgba(0, 0, 0, 0.603);
-    height: 100vh;
+    background-image: linear-gradient(yellow, black);
+    height: calc(100vh - 80px) !important;
     width: 85%;
 }
 
@@ -70,14 +70,12 @@
     margin: 30px;
     padding: 30px;
     border-radius: 7px;
-    transition: all 200ms ease-in-out;
-    background-color: var(--text-bright-accent,#16aa4c);;
+    border: 1px solid white;
 }
 
 #album__card:hover {
     background-color:var(--text-bright-accent,#17c757);
     cursor: pointer;
-    transition: all 200ms ease-in-out;
 }
 
 #album__card img {

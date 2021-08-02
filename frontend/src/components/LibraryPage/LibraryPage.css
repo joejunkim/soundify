@@ -3,9 +3,9 @@
 }
 
 #library__content {
-    background-color: rgba(0, 0, 0, 0.603);
+    background-image: linear-gradient(blue, black);
     color: white;
-    height: 100vh;
+    height: calc(100vh - 80px) !important;
     width: 85%;
 }
 
@@ -36,18 +36,17 @@
     margin: 30px;
     padding: 30px;
     border-radius: 7px;
-    transition: all 200ms ease-in-out;
-    background-color: var(--text-bright-accent,#16aa4c);;
+    border: 1px solid white;
 }
 
 #playlist__card:hover {
     background-color:var(--text-bright-accent,#17c757);
     cursor: pointer;
-    transition: all 200ms ease-in-out;
 }
 
 #playlist__card img {
     background-color: grey;
+    border: 2px solid white;
     width: 200px;
     height: 200px;
 }

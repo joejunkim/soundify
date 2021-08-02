@@ -3,10 +3,10 @@
 }
 
 #album-info__content {
-    background-color: rgba(0, 0, 0, 0.603);
-    height: 93.5vh;
-    width: 85%;
+    background-image: linear-gradient(var(--text-bright-accent,#17c757), black);
     overflow-y: scroll;
+    height: calc(100vh - 80px) !important;
+    width: 100%;
 }
 
 #album-info__header {
@@ -64,13 +64,16 @@
     height: 30px;
     padding: 10px;
     border-radius: 7px;
-    transition: all 200ms ease-in-out;
     font-size: 1.2rem;
 }
 
 #song__bar:hover {
-    background-color: var(--text-bright-accent,#16aa4c);
-    transition: all 200ms ease-in-out;
+    color: var(--text-bright-accent,#16aa4c);
+    cursor: pointer;
+}
+
+.active {
+    color: var(--text-bright-accent,#16aa4c);
 }
 
 #song__id {
@@ -82,18 +85,23 @@
 #song__name {
     margin-left: 15px;
     width: 95%;
-
 }
 
-#song__heart {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 5%;
-    border: none;
-    font-size: 1.3rem;
+#song__playlist {
+    margin-left: 15px;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    border-radius: 10px;
+    padding: 7.5px;
+    border: 0;
 }
 
-#song__heart:hover {
-    color: purple;
+#song__playlist option {
+    color: black;
+}
+
+#song__library {
+    margin-left: 15px;
+    font-size: 1.5rem;
 }

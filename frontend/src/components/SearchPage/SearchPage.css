@@ -1,5 +1,6 @@
 #search__container {
     display: flex;
+    background-image: linear-gradient(rgb(42, 42, 42), black);
 }
 
 #search__container a {
@@ -8,11 +9,13 @@
     color: white;
 }
 
+
+
 #search__content {
-    background-color: rgba(0, 0, 0, 0.603);
+    background-image: linear-gradient(rgb(42, 42, 42), black);
     color: white;
     overflow-y: scroll;
-    height: 100vh;
+    height: calc(100vh - 80px) !important;
     width: 85%;
 }
 
@@ -35,6 +38,7 @@
     margin: 0px 0px 25px 0px;
 }
 
+
 .search__results-songs {
     overflow-y: scroll;
     height: 400px;
@@ -52,18 +56,22 @@
     margin: 30px;
     padding: 30px;
     border-radius: 7px;
-    transition: all 200ms ease-in-out;
     background-color: var(--text-bright-accent,#16aa4c);;
 }
 
 #search__card:hover {
     background-color:var(--text-bright-accent,#17c757);
     cursor: pointer;
-    transition: all 200ms ease-in-out;
 }
 
 #search__card img {
     background-color: grey;
     width: 200px;
     height: 200px;
+}
+
+#search__input {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
 }
