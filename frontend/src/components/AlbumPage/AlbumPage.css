@@ -4,9 +4,9 @@
 
 #album-info__content {
     background-color: rgba(0, 0, 0, 0.603);
-    height: 93.5vh;
-    width: 85%;
     overflow-y: scroll;
+    height: calc(100vh - 80px) !important;
+    width: 100%;
 }
 
 #album-info__header {
@@ -71,6 +71,12 @@
 #song__bar:hover {
     background-color: var(--text-bright-accent,#16aa4c);
     transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.active {
+    background-color: var(--text-bright-accent,#16aa4c);
+    transition: all 200ms ease-in-out;
 }
 
 #song__id {
@@ -82,18 +88,15 @@
 #song__name {
     margin-left: 15px;
     width: 95%;
-
 }
 
-#song__heart {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    width: 5%;
-    border: none;
-    font-size: 1.3rem;
+#song__playlist {
+    margin-left: 15px;
+    font-size: 1rem;
+    border: 0;
 }
 
-#song__heart:hover {
-    color: purple;
+#song__library {
+    margin-left: 15px;
+    font-size: 1.5rem;
 }

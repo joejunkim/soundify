@@ -43,9 +43,9 @@ function App() {
               <AlbumPage />
             </Route>
           </Switch>
-          <MusicPlayer/>
         </>
       )}
+      <MusicPlayer/>
     </>
   );
 }

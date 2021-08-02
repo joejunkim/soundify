@@ -9,7 +9,7 @@ import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 import { MusicPlayerContext } from '../../context/MusicPlayer'
 
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
+import { AiOutlineHeart } from "react-icons/ai"
 
 import './AlbumPage.css';
 
@@ -69,7 +69,8 @@ function AlbumPage() {
 
     const playSong = (song) => {
         setType('track')
-        setSource('5zJKzElmt5WmrbbNVv9lUO?theme=0')
+        setSource(song.source)
+        console.log(song)
     }
 
     return (
@@ -89,25 +90,16 @@ function AlbumPage() {
                 <div id='song__container'>
                     <div id='song__content'>
                         {albumSongs?.map((song, i) => (
-                            <div key={song.id} id='song__bar'>
+                            <div key={song.id} id='song__bar' onClick={() => playSong(song)}>
                                 <div id='song__id'>{i + 1}</div>
                                 <div id='song__name'>{song?.name}</div>
-                                { !inLibrary
-                                    ?   (<div id='song__heart'>
-                                            {/* <AiOutlineHeart type='click' onClick={(song) => addToLibrary}/> */}
-                                            <button type='click' onClick={() => addToLibrary(song)}>Add To Library</button>
-                                            <select onChange={(e) => addToPlaylist(song, e.target.value)}>
-                                                <option value="">--Add To Playlist--</option>
-                                                {myPlaylists?.map(playlist => (
-                                                    <option key={playlist.id} value={playlist.id}>{playlist.name}</option>
-                                                ))}
-                                            </select>
-                                            <button onClick={() => playSong(song)}>Play</button>
-                                        </div>)
-                                    :   (<div id='song__heart'>
-                                            <AiFillHeart type='click'/>
-                                        </div>)
-                                }
+                                <select id='song__playlist' onChange={(e) => addToPlaylist(song, e.target.value)}>
+                                    <option value="">--Add To Playlist--</option>
+                                    {myPlaylists?.map(playlist => (
+                                        <option key={playlist.id} value={playlist.id}>{playlist.name}</option>
+                                    ))}
+                                </select>
+                                <AiOutlineHeart id='song__library' onClick={() => addToLibrary(song)}/>
                             </div>
                         ))}
                     </div>

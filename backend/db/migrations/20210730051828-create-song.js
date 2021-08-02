@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(80)
       },
+      source: {
+        allowNull: false,
+        type: Sequelize.STRING()
+      },
       albumId: {
         allowNull: false,
         type: Sequelize.INTEGER
