@@ -12,10 +12,9 @@ body {
   }
 
   *::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: black;
   }
 
   *::-webkit-scrollbar-thumb {
     background-color: white;
-    outline: 1px solid white;
   }
