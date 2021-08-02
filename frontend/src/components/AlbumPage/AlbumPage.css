@@ -3,7 +3,7 @@
 }
 
 #album-info__content {
-    background-color: rgba(0, 0, 0, 0.603);
+    background-image: linear-gradient(var(--text-bright-accent,#17c757), black);
     overflow-y: scroll;
     height: calc(100vh - 80px) !important;
     width: 100%;
@@ -90,11 +90,15 @@
 #song__playlist {
     margin-left: 15px;
     font-size: 1rem;
-    background-color: rgba(0, 0, 0, .3);
+    background-color: rgba(0, 0, 0, 0);
     color: white;
     border-radius: 10px;
     padding: 7.5px;
     border: 0;
+}
+
+#song__playlist option {
+    color: black;
 }
 
 #song__library {

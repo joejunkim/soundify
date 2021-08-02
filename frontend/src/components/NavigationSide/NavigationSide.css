@@ -9,7 +9,7 @@
 }
 
 #navbar-side__container .active {
-    color: var(--text-bright-accent,#16aa4c);
+    border-left: 4px solid white
 }
 
 #navbar-side__container a {
@@ -28,12 +28,12 @@
 }
 
 #navbar-side__links a:hover {
-    color: var(--text-bright-accent,#16aa4c);
+    border-left: 4px solid white
 }
 
 .navbar-icon {
-    margin-right: 7.5px;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    width: 40px;
 }
 
 #navbar-side__container #navbar-side__logo {
@@ -46,7 +46,7 @@
 }
 
 #navbar-side__playlists {
-    border-top: 3px solid grey;
+    border-top: 4px solid white;
     display: flex;
     flex-direction: column;
     height: 100%
@@ -57,7 +57,7 @@
 }
 
 #navbar-side__playlists a:hover {
-    color: var(--text-bright-accent,#16aa4c);
+    border-left: 4px solid white
 }
 
 #navbar-side__create button {
@@ -69,13 +69,9 @@
     font-weight: bold;
 }
 
-#navbar-side__create button:hover {
-    color: var(--text-bright-accent,#16aa4c);
-}
-
 #navbar-side__create:hover {
     cursor: pointer;
-    color: var(--text-bright-accent,#16aa4c);
+    border-left: 4px solid white
 }
 
 #navbar-side__playlists-name {

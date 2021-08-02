@@ -10,6 +10,7 @@ import NavigationSide from '../NavigationSide'
 import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import { AiOutlineHeart } from "react-icons/ai"
+import { MdPlaylistAdd } from "react-icons/md"
 
 import './AlbumPage.css';
 
@@ -94,7 +95,7 @@ function AlbumPage() {
                                 <div id='song__id'>{i + 1}</div>
                                 <div id='song__name'>{song?.name}</div>
                                 <select id='song__playlist' onChange={(e) => addToPlaylist(song, e.target.value)}>
-                                    <option value="">--Add To Playlist--</option>
+                                    <option value=""><MdPlaylistAdd /></option>
                                     {myPlaylists?.map(playlist => (
                                         <option key={playlist.id} value={playlist.id}>{playlist.name}</option>
                                     ))}

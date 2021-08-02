@@ -3,7 +3,7 @@
 }
 
 #playlist-info__content {
-    background-color: rgba(0, 0, 0, 0.603);
+    background-image: linear-gradient(red, black);
     height: calc(100vh - 80px) !important;
     width: 85%;
 }
@@ -15,6 +15,7 @@
 
 #playlist-info__header img {
     background-color: rgba(0, 0, 0, 0.603);
+    border: 2.5px solid white;
     height: 230px;
     width: 230px;
     margin: 50px 25px 25px 75px;

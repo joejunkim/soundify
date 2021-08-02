@@ -82,7 +82,7 @@ function LibraryPage() {
     } else if ( type === 'songs') {
         collection = (
             <><div id='collection__name'>
-                    Songs
+                    Tracks
                 </div>
                 <div id='song-content'>
                     {mySongs?.map((song, i) => (

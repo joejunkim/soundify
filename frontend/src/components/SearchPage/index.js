@@ -8,6 +8,8 @@ import { getSongs } from '../../store/songs';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 
+import { BiSearch } from "react-icons/bi";
+
 import './SearchPage.css'
 
 function SearchPage() {
@@ -40,7 +42,10 @@ function SearchPage() {
     }, [dispatch]);
 
     const searchNav = (
-        <input onChange={(e) => setSearchValue(e.target.value)} placeholder="Search by playlist, artist, album, or song" />
+        <div id='search__input'>
+            <BiSearch />
+            <input onChange={(e) => setSearchValue(e.target.value)} placeholder="Search by playlist, artist, album, or song" />
+        </div>
     )
 
     return (
