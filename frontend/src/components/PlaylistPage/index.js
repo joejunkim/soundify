@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getPlayLists } from '../../store/playlist';
 import { getSongs } from '../../store/songs'
-import { createlibrarySong } from '../../store/songtolibrary'
+import { createLibrarySong } from '../../store/songtolibrary'
 import { getPlaylistSongs, deletePlaylistSong } from '../../store/songtoplaylist';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
@@ -62,7 +62,7 @@ function PlaylistPage() {
             libraryId: sessionUser.id
         }
 
-        dispatch(createlibrarySong(payload))
+        dispatch(createLibrarySong(payload))
         window.alert("Song added to your library")
     }
 

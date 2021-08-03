@@ -23,6 +23,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      artistName: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
       artistId: {
         allowNull: false,
         type: Sequelize.INTEGER

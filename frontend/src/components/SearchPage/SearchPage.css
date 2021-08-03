@@ -3,12 +3,6 @@
     background-image: linear-gradient(rgb(42, 42, 42), black);
 }
 
-#search__container a {
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: white;
-}
-
 #search__content {
     background-image: linear-gradient(rgb(42, 42, 42), black);
     color: white;
@@ -19,6 +13,12 @@
 
 #search__content-results {
     margin: 130px 50px 25px 50px;
+}
+
+#search__content-results a {
+    font-size: 1rem;
+    text-decoration: none;
+    color: white;
 }
 
 .search__header {
@@ -68,8 +68,36 @@
     height: 200px;
 }
 
+#search__card-name {
+    margin-top: 15px;
+}
+
+#search__card-info {
+    font-size: 1rem;
+}
+
 #search__input {
     display: flex;
     align-items: center;
     font-size: 1.6rem;
+}
+
+#search-song__bar {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 1.3rem;
+    margin: 15px 0px 15px 25px;
+}
+
+#search-song__bar:hover {
+    cursor: pointer;
+    color: var(--text-bright-accent,#16aa4c);
+}
+
+#search-song__info {
+    font-size: 1rem;
 }

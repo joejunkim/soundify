@@ -4,7 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import { getSongs } from '../../store/songs'
-import { getlibrarySongs, deletelibrarySong } from '../../store/songtolibrary';
+import { getLibrarySongs, deleteLibrarySong } from '../../store/songtolibrary';
 import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import NavigationTop from '../NavigationTop'
@@ -46,7 +46,7 @@ function LibraryPage() {
         dispatch(getLibraries())
         dispatch(getPlayLists())
         dispatch(getSongs())
-        dispatch(getlibrarySongs())
+        dispatch(getLibrarySongs())
     }, [dispatch])
 
     const removeFromLibrary = (song) => {
@@ -55,7 +55,7 @@ function LibraryPage() {
             libraryId: sessionUser.id
         }
 
-        dispatch(deletelibrarySong(payload))
+        dispatch(deleteLibrarySong(payload))
         window.location.reload()
     }
 

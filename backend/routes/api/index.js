@@ -6,8 +6,9 @@ const playlistsRouter = require("./playlists.js");
 const artistsRouter = require("./artists.js")
 const albumsRouter = require("./albums.js");
 const songsRouter = require("./songs.js");
-const songsToLibrariesRouter = require("./songstolibraries")
+const songsToLibrariesRouter = require("./songstolibraries.js")
 const songsToPlaylistsRouter = require("./songstoplaylists.js");
+const albumsToLibraryRouter = require("./albumstolibraries.js")
 const { route } = require("./session.js");
 
 // // GET /api/set-token-cookie
@@ -58,5 +59,6 @@ router.use("/albums", albumsRouter)
 router.use("/songs", songsRouter)
 router.use("/songstolibraries", songsToLibrariesRouter)
 router.use("/songstoplaylists", songsToPlaylistsRouter)
+router.use("/albumstolibraries", albumsToLibraryRouter)
 
 module.exports = router;

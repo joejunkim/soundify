@@ -90,7 +90,8 @@ function SearchPage() {
                             <NavLink to={`/album/${album.id}`}>
                                 <div id='search__card'>
                                     <img src={album?.imgUrl} alt='album cover'/>
-                                    {album.name}
+                                    <div id='search__card-name'>{album.name}</div>
+                                    <div id='search__card-info'>{album.artistName}</div>
                                 </div>
                             </NavLink>
                         ))}
@@ -98,9 +99,9 @@ function SearchPage() {
                     <div className='search__header'>Tracks</div>
                     <div className='search__results-songs'>
                         {searchSongs?.map(song => (
-                            <div key={song.id} id='song__bar' onClick={() => playSong(song)}>
-                                <div id='song__name'>{song.name}</div>
-                                {song.albumId}
+                            <div key={song.id} id='search-song__bar' onClick={() => playSong(song)}>
+                                <div id='search-song__name'>{song.name}</div>
+                                <div id='search-song__info'>{song.artistName} | {song.albumName}</div>
                             </div>
                         ))}
                     </div>

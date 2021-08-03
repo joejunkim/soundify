@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { getAlbums } from '../../store/albums'
 import { getSongs } from '../../store/songs'
-import { getlibrarySongs, createlibrarySong, deletelibrarySong } from '../../store/songtolibrary'
+import { getLibrarySongs, createLibrarySong, deleteLibrarySong } from '../../store/songtolibrary'
 import { getPlaylistSongs, createPlaylistSong, deletePlaylistSong } from '../../store/songtoplaylist'
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
@@ -41,8 +41,8 @@ function AlbumPage() {
     useEffect(() => {
         dispatch(getAlbums())
         dispatch(getSongs())
-        dispatch(getlibrarySongs())
-    }, [dispatch, createlibrarySong]);
+        dispatch(getLibrarySongs())
+    }, [dispatch, createLibrarySong]);
 
     const addToLibrary = (song) => {
         const payload = {
@@ -50,7 +50,7 @@ function AlbumPage() {
             libraryId: sessionUser.id
         }
 
-        dispatch(createlibrarySong(payload))
+        dispatch(createLibrarySong(payload))
         window.alert("Song added to your library")
     }
 

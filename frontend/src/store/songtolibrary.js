@@ -1,34 +1,34 @@
 import { csrfFetch } from "./csrf.js";
 
-export const LOAD_librarySongs = "librarysongs/LOAD_librarySongs";
-export const ADD_librarySong = "librarysongs/ADD_librarySong";
-export const REMOVE_librarySong = "librarysongs/REMOVE_librarySong"
+export const LOAD_LIBRARYSONGS = "librarysongs/LOAD_LIBRARYSONGS";
+export const ADD_LIBRARYSONG = "librarysongs/ADD_LIBRARYSONG";
+export const REMOVE_LIBRARYSONG = "librarysongs/REMOVE_LIBRARYSONG"
 
-const loadlibrarySongs = (librarySongs) => ({
-    type: LOAD_librarySongs,
+const loadLibrarySongs = (librarySongs) => ({
+    type: LOAD_LIBRARYSONGS,
     librarySongs
 })
 
-const addlibrarySong = (librarySong) => ({
-    type: ADD_librarySong,
+const addLibrarySong = (librarySong) => ({
+    type: ADD_LIBRARYSONG,
     librarySong
 })
 
-const removelibrarySong = (librarySong) => ({
-    type: REMOVE_librarySong,
+const removeLibrarySong = (librarySong) => ({
+    type: REMOVE_LIBRARYSONG,
     librarySong
 })
 
-export const getlibrarySongs = () => async dispatch => {
+export const getLibrarySongs = () => async dispatch => {
     const res = await csrfFetch(`/api/songstolibraries`)
 
     if (res.ok) {
         const librarySongs = await res.json();
-        dispatch(loadlibrarySongs(librarySongs));
+        dispatch(loadLibrarySongs(librarySongs));
     }
 }
 
-export const createlibrarySong = (data) => async dispatch => {
+export const createLibrarySong = (data) => async dispatch => {
     const res = await csrfFetch('/api/songstolibraries',
         {
             method: 'POST',
@@ -37,17 +37,17 @@ export const createlibrarySong = (data) => async dispatch => {
 
     if (res.ok) {
         const librarySong = await res.json();
-        dispatch(addlibrarySong(librarySong))
+        dispatch(addLibrarySong(librarySong))
         return;
     }
 }
 
-export const deletelibrarySong = (data) => async dispatch => {
+export const deleteLibrarySong = (data) => async dispatch => {
     const response = await csrfFetch(`/api/songstolibraries/`,
         { method: 'DELETE', body: JSON.stringify(data) });
 
     if (response.ok) {
-        dispatch(removelibrarySong());
+        dispatch(removeLibrarySong());
     }
 }
 
@@ -56,23 +56,23 @@ let newState = {};
 
 const librarySongReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD_librarySongs:
-            const alllibrarySongs = {};
+        case LOAD_LIBRARYSONGS:
+            const allLibrarySongs = {};
             let count = 1;
             action.librarySongs.forEach((song) => {
-                alllibrarySongs[count] = song;
+                allLibrarySongs[count] = song;
                 count++
             })
             return {
                 ...state,
-                ...alllibrarySongs,
+                ...allLibrarySongs,
             }
-        case ADD_librarySong:
+        case ADD_LIBRARYSONG:
             newState = {
                 ...state,
             };
             return { ...newState };
-        case REMOVE_librarySong:
+        case REMOVE_LIBRARYSONG:
             newState = { ...state }
             delete newState[action.librarySong]
             return { ...newState }
