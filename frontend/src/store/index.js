@@ -8,6 +8,7 @@ import albumsReducer from './albums'
 import songsReducer from './songs'
 import librarySongReducer from './songtolibrary'
 import playlistSongReducer from './songtoplaylist'
+import libraryArtistReducer from './artisttolibrary'
 import libraryAlbumReducer from './albumtolibrary'
 
 const rootReducer = combineReducers({
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   songs: songsReducer,
   librarySongs: librarySongReducer,
   playlistSongs: playlistSongReducer,
+  libraryArtists: libraryArtistReducer,
   libraryAlbums: libraryAlbumReducer
 });
 

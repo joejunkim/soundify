@@ -9,9 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       songId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       libraryId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {

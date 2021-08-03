@@ -5,6 +5,7 @@ import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import { getSongs } from '../../store/songs'
 import { getLibrarySongs, deleteLibrarySong } from '../../store/songtolibrary';
+import { getLibraryAlbums, deleteLibraryAlbum } from '../../store/albumtolibrary'
 import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import NavigationTop from '../NavigationTop'
@@ -47,6 +48,7 @@ function LibraryPage() {
         dispatch(getPlayLists())
         dispatch(getSongs())
         dispatch(getLibrarySongs())
+        dispatch(getLibraryAlbums())
     }, [dispatch])
 
     const removeFromLibrary = (song) => {

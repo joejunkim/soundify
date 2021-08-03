@@ -9,9 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       albumId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       libraryId: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       createdAt: {

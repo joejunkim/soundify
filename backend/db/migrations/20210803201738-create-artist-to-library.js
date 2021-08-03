@@ -1,18 +1,18 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('SongToPlaylists', {
+    await queryInterface.createTable('ArtistToLibraries', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      songId: {
+      artistId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      playlistId: {
+      libraryId: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
@@ -27,6 +27,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('SongToPlaylists');
+    await queryInterface.dropTable('ArtistToLibraries');
   }
 };

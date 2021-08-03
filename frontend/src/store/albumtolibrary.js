@@ -1,8 +1,8 @@
 import { csrfFetch } from "./csrf.js";
 
-export const LOAD_LIBRARYALBUMS = "libraryAlbums/LOAD_LIBRARYALBUMS";
-export const ADD_LIBRARYALBUM = "libraryAlbums/ADD_LIBRARYALBUM";
-export const REMOVE_LIBRARYALBUM = "libraryAlbums/REMOVE_LIBRARYALBUM"
+export const LOAD_LIBRARYALBUMS = "libraryalbums/LOAD_LIBRARYALBUMS";
+export const ADD_LIBRARYALBUM = "libraryalbums/ADD_LIBRARYALBUM";
+export const REMOVE_LIBRARYALBUM = "libraryalbums/REMOVE_LIBRARYALBUM"
 
 const loadLibraryAlbums = (libraryAlbums) => ({
     type: LOAD_LIBRARYALBUMS,
