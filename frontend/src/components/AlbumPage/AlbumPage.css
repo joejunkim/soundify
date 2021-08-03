@@ -6,7 +6,7 @@
     background-image: linear-gradient(var(--text-bright-accent,#17c757), black);
     overflow-y: scroll;
     height: calc(100vh - 80px) !important;
-    width: 100%;
+    width: 85%;
 }
 
 #album-info__header {
@@ -17,8 +17,9 @@
 #album-info__header img {
     background-color: rgba(0, 0, 0, 0.603);
     height: 230px;
-    width: 230px;
+    width: 230px;;
     margin: 50px 25px 25px 75px;
+    border: 1px solid white;
 }
 
 #album-info__info {
@@ -64,7 +65,7 @@
     height: 30px;
     padding: 10px;
     border-radius: 7px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 #song__bar:hover {

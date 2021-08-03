@@ -13,7 +13,7 @@ import './NavigationTop.css';
 function NavigationTop({ searchNav }){
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const history = useDispatch();
+  const history = useHistory();
   const { library } = useParams()
 
   const goBack = () => {
@@ -24,10 +24,19 @@ function NavigationTop({ searchNav }){
     window.history.forward()
   }
 
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+    history.push('/home')
+  };
+
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      'Welcome ' + sessionUser.username
+      <div>
+        {'Welcome ' + sessionUser.username}
+        <button onClick={logout}>Log Out</button>
+      </div>
     );
   } else {
     sessionLinks = (

@@ -1,17 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from 'react-router-dom';
 import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import { getSongs } from '../../store/songs'
 import { getlibrarySongs, deletelibrarySong } from '../../store/songtolibrary';
+import { MusicPlayerContext } from '../../context/MusicPlayer'
+
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
+
+import { BiTrash } from "react-icons/bi"
 import image from './default_playlist.png'
 import './LibraryPage.css';
 
 function LibraryPage() {
     const { library, type } = useParams();
+    const { setType, setSource } = useContext(MusicPlayerContext)
     const sessionUser = useSelector((state) => state.session.user);
     const myLibrary = useSelector((state) => state.libraries[sessionUser?.id])
     const songs = useSelector((state) => (state.songs))
@@ -54,6 +59,11 @@ function LibraryPage() {
         window.location.reload()
     }
 
+    const playSong = (song) => {
+        setType('track')
+        setSource(song.source)
+    }
+
     let collection;
     if ( type === 'playlists') {
         collection = (<><div id='collection__name'>
@@ -86,10 +96,10 @@ function LibraryPage() {
                 </div>
                 <div id='song-content'>
                     {mySongs?.map((song, i) => (
-                        <div key={song?.id} id='song__bar'>
+                        <div key={song?.id} id='song__bar' onClick={() => playSong(song)}>
                             <div id='song__id'>{i + 1}</div>
                             <div id='song__name'>{song?.name}</div>
-                            <button type='click' onClick={() => removeFromLibrary(song)}>Remove</button>
+                            <button type='click' onClick={() => removeFromLibrary(song)}><BiTrash /></button>
                         </div>
                     ))}
                 </div></>)

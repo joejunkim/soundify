@@ -6,6 +6,7 @@
     background-image: linear-gradient(yellow, black);
     height: calc(100vh - 80px) !important;
     width: 85%;
+    overflow-y: scroll;
 }
 
 #artist-info__header {
@@ -16,8 +17,9 @@
 #artist-info__header img {
     background-color: rgba(0, 0, 0, 0.603);
     height: 230px;
-    width: 230px;
+    width: 230px;;
     margin: 50px 25px 25px 75px;
+    border: 1px solid white;
 }
 
 #artist-info__info {
@@ -39,7 +41,7 @@
 }
 
 #album__container {
-    margin: 25px 25px 0px 75px;
+    margin: 0px 25px 0px 75px;
     color: white;
 }
 
@@ -55,7 +57,7 @@
 }
 
 #album__container a {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-decoration: none;
     color: white;
 }
@@ -65,21 +67,21 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 220px;
+    width: 200px;
     height: 250px;
     margin: 30px;
-    padding: 30px;
+    padding: 25px;
     border-radius: 7px;
-    border: 1px solid white;
 }
 
 #album__card:hover {
-    background-color:var(--text-bright-accent,#17c757);
+    background-color: rgb(42, 42, 42);
     cursor: pointer;
 }
 
 #album__card img {
     background-color: grey;
+    border: 1px solid white;
     width: 200px;
     height: 200px;
 }

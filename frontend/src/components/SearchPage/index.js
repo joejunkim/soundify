@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from 'react-router-dom';
 import { getPlayLists } from '../../store/playlist';
@@ -7,6 +7,7 @@ import { getAlbums } from '../../store/albums';
 import { getSongs } from '../../store/songs';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
+import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import { BiSearch } from "react-icons/bi";
 
@@ -14,6 +15,8 @@ import './SearchPage.css'
 
 function SearchPage() {
     const [searchValue, setSearchValue] = useState('')
+
+    const { setType, setSource } = useContext(MusicPlayerContext)
 
     const playlists = useSelector((state) => Object.values(state.playlists))
     const artists = useSelector((state) => Object.values(state.artists))
@@ -48,6 +51,11 @@ function SearchPage() {
         </div>
     )
 
+    const playSong = (song) => {
+        setType('track')
+        setSource(song.source)
+    }
+
     return (
         <div id='search__container'>
             <NavigationSide />
@@ -70,7 +78,7 @@ function SearchPage() {
                         {searchArtists?.map(artist => (
                             <NavLink to={`/artist/${artist.id}`}>
                                 <div id='search__card'>
-                                    <img alt='artist image'/>
+                                    <img src={artist?.imgUrl} alt='artist image'/>
                                     {artist.name}
                                 </div>
                             </NavLink>
@@ -81,16 +89,16 @@ function SearchPage() {
                         {searchAlbums?.map(album => (
                             <NavLink to={`/album/${album.id}`}>
                                 <div id='search__card'>
-                                    <img alt='album cover'/>
+                                    <img src={album?.imgUrl} alt='album cover'/>
                                     {album.name}
                                 </div>
                             </NavLink>
                         ))}
                     </div>
-                    <div className='search__header'>Songs</div>
+                    <div className='search__header'>Tracks</div>
                     <div className='search__results-songs'>
                         {searchSongs?.map(song => (
-                            <div key={song.id} id='song__bar'>
+                            <div key={song.id} id='song__bar' onClick={() => playSong(song)}>
                                 <div id='song__name'>{song.name}</div>
                                 {song.albumId}
                             </div>

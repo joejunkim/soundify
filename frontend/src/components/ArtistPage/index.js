@@ -25,13 +25,14 @@ function ArtistPage() {
         dispatch(getArtists())
         dispatch(getAlbums())
     }, [dispatch]);
+
     return (
         <div id='artist-info__container'>
             <NavigationSide />
             <div id='artist-info__content'>
                 <NavigationTop />
                 <div id='artist-info__header'>
-                    <img src={image} alt='artist image'/>
+                    { artist?.imgUrl ? (<img src={artist?.imgUrl} alt='artist'/>) : (<img src={image} alt='artist'/>)}
                     <div id='artist-info__info'>
                         <div id='artist-info__sub'>{'ARTIST'}</div>
                         <div id='artist-info__name'>{artist?.name}</div>
@@ -44,7 +45,7 @@ function ArtistPage() {
                         {artistAlbums?.map(album => (
                             <NavLink to={`/album/${album.id}`}>
                                 <div id='album__card'>
-                                    <img alt='album cover'/>
+                                    <img src={album?.imgUrl} alt='album cover'/>
                                     <div id='album__name'>{album.name}</div>
                                 </div>
                             </NavLink>

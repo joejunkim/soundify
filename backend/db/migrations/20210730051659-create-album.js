@@ -14,10 +14,10 @@ module.exports = {
       },
       source: {
         allowNull: false,
-        type: Sequelize.STRING()
+        type: Sequelize.STRING
       },
-      img: {
-        type: Sequelize.BLOB
+      imgUrl: {
+        type: Sequelize.STRING
       },
       year: {
         allowNull: false,

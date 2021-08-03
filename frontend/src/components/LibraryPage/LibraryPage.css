@@ -5,6 +5,7 @@
 #library__content {
     background-image: linear-gradient(blue, black);
     color: white;
+    overflow-y: scroll;
     height: calc(100vh - 80px) !important;
     width: 85%;
 }
@@ -31,12 +32,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 220px;
+    width: 200px;
     height: 250px;
     margin: 30px;
     padding: 30px;
     border-radius: 7px;
-    border: 1px solid white;
 }
 
 #playlist__card:hover {

@@ -15,14 +15,13 @@ import { MdPlaylistAdd } from "react-icons/md"
 import './AlbumPage.css';
 
 function AlbumPage() {
-    const [inLibrary, setInLibrary] = useState(false)
-
     const { id } = useParams();
     const { setType, setSource } = useContext(MusicPlayerContext)
 
     const sessionUser = useSelector((state) => state.session.user);
     const library = useSelector((state) => state.libraries[sessionUser?.id])
     const album = useSelector((state) => state.albums[id])
+    const librarySongs = useSelector((state) => Object.values(state.librarySongs))
 
     const playlists = useSelector((state) => Object.values(state.playlists))
     let myPlaylists;
@@ -53,7 +52,6 @@ function AlbumPage() {
 
         dispatch(createlibrarySong(payload))
         window.alert("Song added to your library")
-        // setInLibrary(true)
     }
 
     const addToPlaylist = (song, playlistStr) => {
@@ -68,10 +66,18 @@ function AlbumPage() {
         window.alert("Song added to your playlist")
     }
 
+    const checkInLibrary = (song) => {
+        librarySongs.forEach(librarySong => {
+            if (librarySong.songId === song.id && librarySong.libraryId === id) {
+                return (<AiOutlineHeart id='song__library' onClick={() => addToLibrary(song)}/>)
+            } else {
+                return (<MdPlaylistAdd id='song_library'/>)
+            }
+        })
+    }
     const playSong = (song) => {
         setType('track')
         setSource(song.source)
-        console.log(song)
     }
 
     return (
@@ -80,14 +86,14 @@ function AlbumPage() {
             <div id='album-info__content'>
                 <NavigationTop />
                 <div id='album-info__header'>
-                    <img alt='album image'/>
+                    <img src={album?.imgUrl} alt='album'/>
                     <div id='album-info__info'>
                         <div id='album-info__sub'>{'ALBUM'}</div>
                         <div id='album-info__name'>{album?.name}</div>
                         <div id='album-info__sub'>{album?.year}</div>
                     </div>
                 </div>
-                <div id='song__header'>Songs</div>
+                <div id='song__header'>Tracks</div>
                 <div id='song__container'>
                     <div id='song__content'>
                         {albumSongs?.map((song, i) => (
@@ -100,7 +106,7 @@ function AlbumPage() {
                                         <option key={playlist.id} value={playlist.id}>{playlist.name}</option>
                                     ))}
                                 </select>
-                                <AiOutlineHeart id='song__library' onClick={() => addToLibrary(song)}/>
+                                {checkInLibrary(song)}
                             </div>
                         ))}
                     </div>

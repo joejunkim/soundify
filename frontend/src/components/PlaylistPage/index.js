@@ -1,18 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getPlayLists } from '../../store/playlist';
 import { getSongs } from '../../store/songs'
+import { createlibrarySong } from '../../store/songtolibrary'
 import { getPlaylistSongs, deletePlaylistSong } from '../../store/songtoplaylist';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
+import { MusicPlayerContext } from '../../context/MusicPlayer'
+
 import EditPlaylistModal from '../EditPlaylistModal'
 import DeletePlaylistModal from '../DeletePlaylistModal'
+
+import { AiOutlineHeart } from "react-icons/ai"
+import { BiTrash } from "react-icons/bi"
 import image from './default_playlist.png'
+
 import './PlaylistPage.css';
 
 function PlaylistPage() {
     const { id } = useParams();
+    const { setType, setSource } = useContext(MusicPlayerContext)
+
+    const sessionUser = useSelector((state) => state.session.user);
     const playlist = useSelector((state) => state.playlists[id])
     const songs = useSelector((state) => (state.songs))
 
@@ -46,6 +56,21 @@ function PlaylistPage() {
         window.location.reload()
     }
 
+    const addToLibrary = (song) => {
+        const payload = {
+            songId: song.id,
+            libraryId: sessionUser.id
+        }
+
+        dispatch(createlibrarySong(payload))
+        window.alert("Song added to your library")
+    }
+
+    const playSong = (song) => {
+        setType('track')
+        setSource(song.source)
+    }
+
     return (
         <div id='playlist-info__container'>
             <NavigationSide />
@@ -65,10 +90,11 @@ function PlaylistPage() {
                 </div>
                 <div id='song-content'>
                     {mySongs?.map((song, i) => (
-                        <div key={song?.id} id='song__bar'>
+                        <div key={song?.id} id='song__bar' onClick={() => playSong(song)}>
                             <div id='song__id'>{i + 1}</div>
                             <div id='song__name'>{song?.name}</div>
-                            <button type='click' onClick={() => removeFromPlaylist(song)}>Remove</button>
+                            <button type='click' onClick={() => removeFromPlaylist(song)}><BiTrash /></button>
+                            <AiOutlineHeart id='song__library' onClick={() => addToLibrary(song)}/>
                         </div>
                     ))}
                 </div>

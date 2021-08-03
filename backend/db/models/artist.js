@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Artist.init({
     name: DataTypes.STRING,
-    img: DataTypes.BLOB,
+    imgUrl: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
     sequelize,
