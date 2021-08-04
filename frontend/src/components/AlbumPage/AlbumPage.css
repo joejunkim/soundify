@@ -6,7 +6,7 @@
     background-image: linear-gradient(var(--text-bright-accent,#17c757), black);
     overflow-y: scroll;
     height: calc(100vh - 80px) !important;
-    width: 85%;
+    width: 90%;
 }
 
 #album-info__header {
@@ -19,7 +19,8 @@
     height: 230px;
     width: 230px;;
     margin: 50px 25px 25px 75px;
-    border: 1px solid white;
+    border: 1px solid grey;
+    box-shadow: 3px 3px 3px black;
 }
 
 #album-info__info {
@@ -36,7 +37,7 @@
 }
 
 #album-info__sub {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-right: 50px;
 }
 
@@ -65,16 +66,12 @@
     height: 30px;
     padding: 10px;
     border-radius: 7px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 #song__bar:hover {
-    color: var(--text-bright-accent,#16aa4c);
+    background-color: rgba(42, 42, 42, 0.4);
     cursor: pointer;
-}
-
-.active {
-    color: var(--text-bright-accent,#16aa4c);
 }
 
 #song__id {
@@ -89,13 +86,13 @@
 }
 
 #song__playlist {
-    margin-left: 15px;
+    margin-right: 15px;
     font-size: 1rem;
     background-color: rgba(0, 0, 0, 0);
     color: white;
-    border-radius: 10px;
     padding: 7.5px;
-    border: 0;
+    border-radius: 10px;
+    border: 1px solid grey;
 }
 
 #song__playlist option {

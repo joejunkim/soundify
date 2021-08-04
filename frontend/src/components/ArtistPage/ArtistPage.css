@@ -5,7 +5,7 @@
 #artist-info__content {
     background-image: linear-gradient(yellow, black);
     height: calc(100vh - 80px) !important;
-    width: 85%;
+    width: 90%;
     overflow-y: scroll;
 }
 
@@ -19,7 +19,9 @@
     height: 230px;
     width: 230px;;
     margin: 50px 25px 25px 75px;
-    border: 1px solid white;
+    border: 1px solid grey;
+    box-shadow: 3px 3px 3px black;
+    object-fit: cover;
 }
 
 #artist-info__info {
@@ -36,7 +38,7 @@
 }
 
 #artist-info__sub {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     margin-right: 50px;
 }
 
@@ -72,6 +74,7 @@
     margin: 30px;
     padding: 25px;
     border-radius: 7px;
+    background-color: rgba(42, 42, 42, 0.4);
 }
 
 #album__card:hover {
@@ -81,7 +84,7 @@
 
 #album__card img {
     background-color: grey;
-    border: 1px solid white;
+    border: 1px solid grey;
     width: 200px;
     height: 200px;
 }

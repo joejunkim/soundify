@@ -17,7 +17,6 @@ function HomePage() {
             <div id='homepage__content'>
                 <NavigationTop />
             </div>
-
         </div>
     )
 }

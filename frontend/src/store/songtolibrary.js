@@ -25,7 +25,9 @@ export const getLibrarySongs = () => async dispatch => {
     if (res.ok) {
         const librarySongs = await res.json();
         dispatch(loadLibrarySongs(librarySongs));
+        return;
     }
+    return;
 }
 
 export const createLibrarySong = (data) => async dispatch => {
@@ -40,6 +42,7 @@ export const createLibrarySong = (data) => async dispatch => {
         dispatch(addLibrarySong(librarySong))
         return;
     }
+    return;
 }
 
 export const deleteLibrarySong = (data) => async dispatch => {

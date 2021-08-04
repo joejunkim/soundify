@@ -34,7 +34,7 @@ function LandingPage() {
             </div>
             <div id='landing__content'>
                 <div id='landing__content-main'>
-                    Listening is everything
+                    Listen. Listen. Listen Again.
                     <NavLink to='/home'>
                         Let's Get Started
                     </NavLink>

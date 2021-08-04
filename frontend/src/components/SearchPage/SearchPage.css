@@ -8,7 +8,7 @@
     color: white;
     overflow-y: scroll;
     height: calc(100vh - 80px) !important;
-    width: 85%;
+    width: 90%;
 }
 
 #search__content-results {
@@ -36,12 +36,11 @@
     margin: 0px 0px 25px 0px;
 }
 
-
 .search__results-songs {
     overflow-y: scroll;
     height: 400px;
     width: 100%;
-    margin: 25px 0px 25px 0px;
+    margin: 25px 25px 25px 0px;
 }
 
 #search__card {
@@ -54,6 +53,7 @@
     margin: 30px;
     padding: 25px;
     border-radius: 7px;
+    background-color: rgba(42, 42, 42, 0.4);
 }
 
 #search__card:hover {
@@ -63,9 +63,10 @@
 
 #search__card img {
     background-color: grey;
-    border: 1px solid white;
+    border: 1px solid grey;
     width: 200px;
     height: 200px;
+    object-fit: cover;
 }
 
 #search__card-name {
@@ -85,12 +86,12 @@
 #search-song__bar {
     display: flex;
     align-items: center;
-    width: 95%;
+    width: 93%;
     height: 30px;
     padding: 10px;
     border-radius: 7px;
-    font-size: 1.25rem;
-    margin: 20px 0px 20px 25px;
+    font-size: 1.2rem;
+    margin: 25px
 }
 
 #search-song__bar:hover {
@@ -101,14 +102,20 @@
 #search-song__bar img {
     height: 45px;
     margin-right: 10px;
+    border: 1px solid grey;
 }
 
 #search-song__info {
     display: flex;
     flex-direction: column;
-    width: 90%
+    width: 100%
 }
 
 #search-song__sub {
-    font-size: 1rem;
+    font-size: .95rem;
+}
+
+#song__heart {
+    font-size: 1.5rem;
+    color: var(--text-bright-accent,#16aa4c);
 }
