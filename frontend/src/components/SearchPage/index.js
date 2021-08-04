@@ -63,6 +63,11 @@ function SearchPage() {
                 <NavigationTop searchNav={searchNav}/>
                 <div id='search__content-results'>
                     <div className='search__header'>Playlists</div>
+                    {searchPlaylists
+                        ? (searchPlaylists.length === 1
+                            ? (<div>1 result</div>)
+                            : (<div>{searchPlaylists?.length} results</div>))
+                        : (<div>0 results</div>)}
                     <div className='search__results'>
                         {searchPlaylists?.map(playlist => (
                             <NavLink to={`/playlist/${playlist.id}`}>
@@ -74,6 +79,11 @@ function SearchPage() {
                         ))}
                     </div>
                     <div className='search__header'>Artists</div>
+                    {searchArtists
+                        ? (searchArtists.length === 1
+                            ? (<div>1 result</div>)
+                            : (<div>{searchArtists?.length} results</div>))
+                        : (<div>0 results</div>)}
                     <div className='search__results'>
                         {searchArtists?.map(artist => (
                             <NavLink to={`/artist/${artist.id}`}>
@@ -85,6 +95,11 @@ function SearchPage() {
                         ))}
                     </div>
                     <div className='search__header'>Albums</div>
+                    {searchAlbums
+                        ? (searchAlbums.length === 1
+                            ? (<div>1 result</div>)
+                            : (<div>{searchAlbums?.length} results</div>))
+                        : (<div>0 results</div>)}
                     <div className='search__results'>
                         {searchAlbums?.map(album => (
                             <NavLink to={`/album/${album.id}`}>
@@ -97,6 +112,11 @@ function SearchPage() {
                         ))}
                     </div>
                     <div className='search__header'>Tracks</div>
+                    {searchSongs
+                        ? (searchSongs.length === 1
+                            ? (<div>1 result</div>)
+                            : (<div>{searchSongs?.length} results</div>))
+                        : (<div>0 results</div>)}
                     <div className='search__results-songs'>
                         {searchSongs?.map(song => (
                             <div key={song.id} id='search-song__bar' onClick={() => playSong(song)}>

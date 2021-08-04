@@ -20,6 +20,8 @@ function LibraryPage() {
     const { setType, setSource } = useContext(MusicPlayerContext)
     const sessionUser = useSelector((state) => state.session.user);
     const myLibrary = useSelector((state) => state.libraries[sessionUser?.id])
+    const artists = useSelector((state) => (state.artists))
+    const albums = useSelector((state) => (state.albums))
     const songs = useSelector((state) => (state.songs))
 
     const dispatch = useDispatch();
@@ -32,15 +34,31 @@ function LibraryPage() {
             ))
         }
 
-    const librarySongs = useSelector((state) => Object.values(state.librarySongs))
-
-    let mySongs = [];
-    const filteredSongs = librarySongs.filter(librarySong => (
-        librarySong.libraryId === myLibrary?.id
+    const libraryArtists = useSelector((state) => Object.values(state.libraryArtists))
+    let myArtists = [];
+    const filteredArtists = libraryArtists?.filter(artist => (
+        artist.libraryId === myLibrary?.id
     ))
+    filteredArtists.forEach(artist => {
+        myArtists.push(artists[artist.artistId])
+    })
 
-    filteredSongs.forEach(librarySong => {
-        mySongs.push(songs[librarySong.songId])
+    const libraryAlbums = useSelector((state) => Object.values(state.libraryAlbums))
+    let myAlbums = [];
+    const filteredAlbums = libraryAlbums?.filter(album => (
+        album.libraryId === myLibrary?.id
+    ))
+    filteredAlbums.forEach(album => {
+        myAlbums.push(albums[album.albumId])
+    })
+
+    const librarySongs = useSelector((state) => Object.values(state.librarySongs))
+    let mySongs = [];
+    const filteredSongs = librarySongs?.filter(song => (
+        song.libraryId === myLibrary?.id
+    ))
+    filteredSongs.forEach(song => {
+        mySongs.push(songs[song.songId])
     })
 
     useEffect(() => {
@@ -68,34 +86,74 @@ function LibraryPage() {
 
     let collection;
     if ( type === 'playlists') {
-        collection = (<><div id='collection__name'>
-                            Playlists
-                        </div>
-                        <div id='playlist__container'>
-                            {myPlaylists?.map(playlist => (
-                                <NavLink to={`/playlist/${playlist.id}`}>
-                                    <div id='playlist__card'>
-                                        <img src={image} alt='playlist image'/>
-                                        <div id='playlist__name'>{playlist.name}</div>
-                                    </div>
-                                </NavLink>
+        collection = (
+            <>
+                <div id='collection__name'>Playlists</div>
+                {myPlaylists
+                    ? (myPlaylists.length === 1
+                        ? (<div>1 playlist</div>)
+                        : (<div>{myPlaylists?.length} playlists</div>))
+                    : (<div>0 playlists</div>)}
+                <div id='playlist__container'>
+                    {myPlaylists?.map(playlist => (
+                        <NavLink to={`/playlist/${playlist.id}`}>
+                            <div id='playlist__card'>
+                                <img src={image} alt='playlist image'/>
+                                <div id='playlist__name'>{playlist.name}</div>
+                            </div>
+                        </NavLink>
                     ))}
-                </div></>)
+                </div>
+            </>)
     } else if ( type === 'artists') {
         collection = (
-            <><div id='collection__name'>
-                    Artists
-                </div></> )
+            <>
+                <div id='collection__name'>Artists</div>
+                {myArtists
+                    ? (myArtists.length === 1
+                        ? (<div>1 artist</div>)
+                        : (<div>{myArtists?.length} artists</div>))
+                    : (<div>0 artists</div>)}
+                <div className='artist-content'>
+                    {myArtists?.map(artist => (
+                        <NavLink to={`/artist/${artist.id}`}>
+                            <div id='playlist__card'>
+                                <img src={artist?.imgUrl} alt='artist'/>
+                                {artist.name}
+                            </div>
+                        </NavLink>
+                    ))}
+                </div>
+            </> )
     } else if ( type === 'albums') {
         collection = (
-            <><div id='collection__name'>
-                    Albums
-                </div></> )
+            <>
+                <div id='collection__name'>Albums</div>
+                {myAlbums
+                    ? (myAlbums.length === 1
+                        ? (<div>1 album</div>)
+                        : (<div>{myAlbums?.length} albums</div>))
+                    : (<div>0 albums</div>)}
+                <div className='artist-content'>
+                    {myAlbums?.map(album => (
+                        <NavLink to={`/album/${album.id}`}>
+                            <div id='playlist__card'>
+                                <img src={album?.imgUrl} alt='album'/>
+                                {album.name}
+                            </div>
+                        </NavLink>
+                    ))}
+                </div>
+            </> )
     } else if ( type === 'songs') {
         collection = (
-            <><div id='collection__name'>
-                    Tracks
-                </div>
+            <>
+                <div id='collection__name'>Tracks</div>
+                {mySongs
+                    ? (mySongs.length === 1
+                        ? (<div>1 track</div>)
+                        : (<div>{mySongs?.length} tracks</div>))
+                    : (<div>0 tracks</div>)}
                 <div id='song-content'>
                     {mySongs?.map((song, i) => (
                         <div key={song?.id} id='song__bar' onClick={() => playSong(song)}>
@@ -104,7 +162,8 @@ function LibraryPage() {
                             <button type='click' onClick={() => removeFromLibrary(song)}><BiTrash /></button>
                         </div>
                     ))}
-                </div></>)
+                </div>
+            </>)
     }
 
     return (
