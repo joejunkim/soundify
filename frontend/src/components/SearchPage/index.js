@@ -5,11 +5,13 @@ import { getPlayLists } from '../../store/playlist';
 import { getArtists } from '../../store/artists';
 import { getAlbums } from '../../store/albums';
 import { getSongs } from '../../store/songs';
+import { getLibrarySongs, createLibrarySong, deleteLibrarySong } from '../../store/songtolibrary'
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import { BiSearch } from "react-icons/bi";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 
 import './SearchPage.css'
 
@@ -18,10 +20,13 @@ function SearchPage() {
 
     const { setType, setSource } = useContext(MusicPlayerContext)
 
+    const sessionUser = useSelector((state) => state.session.user);
+    const library = useSelector((state) => state.libraries[sessionUser?.id])
     const playlists = useSelector((state) => Object.values(state.playlists))
     const artists = useSelector((state) => Object.values(state.artists))
     const albums = useSelector((state) => Object.values(state.albums))
     const songs = useSelector((state) => Object.values(state.songs))
+    const librarySongs = useSelector((state) => Object.values(state.librarySongs))
 
     let searchPlaylists;
     let searchArtists;
@@ -37,17 +42,11 @@ function SearchPage() {
 
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getPlayLists())
-        dispatch(getArtists())
-        dispatch(getAlbums())
-        dispatch(getSongs())
-    }, [dispatch]);
 
     const searchNav = (
         <div id='search__input'>
             <BiSearch />
-            <input onChange={(e) => setSearchValue(e.target.value)} placeholder="Search by playlist, artist, album, or song" />
+            <input onChange={(e) => setSearchValue(e.target.value)} placeholder="Search by playlist, artist, album, or track" />
         </div>
     )
 
@@ -55,6 +54,58 @@ function SearchPage() {
         setType('track')
         setSource(song.source)
     }
+
+    const getAlbumArt = (song) => {
+        return albums[song.albumId - 1]?.imgUrl
+    }
+
+    const getAlbumArtist = (song) => {
+        return artists[albums[song.albumId - 1]?.artistId - 1]?.name
+    }
+
+    const getAlbumName = (song) => {
+        return albums[song.albumId - 1]?.name
+    }
+
+    const checkInLibrary = (song) => {
+        let inLibrary = false;
+        librarySongs?.forEach(librarySong => {
+            if (librarySong.songId === song.id && librarySong.libraryId === library.id) {
+                return inLibrary = true;
+            }
+        })
+        return inLibrary;
+    }
+
+    const addToLibrary = (song) => {
+        const payload = {
+            songId: song.id,
+            libraryId: library.id
+        }
+
+        dispatch(createLibrarySong(payload))
+        window.alert("Song added to your library")
+        window.location.reload()
+    }
+
+    const removeFromLibrary = (song) => {
+        const payload = {
+            songId: song.id,
+            libraryId: library.id
+        }
+
+        dispatch(deleteLibrarySong(payload))
+        window.alert("Song removed from your library")
+        window.location.reload()
+    }
+
+    useEffect(() => {
+        dispatch(getPlayLists())
+        dispatch(getArtists())
+        dispatch(getAlbums())
+        dispatch(getSongs())
+        dispatch(getLibrarySongs())
+    }, [dispatch]);
 
     return (
         <div id='search__container'>
@@ -119,9 +170,15 @@ function SearchPage() {
                         : (<div>0 results</div>)}
                     <div className='search__results-songs'>
                         {searchSongs?.map(song => (
-                            <div key={song.id} id='search-song__bar' onClick={() => playSong(song)}>
-                                <div id='search-song__name'>{song.name}</div>
-                                <div id='search-song__info'>{song.artistName} | {song.albumName}</div>
+                            <div key={song.id} id='search-song__bar'>
+                                <img src={getAlbumArt(song)} alt='album'></img>
+                                <div id='search-song__info' onClick={() => playSong(song)}>
+                                    <div id='search-song__name'>{song.name}</div>
+                                    <div id='search-song__sub'>{getAlbumArtist(song)} | {getAlbumName(song)}</div>
+                                </div>
+                                {!checkInLibrary(song)
+                                    ? (<AiOutlineHeart onClick={() => addToLibrary(song)}/>)
+                                    : (<AiFillHeart onClick={() => removeFromLibrary(song)}/>)}
                             </div>
                         ))}
                     </div>

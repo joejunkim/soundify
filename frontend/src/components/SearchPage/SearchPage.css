@@ -16,7 +16,7 @@
 }
 
 #search__content-results a {
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-decoration: none;
     color: white;
 }
@@ -84,13 +84,13 @@
 
 #search-song__bar {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     width: 95%;
     height: 30px;
     padding: 10px;
     border-radius: 7px;
-    font-size: 1.3rem;
-    margin: 15px 0px 15px 25px;
+    font-size: 1.25rem;
+    margin: 20px 0px 20px 25px;
 }
 
 #search-song__bar:hover {
@@ -98,6 +98,17 @@
     color: var(--text-bright-accent,#16aa4c);
 }
 
+#search-song__bar img {
+    height: 45px;
+    margin-right: 10px;
+}
+
 #search-song__info {
+    display: flex;
+    flex-direction: column;
+    width: 90%
+}
+
+#search-song__sub {
     font-size: 1rem;
 }

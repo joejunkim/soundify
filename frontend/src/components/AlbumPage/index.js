@@ -71,7 +71,7 @@ function AlbumPage() {
     const addAlbumToLibrary = (album) => {
         const payload = {
             albumId: album.id,
-            libraryId: sessionUser.id
+            libraryId: library.id
         }
 
         dispatch(createLibraryAlbum(payload))

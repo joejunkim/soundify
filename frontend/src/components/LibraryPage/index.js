@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from 'react-router-dom';
 import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
+import { getArtists } from '../../store/artists'
+import { getAlbums } from '../../store/albums'
 import { getSongs } from '../../store/songs'
 import { getLibrarySongs, deleteLibrarySong } from '../../store/songtolibrary';
-import { getLibraryAlbums, deleteLibraryAlbum } from '../../store/albumtolibrary'
+import { getLibraryArtists } from '../../store/artisttolibrary'
+import { getLibraryAlbums } from '../../store/albumtolibrary'
 import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import NavigationTop from '../NavigationTop'
@@ -64,9 +67,12 @@ function LibraryPage() {
     useEffect(() => {
         dispatch(getLibraries())
         dispatch(getPlayLists())
+        dispatch(getArtists())
+        dispatch(getAlbums())
         dispatch(getSongs())
-        dispatch(getLibrarySongs())
+        dispatch(getLibraryArtists())
         dispatch(getLibraryAlbums())
+        dispatch(getLibrarySongs())
     }, [dispatch])
 
     const removeFromLibrary = (song) => {
@@ -116,7 +122,7 @@ function LibraryPage() {
                     : (<div>0 artists</div>)}
                 <div className='artist-content'>
                     {myArtists?.map(artist => (
-                        <NavLink to={`/artist/${artist.id}`}>
+                        <NavLink to={`/artist/${artist?.id}`}>
                             <div id='playlist__card'>
                                 <img src={artist?.imgUrl} alt='artist'/>
                                 {artist.name}

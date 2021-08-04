@@ -22,7 +22,7 @@ export function MusicPlayer() {
     if ( type && source ) {
         return (
             <div id='music-player__container'>
-                <iframe src={`https://open.spotify.com/embed/${type}/${source}?theme=0&autoplay=0`} width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted media"></iframe>
+                <iframe src={`https://open.spotify.com/embed/${type}/${source}?theme=1`} width="100%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted media"></iframe>
             </div>
         )
     } else {
