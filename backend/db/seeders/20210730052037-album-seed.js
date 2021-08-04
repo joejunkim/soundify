@@ -9,9 +9,10 @@ module.exports = {
       { name: 'The College Dropout', imgUrl: 'https://images-na.ssl-images-amazon.com/images/I/91ZZsD5t%2BzL._SX355_.jpg', year: 2004, artistId: 2, source: '4Uv86qWpGTxf7fU7lG5X6F?si=41eeefaf1de34af2', createdAt: new Date(), updatedAt: new Date() },
       { name: 'Late Registration', imgUrl: 'https://m.media-amazon.com/images/I/71kp8Gg6vmL._SS500_.jpg', year: 2005, artistId: 2, source: '5ll74bqtkcXlKE7wwkMq4g?si=a7e17cfffd8147a7', createdAt: new Date(), updatedAt: new Date() },
       { name: 'Continuum', imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0e/Continuum_by_John_Mayer_%282006%29.jpg', year: 2006, artistId: 3, source: '1Xsprdt1q9rOzTic7b9zYM?si=mymJnIejTfeWPy5vWthTDw&dl_branch=1', createdAt: new Date(), updatedAt: new Date() },
+      { name: 'Sweetener', imgUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Sweetener_album_cover.png/220px-Sweetener_album_cover.png', year: '2018', artistId: 4, source: '3tx8gQqWbGwqIGZHqDNrGe?si=QUaTyCFQTZ2v9Yh5Nml-lQ&dl_branch=1', createdAt: new Date(), updatedAt: new Date()},
+      { name: 'After Hours', imgUrl: 'https://upload.wikimedia.org/wikipedia/en/c/c1/The_Weeknd_-_After_Hours.png', year: '2020', artistId: 5, source: '4yP0hdKOZPNshxUOjY0cZj?si=NE1UymOqSIqiEOvlPW6SWw&dl_branch=1', createdAt: new Date(), updatedAt: new Date()}
     ])
   },
-
   down: async (queryInterface, Sequelize) => {
     await queryInterface.bulkDelete('Albums', null, {});
   }

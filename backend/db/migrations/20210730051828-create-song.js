@@ -16,14 +16,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING()
       },
-      artistName: {
-        allowNull: false,
-        type: Sequelize.STRING(50)
-      },
-      albumName: {
-        allowNull: false,
-        type: Sequelize.STRING(50)
-      },
       albumId: {
         allowNull: false,
         type: Sequelize.INTEGER

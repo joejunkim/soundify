@@ -24,6 +24,18 @@ module.exports = {
         createdAt: new Date(),
         updatedAt: new Date()
       },
+      {
+        name: 'Ariana Grande',
+        imgUrl: 'https://i.scdn.co/image/ab6761610000e5ebcdce7620dc940db079bf4952',
+        description: 'Ariana Grande-Butera is an American singer and actress. She has received numerous accolades throughout her career, including two Grammy Awards, one Brit Award, two Billboard Music Awards, three American Music Awards, nine MTV Video Music Awards, and 26 Guinness World Records.',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      { name: 'The Weeknd',
+        imgUrl: 'https://static.billboard.com/files/2020/06/the-weeknd-2020-cr-Pari-Dukovic-billboard-1548-1593528016-compressed.jpg',
+        description: 'Abel Makkonen Tesfaye, known professionally as the Weeknd, is a Canadian singer, songwriter and record producer. Born in Toronto and raised in Scarborough, Tesfaye began his recording career in 2009 by anonymously uploading his song "Do It" to YouTube. Two years later, he met music executives Sal Slaiby and Amir Esmailian, with whom he founded XO Records. The letter E was excluded to avoid trademark problems with Canadian band the Weekend.',
+        createdAt: new Date(),
+        updatedAt: new Date()}
     ])
   },
 
