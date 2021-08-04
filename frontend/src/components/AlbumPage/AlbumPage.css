@@ -21,6 +21,7 @@
     margin: 50px 25px 25px 75px;
     border: 1px solid grey;
     box-shadow: 3px 3px 3px black;
+    object-fit: cover;
 }
 
 #album-info__info {

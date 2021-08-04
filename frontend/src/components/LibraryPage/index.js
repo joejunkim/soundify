@@ -90,20 +90,24 @@ function LibraryPage() {
         setSource(song.source)
     }
 
+    const getArtistNameAlbum = (album) => artists[album.artistId]?.name
+
     let collection;
     if ( type === 'playlists') {
         collection = (
             <>
-                <div id='collection__name'>Playlists</div>
-                {myPlaylists
-                    ? (myPlaylists.length === 1
-                        ? (<div>1 playlist</div>)
-                        : (<div>{myPlaylists?.length} playlists</div>))
-                    : (<div>0 playlists</div>)}
-                <div id='playlist__container'>
+                <div className='collection__info'>
+                    <div className='collection__name'>Playlists</div>
+                    {myPlaylists
+                        ? (myPlaylists.length === 1
+                            ? (<div className='collection__count'>1 playlist</div>)
+                            : (<div className='collection__count'>{myPlaylists?.length} playlists</div>))
+                            : (<div>0 playlists</div>)}
+                </div>
+                <div className='library__content'>
                     {myPlaylists?.map(playlist => (
                         <NavLink to={`/playlist/${playlist.id}`}>
-                            <div id='playlist__card'>
+                            <div className='library__card'>
                                 <img src={image} alt='playlist image'/>
                                 <div id='playlist__name'>{playlist.name}</div>
                             </div>
@@ -114,16 +118,18 @@ function LibraryPage() {
     } else if ( type === 'artists') {
         collection = (
             <>
-                <div id='collection__name'>Artists</div>
-                {myArtists
-                    ? (myArtists.length === 1
-                        ? (<div>1 artist</div>)
-                        : (<div>{myArtists?.length} artists</div>))
-                    : (<div>0 artists</div>)}
-                <div className='artist-content'>
+                <div className='collection__info'>
+                    <div className='collection__name'>Artists</div>
+                    {myArtists
+                        ? (myArtists.length === 1
+                            ? (<div className='collection__count'>1 artist</div>)
+                            : (<div className='collection__count'>{myArtists?.length} artists</div>))
+                        : (<div>0 artists</div>)}
+                </div>
+                <div className='library__content'>
                     {myArtists?.map(artist => (
                         <NavLink to={`/artist/${artist?.id}`}>
-                            <div id='playlist__card'>
+                            <div className='library__card'>
                                 <img src={artist?.imgUrl} alt='artist'/>
                                 {artist.name}
                             </div>
@@ -134,18 +140,21 @@ function LibraryPage() {
     } else if ( type === 'albums') {
         collection = (
             <>
-                <div id='collection__name'>Albums</div>
-                {myAlbums
-                    ? (myAlbums.length === 1
-                        ? (<div>1 album</div>)
-                        : (<div>{myAlbums?.length} albums</div>))
-                    : (<div>0 albums</div>)}
-                <div className='artist-content'>
+                <div className='collection__info'>
+                    <div className='collection__name'>Albums</div>
+                    {myAlbums
+                        ? (myAlbums.length === 1
+                            ? (<div className='collection__count'>1 album</div>)
+                            : (<div className='collection__count'>{myAlbums?.length} albums</div>))
+                        : (<div>0 albums</div>)}
+                </div>
+                <div className='library__content'>
                     {myAlbums?.map(album => (
-                        <NavLink to={`/album/${album.id}`}>
-                            <div id='playlist__card'>
+                        <NavLink to={`/album/${album?.id}`}>
+                            <div className='library__card'>
                                 <img src={album?.imgUrl} alt='album'/>
-                                {album.name}
+                                <div id='library__card-name'>{album.name}</div>
+                                <div id='library__card-info'>{getArtistNameAlbum(album)}</div>
                             </div>
                         </NavLink>
                     ))}
@@ -154,13 +163,15 @@ function LibraryPage() {
     } else if ( type === 'songs') {
         collection = (
             <>
-                <div id='collection__name'>Tracks</div>
-                {mySongs
-                    ? (mySongs.length === 1
-                        ? (<div>1 track</div>)
-                        : (<div>{mySongs?.length} tracks</div>))
-                    : (<div>0 tracks</div>)}
-                <div id='song-content'>
+                <div className='collection__info'>
+                    <div className='collection__name'>Tracks</div>
+                    {mySongs
+                        ? (mySongs.length === 1
+                            ? (<div className='collection__count'>1 track</div>)
+                            : (<div className='collection__count'>{mySongs?.length} tracks</div>))
+                        : (<div>0 tracks</div>)}
+                </div>
+                <div id='library__song-content'>
                     {mySongs?.map((song, i) => (
                         <div key={song?.id} id='song__bar' onClick={() => playSong(song)}>
                             <div id='song__id'>{i + 1}</div>

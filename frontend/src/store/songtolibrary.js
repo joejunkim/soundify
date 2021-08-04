@@ -46,12 +46,16 @@ export const createLibrarySong = (data) => async dispatch => {
 }
 
 export const deleteLibrarySong = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/songstolibraries/`,
+    const res = await csrfFetch(`/api/songstolibraries/`,
         { method: 'DELETE', body: JSON.stringify(data) });
 
-    if (response.ok) {
-        dispatch(removeLibrarySong());
+
+    if (res.ok) {
+        const librarySong = await res.json();
+        dispatch(removeLibrarySong(librarySong));
+        return;
     }
+    return;
 }
 
 const initialState = {};
@@ -77,7 +81,12 @@ const librarySongReducer = (state = initialState, action) => {
             return { ...newState };
         case REMOVE_LIBRARYSONG:
             newState = { ...state }
-            delete newState[action.librarySong]
+            for (let key in newState) {
+                let value = newState[key]
+                if (value.libraryId === action.librarySong.libraryId && value.songId === action.librarySong.songId) {
+                    delete newState[key]
+                }
+            }
             return { ...newState }
         default:
             return state;

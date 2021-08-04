@@ -19,7 +19,7 @@ import './SearchPage.css'
 
 function SearchPage() {
     const [searchValue, setSearchValue] = useState('')
-    const [trigger, setTrigger] = useState('start')
+    const [trigger, setTrigger] = useState(false)
 
     const { setType, setSource } = useContext(MusicPlayerContext)
 
@@ -45,7 +45,6 @@ function SearchPage() {
 
     const dispatch = useDispatch();
 
-
     const searchNav = (
         <div id='search__input'>
             <BiSearch />
@@ -58,21 +57,10 @@ function SearchPage() {
         setSource(song.source)
     }
 
-    const getAlbumArt = (song) => {
-        return albums[song.albumId - 1]?.imgUrl
-    }
-
-    const getArtistNameAlbum = (album) => {
-        return artists[album.artistId - 1]?.name
-    }
-
-    const getArtistNameSong = (song) => {
-        return artists[albums[song.albumId - 1]?.artistId - 1]?.name
-    }
-
-    const getAlbumName = (song) => {
-        return albums[song.albumId - 1]?.name
-    }
+    const getAlbumArt = (song) => albums[song.albumId - 1]?.imgUrl
+    const getArtistNameAlbum = (album) => artists[album.artistId - 1]?.name
+    const getArtistNameSong = (song) => artists[albums[song.albumId - 1]?.artistId - 1]?.name
+    const getAlbumName = (song) => albums[song.albumId - 1]?.name
 
     let myPlaylists;
     if (sessionUser) {
@@ -103,25 +91,25 @@ function SearchPage() {
         return inLibrary;
     }
 
-    const addToLibrary = (song) => {
+    const addToLibrary = async(song) => {
         const payload = {
             songId: song.id,
             libraryId: library.id
         }
 
-        setTrigger('back')
-        dispatch(createLibrarySong(payload))
+        await dispatch(createLibrarySong(payload))
+        setTrigger((prev) => !prev)
         window.alert("Song added to library")
     }
 
-    const removeFromLibrary = (song) => {
+    const removeFromLibrary = async(song) => {
         const payload = {
             songId: song.id,
             libraryId: library.id
         }
 
-        setTrigger('forth')
-        dispatch(deleteLibrarySong(payload))
+        await dispatch(deleteLibrarySong(payload))
+        setTrigger((prev) => !prev)
         window.alert("Song removed from library")
     }
 

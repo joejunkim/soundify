@@ -1,7 +1,7 @@
 #navbar-side__container {
     background-color: black;
     height: calc(100vh - 80px) !important;
-    width: 325px;
+    width: 320px;
     display: flex;
     flex-direction: column;
     font-weight: bold;

@@ -11,7 +11,8 @@
 #edit__img {
     width: 200px;
     height: 200px;
-    background-color:purple
+    background-color:purple;
+    object-fit: cover;
 }
 
 #edit__input {

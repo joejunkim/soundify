@@ -103,6 +103,7 @@
     height: 45px;
     margin-right: 10px;
     border: 1px solid grey;
+    object-fit: cover;
 }
 
 #search-song__info {
