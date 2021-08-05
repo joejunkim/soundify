@@ -4,6 +4,8 @@ import { NavLink, Redirect } from 'react-router-dom';
 import * as sessionActions from "../../store/session";
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+
+import { RiSoundcloudLine } from "react-icons/ri"
 import './LandingPage.css';
 
 function LandingPage() {
@@ -22,7 +24,8 @@ function LandingPage() {
         <div id='landing__container'>
             <div id='landing__navbar'>
                 <div id='landing__navbar-content'>
-                    <NavLink to='/home' activeClassName=''>
+                    <NavLink to='/home' id='logo'>
+                        <RiSoundcloudLine id='logo-img'/>
                         <div>Soundify</div>
                     </NavLink>
                     <div id='landing__navbar-session'>
@@ -32,12 +35,10 @@ function LandingPage() {
                     </div>
                 </div>
             </div>
-            <div id='landing__content'>
-                <div id='landing__content-main'>
-                    Listen. Listen. Listen Again.
-                    <NavLink to='/home'>
-                        Let's Get Started
-                    </NavLink>
+            <div id='landing__main'>
+                <div id='landing__content'>
+                    <div id='landing__intro'>'life is one grand sweet song, so start the music'</div>
+                    <NavLink to='/home'>Let's Get Started</NavLink>
                 </div>
             </div>
         </div>

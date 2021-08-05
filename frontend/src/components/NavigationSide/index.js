@@ -8,8 +8,9 @@ import CreatePlaylistModal from '../CreatePlaylistModal';
 import { BiSearch, BiHomeAlt } from "react-icons/bi";
 import { VscLibrary } from "react-icons/vsc"
 import { RiPlayListLine } from "react-icons/ri"
-import { BiPlus } from "react-icons/bi"
+import { CgPlayListAdd } from "react-icons/cg"
 
+import { RiSoundcloudLine } from "react-icons/ri"
 import './NavigationSide.css';
 
 function NavigationSide({ library }) {
@@ -34,6 +35,7 @@ function NavigationSide({ library }) {
     return (
         <div id='navbar-side__container'>
                 <NavLink to='/' id='navbar-side__logo' activeClassName=''>
+                    <RiSoundcloudLine/>
                     Soundify
                 </NavLink>
             <div id='navbar-side__links'>
@@ -50,12 +52,11 @@ function NavigationSide({ library }) {
             </div>
             { sessionUser
                 ? (<div id='navbar-side__playlists'>
+                        <div id='navbar-side__create'>
+                            <CreatePlaylistModal />
+                        </div>
                         <div id='navbar-side__playlists-name'>
                             Your Playlists
-                        </div>
-                        <div id='navbar-side__create'>
-                            <BiPlus className='navbar-icon'/>
-                            <CreatePlaylistModal />
                         </div>
                         {myPlaylists?.map(playlist => (
                             <NavLink to={`/playlist/${playlist.id}`} key={playlist.id}>

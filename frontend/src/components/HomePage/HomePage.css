@@ -2,4 +2,6 @@
     display: flex;
     background-image: linear-gradient(rgb(42, 42, 42), black);
     height: calc(100vh - 80px) !important;
+    width: 100%;
+    overflow-y: scroll;
 }

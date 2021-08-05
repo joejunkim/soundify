@@ -8,7 +8,7 @@ function CreatePlaylistForm({ setShowModal }) {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const [name, setName] = useState("");
-    const [imgUrl, setImgUrl] = useState("");
+    const [image, setImage] = useState(null);
     const [description, setDescription] = useState("");
 
     const handleSubmit = (e) => {
@@ -16,7 +16,7 @@ function CreatePlaylistForm({ setShowModal }) {
 
         const payload = {
             name,
-            imgUrl,
+            image,
             description,
             libraryId: sessionUser.id
         }
@@ -24,6 +24,11 @@ function CreatePlaylistForm({ setShowModal }) {
         dispatch(createPlaylist(payload))
         setShowModal(false);
     }
+
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setImage(file);
+      };
 
     return (
         <div id='create-playlist__form'>
@@ -46,6 +51,9 @@ function CreatePlaylistForm({ setShowModal }) {
                         onChange={(e) => setDescription(e.target.value)}
                         required
                     />
+                </label>
+                <label>
+                    <input type="file" onChange={updateFile} />
                 </label>
                 <button type="submit">Create Playlist</button>
             </form>

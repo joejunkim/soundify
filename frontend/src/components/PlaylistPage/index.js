@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getPlayLists } from '../../store/playlist';
@@ -22,12 +22,13 @@ function PlaylistPage() {
     const { id } = useParams();
     const { setType, setSource } = useContext(MusicPlayerContext)
 
+    const [ trigger, setTrigger ] = useState(false)
+
     const sessionUser = useSelector((state) => state.session.user);
     const playlist = useSelector((state) => state.playlists[id])
     const songs = useSelector((state) => (state.songs))
 
     const dispatch = useDispatch();
-    const reload = () => window.location.reload()
 
     const playlistSongs = useSelector((state) => Object.values(state.playlistSongs))
 
@@ -44,7 +45,7 @@ function PlaylistPage() {
         dispatch(getPlayLists())
         dispatch(getSongs())
         dispatch(getPlaylistSongs())
-    }, [dispatch]);
+    }, [dispatch, trigger]);
 
     const removeFromPlaylist = (song) => {
         const payload = {
@@ -53,7 +54,6 @@ function PlaylistPage() {
         }
 
         dispatch(deletePlaylistSong(payload))
-        window.location.reload()
     }
 
     const addToLibrary = (song) => {
@@ -77,7 +77,7 @@ function PlaylistPage() {
             <div id='playlist-info__content'>
                 <NavigationTop />
                 <div id='playlist-info__header'>
-                    <img src={image} alt='playlist image'/>
+                    <img src={playlist?.image} alt='playlist image'/>
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
                         <div id='playlist-info__name'>{playlist?.name}</div>
@@ -85,7 +85,7 @@ function PlaylistPage() {
                     </div>
                 </div>
                 <div id='playlist-info__options'>
-                    <div><EditPlaylistModal playlist={playlist} onExit={reload}/></div>
+                    <div><EditPlaylistModal playlist={playlist} setTrigger={setTrigger}/></div>
                     <div><DeletePlaylistModal mySongs={mySongs}/></div>
                 </div>
                 <div id='song-content'>

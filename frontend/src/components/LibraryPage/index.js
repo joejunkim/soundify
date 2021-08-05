@@ -14,7 +14,7 @@ import { MusicPlayerContext } from '../../context/MusicPlayer'
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 
-import { BiTrash } from "react-icons/bi"
+import { AiFillHeart } from "react-icons/ai"
 import image from './default_playlist.png'
 import './LibraryPage.css';
 
@@ -82,7 +82,6 @@ function LibraryPage() {
         }
 
         dispatch(deleteLibrarySong(payload))
-        window.location.reload()
     }
 
     const playSong = (song) => {
@@ -90,7 +89,10 @@ function LibraryPage() {
         setSource(song.source)
     }
 
+    const getAlbumArt = (song) => albums[song.albumId]?.imgUrl
     const getArtistNameAlbum = (album) => artists[album.artistId]?.name
+    const getArtistNameSong = (song) => artists[albums[song.albumId]?.artistId - 1]?.name
+    const getAlbumName = (song) => albums[song.albumId - 1]?.name
 
     let collection;
     if ( type === 'playlists') {
@@ -129,10 +131,10 @@ function LibraryPage() {
                 <div className='library__content'>
                     {myArtists?.map(artist => (
                         <NavLink to={`/artist/${artist?.id}`}>
-                            <div className='library__card'>
+                            <span className='library__card'>
                                 <img src={artist?.imgUrl} alt='artist'/>
-                                {artist.name}
-                            </div>
+                                {artist?.name}
+                            </span>
                         </NavLink>
                     ))}
                 </div>
@@ -175,8 +177,9 @@ function LibraryPage() {
                     {mySongs?.map((song, i) => (
                         <div key={song?.id} id='song__bar' onClick={() => playSong(song)}>
                             <div id='song__id'>{i + 1}</div>
+                            <img src={getAlbumArt(song)} alt='album'/>
                             <div id='song__name'>{song?.name}</div>
-                            <button type='click' onClick={() => removeFromLibrary(song)}><BiTrash /></button>
+                            <button type='click' onClick={() => removeFromLibrary(song)}><AiFillHeart /></button>
                         </div>
                     ))}
                 </div>
@@ -186,7 +189,7 @@ function LibraryPage() {
     return (
         <div id='library__container'>
             <NavigationSide library={library}/>
-            <div id='library__content'>
+            <div id='library__results'>
                 <NavigationTop />
                 {collection}
             </div>

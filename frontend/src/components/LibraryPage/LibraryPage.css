@@ -2,13 +2,13 @@
     display: flex;
 }
 
-#library__content {
+#library__results {
     background-image: linear-gradient(blue, black);
     color: white;
     height: calc(100vh - 80px) !important;
-    overflow-y: scroll;
     height: 70%;
-    width: 85%;
+    width: 90%;
+    overflow-y: scroll;
 }
 
 .collection__info {
@@ -25,16 +25,14 @@
 }
 
 .library__content {
-    display: flex;
-    flex-direction: column;
     margin: 0px 0px 25px 50px;
 }
+
 
 .library__content a {
     color: white;
     text-decoration: none;
     font-size: 1.1rem;
-    width: 100%;
 }
 
 .library__card {
@@ -75,4 +73,22 @@
     display: flex;
     flex-direction: column;
     margin: 0px 0px 25px 50px;
+}
+
+#library__song-content img {
+    height: 45px;
+    margin-right: 10px;
+    border: 1px solid grey;
+    object-fit: cover;
+}
+
+#library__song-content button {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    font-size: 1.5rem;
+    color: green;
+}
+
+#library__song-content button:hover {
+    cursor: pointer;
 }

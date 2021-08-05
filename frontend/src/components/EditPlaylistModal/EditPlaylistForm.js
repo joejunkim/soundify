@@ -6,37 +6,42 @@ import { editPlaylist } from "../../store/playlist"
 import "./EditPlaylist.css";
 
 
-function EditPlaylistForm({ playlist, setShowModal, onExit }) {
+function EditPlaylistForm({ playlist, setShowModal, setTrigger }) {
     const { id } = useParams();
     const sessionUser = useSelector((state) => state.session.user);
 
     const [name, setName] = useState(playlist.name);
-    const [imgUrl, setImgUrl] = useState(playlist.imgUrl);
+    const [image, setImage] = useState(playlist.image);
     const [description, setDescription] = useState(playlist.description);
 
     const dispatch = useDispatch();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
         const payload = {
             name,
-            imgUrl,
+            image,
             description,
             libraryId: sessionUser.id
         }
 
-        dispatch(editPlaylist(payload, id))
-        onExit();
+        await dispatch(editPlaylist(payload, id))
+        setTrigger((prev) => !prev)
         setShowModal(false)
     }
+
+    const updateFile = (e) => {
+        const file = e.target.files[0];
+        if (file) setImage(file);
+      };
 
     return (
         <div id='edit__form'>
             <form onSubmit={handleSubmit}>
             <h1>Edit Details</h1>
                 <div id='edit__info'>
-                    <div id='edit__img' />
+                    <img src={playlist?.image} alt='playlist'/>
                     <div id='edit__input'>
                         <label>
                             <div>Name</div>
@@ -55,6 +60,9 @@ function EditPlaylistForm({ playlist, setShowModal, onExit }) {
                                 onChange={(e) => setDescription(e.target.value)}
                                 required
                                 />
+                        </label>
+                        <label>
+                            <input type="file" onChange={updateFile} />
                         </label>
                     </div>
                 </div>

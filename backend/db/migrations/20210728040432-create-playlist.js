@@ -12,8 +12,8 @@ module.exports = {
         type: Sequelize.STRING(20),
         allowNull: false,
       },
-      imgUrl: {
-        type: Sequelize.STRING
+      image: {
+        type: Sequelize.STRING,
       },
       description: {
         type: Sequelize.STRING(500),
@@ -22,7 +22,6 @@ module.exports = {
       libraryId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        // references: { model: 'Libraries' }
       },
       createdAt: {
         allowNull: false,

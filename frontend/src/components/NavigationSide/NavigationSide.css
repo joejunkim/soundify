@@ -15,7 +15,7 @@
 #navbar-side__container a {
     display: flex;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: white;
     text-decoration: none;
     padding: 12px 0px 12px 25px;
@@ -32,7 +32,7 @@
 }
 
 .navbar-icon {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     width: 50px;
 }
 
@@ -56,22 +56,30 @@
     border-left: 4px solid white
 }
 
+#navbar-side__create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    /* font-size: 1.2rem; */
+}
+
 #navbar-side__create button {
-    padding: 10px;
-    border: 0px;
+    border: 1px solid white;
+    padding: 10px 25px 10px 25px;
     background-color: black;
     color: white;
     font-size: 1.2rem;
-    font-weight: bold;
+    border-radius: 10px;
 }
 
-#navbar-side__create:hover {
+#navbar-side__create button:hover {
     cursor: pointer;
-    border-left: 4px solid white
+    background-color: grey;
 }
 
 #navbar-side__playlists-name {
-    margin: 30px 30px 25px 30px;
+    margin: 0px 30px 15px 30px;
     display: flex;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }

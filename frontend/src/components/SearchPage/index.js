@@ -37,10 +37,10 @@ function SearchPage() {
     let searchSongs;
 
     if (searchValue) {
-        searchPlaylists = playlists?.filter(playlist => (playlist.name.toLowerCase().includes(searchValue.toLowerCase())))
-        searchArtists = artists?.filter(artist => (artist.name.toLowerCase().includes(searchValue.toLowerCase())))
-        searchAlbums = albums?.filter(album => (album.name.toLowerCase().includes(searchValue.toLowerCase())))
-        searchSongs = songs?.filter(song => (song.name.toLowerCase().includes(searchValue.toLowerCase())))
+        searchPlaylists = playlists?.filter(playlist => (playlist?.name?.toLowerCase().includes(searchValue.toLowerCase())))
+        searchArtists = artists?.filter(artist => (artist?.name?.toLowerCase().includes(searchValue.toLowerCase())))
+        searchAlbums = albums?.filter(album => (album?.name?.toLowerCase().includes(searchValue.toLowerCase())))
+        searchSongs = songs?.filter(song => (song?.name?.toLowerCase().includes(searchValue.toLowerCase())))
     }
 
     const dispatch = useDispatch();
@@ -186,7 +186,7 @@ function SearchPage() {
                     <div className='search__results-songs'>
                         {searchSongs?.map(song => (
                             <div key={song.id} id='search-song__bar'>
-                                <img src={getAlbumArt(song)} alt='album'></img>
+                                <img src={getAlbumArt(song)} alt='album'/>
                                 <div id='search-song__info' onClick={() => playSong(song)}>
                                     <div id='search-song__name'>{song.name}</div>
                                     <div id='search-song__sub'>{getArtistNameSong(song)} | {getAlbumName(song)}</div>
