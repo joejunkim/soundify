@@ -11,7 +11,6 @@ import NavigationSide from '../NavigationSide'
 import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
-import { MdPlaylistAdd } from "react-icons/md"
 
 import './AlbumPage.css';
 
@@ -170,8 +169,8 @@ function AlbumPage() {
                                     : (<></>)}
                                 {sessionUser
                                     ? ((!checkSongInLibrary(song)
-                                    ? (<AiOutlineHeart id='song-info__heart' onClick={() => addSongToLibrary(song)}/>)
-                                    : (<AiFillHeart id='song-info__heart' onClick={() => removeSongFromLibrary(song)}/>)))
+                                        ? (<AiOutlineHeart id='song-info__heart' onClick={() => addSongToLibrary(song)}/>)
+                                        : (<AiFillHeart id='song-info__heart' onClick={() => removeSongFromLibrary(song)}/>)))
                                     : (<></>)}
                             </div>
                         ))}

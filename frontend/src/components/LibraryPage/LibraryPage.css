@@ -95,7 +95,7 @@
 
 #library-song__bar {
     display: flex;
-    width: 93%;
+    width: 91%;
     height: 40px;
     padding: 10px 15px 10px 15px;
     border-radius: 7px;
@@ -111,13 +111,19 @@
 #library-song__click {
     display: flex;
     align-items: center;
-    width: 90%
+    width: 80%
+}
+
+#library-song__id {
+    width: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 #library-song__bar img {
     height: 45px;
     margin: 10px;
-    margin-left: 25px;
+    margin-left: 20px;
     border: 1px solid grey;
     object-fit: cover;
 }

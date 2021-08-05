@@ -2,8 +2,10 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { getPlayLists } from '../../store/playlist';
+import { getArtists } from '../../store/artists'
+import { getAlbums } from '../../store/albums'
 import { getSongs } from '../../store/songs'
-import { createLibrarySong } from '../../store/songtolibrary'
+import { getLibrarySongs, createLibrarySong, deleteLibrarySong } from '../../store/songtolibrary'
 import { getPlaylistSongs, deletePlaylistSong } from '../../store/songtoplaylist';
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
@@ -12,9 +14,8 @@ import { MusicPlayerContext } from '../../context/MusicPlayer'
 import EditPlaylistModal from '../EditPlaylistModal'
 import DeletePlaylistModal from '../DeletePlaylistModal'
 
-import { AiOutlineHeart } from "react-icons/ai"
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { BiTrash } from "react-icons/bi"
-import image from './default_playlist.png'
 
 import './PlaylistPage.css';
 
@@ -25,12 +26,16 @@ function PlaylistPage() {
     const [ trigger, setTrigger ] = useState(false)
 
     const sessionUser = useSelector((state) => state.session.user);
+    const library = useSelector((state) => state.libraries[sessionUser?.id])
     const playlist = useSelector((state) => state.playlists[id])
+    const artists = useSelector((state) => (state.artists))
+    const albums = useSelector((state) => (state.albums))
     const songs = useSelector((state) => (state.songs))
 
     const dispatch = useDispatch();
 
     const playlistSongs = useSelector((state) => Object.values(state.playlistSongs))
+    const librarySongs = useSelector((state) => Object.values(state.librarySongs))
 
     let mySongs = [];
     const filteredSongs = playlistSongs.filter(playlistSong => (
@@ -43,9 +48,16 @@ function PlaylistPage() {
 
     useEffect(() => {
         dispatch(getPlayLists())
+        dispatch(getArtists())
+        dispatch(getAlbums())
         dispatch(getSongs())
         dispatch(getPlaylistSongs())
+        dispatch(getLibrarySongs())
     }, [dispatch, trigger]);
+
+    const getAlbumArt = (song) => albums[song?.albumId]?.imgUrl
+    const getArtistNameSong = (song) => artists[albums[song?.albumId]?.artistId]?.name
+    const getAlbumName = (song) => albums[song?.albumId]?.name
 
     const removeFromPlaylist = (song) => {
         const payload = {
@@ -54,16 +66,40 @@ function PlaylistPage() {
         }
 
         dispatch(deletePlaylistSong(payload))
+        setTrigger(prev => !prev)
+        window.alert('Song removed from playlist')
     }
 
-    const addToLibrary = (song) => {
+    const checkSongInLibrary = (song) => {
+        let inLibrary = false;
+        librarySongs?.forEach(librarySong => {
+            if (librarySong?.songId === song?.id && librarySong?.libraryId === library?.id) {
+                return inLibrary = true;
+            }
+        })
+        return inLibrary;
+    }
+
+    const addSongToLibrary = (song) => {
         const payload = {
             songId: song.id,
-            libraryId: sessionUser.id
+            libraryId: library.id
         }
 
         dispatch(createLibrarySong(payload))
-        window.alert("Song added to your library")
+        setTrigger(prev => !prev)
+        window.alert("Song added to library")
+    }
+
+    const removeSongFromLibrary = async(song) => {
+        const payload = {
+            songId: song.id,
+            libraryId: library.id
+        }
+
+        await dispatch(deleteLibrarySong(payload))
+        setTrigger((prev) => !prev)
+        window.alert("Song removed from library")
     }
 
     const playSong = (song) => {
@@ -77,28 +113,39 @@ function PlaylistPage() {
             <div id='playlist-info__content'>
                 <NavigationTop />
                 <div id='playlist-info__header'>
-                    {playlist?.image
-                        ? (<img src={playlist?.image} alt='playlist image'/>)
-                        : (<img src={image} alt='playlist image'/>)}
+                    <img src={playlist?.image} alt='playlist image'/>
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
                         <div id='playlist-info__name'>{playlist?.name}</div>
                         <div id='playlist-info__sub'>{playlist?.description}</div>
                     </div>
                 </div>
-                <div id='playlist-info__options'>
-                    <div><EditPlaylistModal playlist={playlist} setTrigger={setTrigger}/></div>
-                    <div><DeletePlaylistModal mySongs={mySongs}/></div>
+                <div id='playlist-info__edit'>
+                    { sessionUser.id === playlist?.libraryId
+                        ? (<><div><EditPlaylistModal playlist={playlist} setTrigger={setTrigger}/></div>
+                            <div><DeletePlaylistModal mySongs={mySongs}/></div></>)
+                        : (<></>)}
                 </div>
-                <div id='song-content'>
-                    {mySongs?.map((song, i) => (
-                        <div key={song?.id} id='song__bar' onClick={() => playSong(song)}>
-                            <div id='song__id'>{i + 1}</div>
-                            <div id='song__name'>{song?.name}</div>
-                            <button type='click' onClick={() => removeFromPlaylist(song)}><BiTrash /></button>
-                            <AiOutlineHeart id='song__library' onClick={() => addToLibrary(song)}/>
-                        </div>
-                    ))}
+                <div id='playlist-song__header'>Tracks</div>
+                <div id='playlist-song__container'>
+                    <div id='playlist-song__content'>
+                        {mySongs?.map((song, i) => (
+                            <div key={song?.id} id='playlist-song__bar'>
+                                <div id='playlist-song__click'>
+                                    <div id='playlist-song__id'>{i + 1}</div>
+                                    <img src={getAlbumArt(song)} alt='album'/>
+                                    <div id='playlist-song__info' onClick={() => playSong(song)}>
+                                        <div id='playlist-song__name'>{song?.name}</div>
+                                        <div id='playlist-song__sub'>{getArtistNameSong(song)} | {getAlbumName(song)}</div>
+                                    </div>
+                                </div>
+                                <BiTrash id='playlist-song__trash' onClick={() => removeFromPlaylist(song)}/>
+                                {(!checkSongInLibrary(song)
+                                        ? (<AiOutlineHeart id='playlist-song__heart' onClick={() => addSongToLibrary(song)}/>)
+                                        : (<AiFillHeart id='playlist-song__heart' onClick={() => removeSongFromLibrary(song)}/>))}
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

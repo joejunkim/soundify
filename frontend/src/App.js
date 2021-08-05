@@ -9,6 +9,7 @@ import LibraryPage from './components/LibraryPage'
 import PlaylistPage from './components/PlaylistPage'
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
+import ErrorPage from './components/ErrorPage'
 import { MusicPlayer } from './context/MusicPlayer.js'
 
 function App() {
@@ -45,6 +46,9 @@ function App() {
             </Route>
             <Route path='/album/:id' exact>
               <AlbumPage />
+            </Route>
+            <Route path='/'>
+              <ErrorPage />
             </Route>
           </Switch>
         </>

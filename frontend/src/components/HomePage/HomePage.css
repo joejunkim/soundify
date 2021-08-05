@@ -1,7 +1,10 @@
 #homepage__container {
     display: flex;
     background-image: linear-gradient(rgb(42, 42, 42), black);
-    height: calc(100vh - 80px) !important;
-    width: 100%;
+}
+
+#homepage__content {
     overflow-y: scroll;
+    height: calc(100vh - 80px) !important;
+    width: 90%;
 }

@@ -15,7 +15,6 @@ import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 
 import { AiFillHeart } from "react-icons/ai"
-import image from './default_playlist.png'
 import './LibraryPage.css';
 
 function LibraryPage() {
@@ -85,6 +84,8 @@ function LibraryPage() {
         }
 
         dispatch(deleteLibrarySong(payload))
+        setTrigger(prev => !prev)
+        window.alert("Song removed from library")
     }
 
     const addSongToPlaylist = (song, playlistStr) => {

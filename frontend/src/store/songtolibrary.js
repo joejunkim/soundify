@@ -71,7 +71,6 @@ const librarySongReducer = (state = initialState, action) => {
                 count++
             })
             return {
-                ...state,
                 ...allLibrarySongs,
             }
         case ADD_LIBRARYSONG:
