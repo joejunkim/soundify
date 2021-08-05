@@ -77,7 +77,6 @@
 
 #library__song-content img {
     height: 45px;
-    margin-right: 10px;
     border: 1px solid grey;
     object-fit: cover;
 }
@@ -85,10 +84,50 @@
 #library__song-content button {
     background-color: rgba(0,0,0,0);
     border: none;
-    font-size: 1.5rem;
-    color: green;
+    font-size: 1.2rem;
+    color: white;
 }
 
 #library__song-content button:hover {
     cursor: pointer;
+}
+
+
+#library-song__bar {
+    display: flex;
+    width: 93%;
+    height: 40px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    margin: 5px 0px 5px 25px;
+}
+
+#library-song__bar:hover {
+    cursor: pointer;
+    background-color: rgba(42, 42, 42, 0.4);
+}
+
+#library-song__click {
+    display: flex;
+    align-items: center;
+    width: 90%
+}
+
+#library-song__bar img {
+    height: 45px;
+    margin: 10px;
+    margin-left: 25px;
+    border: 1px solid grey;
+    object-fit: cover;
+}
+
+#library-song__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+#library-song__sub {
+    font-size: .95rem;
 }

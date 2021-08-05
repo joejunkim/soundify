@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from 'react-router-dom';
 import { getLibraries } from '../../store/library';
@@ -10,7 +10,7 @@ import { getLibrarySongs, deleteLibrarySong } from '../../store/songtolibrary';
 import { getLibraryArtists } from '../../store/artisttolibrary'
 import { getLibraryAlbums } from '../../store/albumtolibrary'
 import { MusicPlayerContext } from '../../context/MusicPlayer'
-
+import { createPlaylistSong } from '../../store/songtoplaylist'
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 
@@ -21,6 +21,9 @@ import './LibraryPage.css';
 function LibraryPage() {
     const { library, type } = useParams();
     const { setType, setSource } = useContext(MusicPlayerContext)
+
+    const [ trigger, setTrigger ] = useState(false)
+
     const sessionUser = useSelector((state) => state.session.user);
     const myLibrary = useSelector((state) => state.libraries[sessionUser?.id])
     const artists = useSelector((state) => (state.artists))
@@ -73,7 +76,7 @@ function LibraryPage() {
         dispatch(getLibraryArtists())
         dispatch(getLibraryAlbums())
         dispatch(getLibrarySongs())
-    }, [dispatch])
+    }, [dispatch, trigger])
 
     const removeFromLibrary = (song) => {
         const payload = {
@@ -84,6 +87,19 @@ function LibraryPage() {
         dispatch(deleteLibrarySong(payload))
     }
 
+    const addSongToPlaylist = (song, playlistStr) => {
+        const playlistId = parseInt(playlistStr)
+
+        const payload = {
+            songId: song.id,
+            playlistId
+        }
+
+        dispatch(createPlaylistSong(payload))
+        setTrigger(prev => !prev)
+        window.alert("Song added to playlist")
+    }
+
     const playSong = (song) => {
         setType('track')
         setSource(song.source)
@@ -91,8 +107,8 @@ function LibraryPage() {
 
     const getAlbumArt = (song) => albums[song.albumId]?.imgUrl
     const getArtistNameAlbum = (album) => artists[album.artistId]?.name
-    const getArtistNameSong = (song) => artists[albums[song.albumId]?.artistId - 1]?.name
-    const getAlbumName = (song) => albums[song.albumId - 1]?.name
+    const getArtistNameSong = (song) => artists[albums[song.albumId]?.artistId]?.name
+    const getAlbumName = (song) => albums[song.albumId]?.name
 
     let collection;
     if ( type === 'playlists') {
@@ -175,10 +191,21 @@ function LibraryPage() {
                 </div>
                 <div id='library__song-content'>
                     {mySongs?.map((song, i) => (
-                        <div key={song?.id} id='song__bar' onClick={() => playSong(song)}>
-                            <div id='song__id'>{i + 1}</div>
-                            <img src={getAlbumArt(song)} alt='album'/>
-                            <div id='song__name'>{song?.name}</div>
+                        <div key={song?.id} id='library-song__bar'>
+                            <div id='library-song__click' onClick={() => playSong(song)}>
+                                <div id='library-song__id'>{i + 1}</div>
+                                <img src={getAlbumArt(song)} alt='album'/>
+                                <div id='library-song__info'>
+                                    <div id='library-song__name'>{song?.name}</div>
+                                    <div id='library-song__sub'>{getArtistNameSong(song)} | {getAlbumName(song)}</div>
+                                </div>
+                            </div>
+                            <select id='song__playlist' onChange={(e) => addSongToPlaylist(song, e.target.value)}>
+                                <option value="">--Add To Playlist--</option>
+                                {myPlaylists?.map(playlist => (
+                                    <option key={playlist.id} value={playlist.id}>{playlist.name}</option>
+                                ))}
+                            </select>
                             <button type='click' onClick={() => removeFromLibrary(song)}><AiFillHeart /></button>
                         </div>
                     ))}
