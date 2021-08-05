@@ -34,7 +34,7 @@ function NavigationTop({ searchNav }){
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div id='navbar-top__welcome'>{'Welcome ' + sessionUser.username} | </div>
+        <div id='navbar-top__welcome'>{'Welcome ' + sessionUser.username}</div>
         <button onClick={logout}>Log Out</button>
       </>
     );

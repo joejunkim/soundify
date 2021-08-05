@@ -14,7 +14,7 @@ import { MusicPlayerContext } from '../../context/MusicPlayer'
 
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
-
+import default_pic from './default.png'
 import './SearchPage.css'
 
 function SearchPage() {
@@ -138,7 +138,9 @@ function SearchPage() {
                         {searchPlaylists?.sort().map(playlist => (
                             <NavLink to={`/playlist/${playlist.id}`}>
                                 <div id='search__card'>
-                                        <img alt='playlist image'/>
+                                        { playlist?.image
+                                            ? (<img src={playlist?.image} alt='playlist'/>)
+                                            : (<img src={default_pic} alt='playlist'/>)}
                                         {playlist.name}
                                 </div>
                             </NavLink>

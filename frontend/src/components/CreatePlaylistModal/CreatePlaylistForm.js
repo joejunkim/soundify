@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPlaylist } from "../../store/playlist"
 
-import default_pic from './default_playlist.png'
 import "./CreatePlaylist.css";
 
 function CreatePlaylistForm({ setShowModal }) {
@@ -14,10 +13,6 @@ function CreatePlaylistForm({ setShowModal }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (!image) {
-            setImage(default_pic)
-        }
 
         const payload = {
             name,

@@ -15,6 +15,7 @@ import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
 
 import { AiFillHeart } from "react-icons/ai"
+import default_pic from './default.png'
 import './LibraryPage.css';
 
 function LibraryPage() {
@@ -127,7 +128,9 @@ function LibraryPage() {
                     {myPlaylists?.map(playlist => (
                         <NavLink to={`/playlist/${playlist.id}`}>
                             <div className='library__card'>
-                                <img src={playlist.image} alt='playlist image'/>
+                                { playlist?.image
+                                    ? (<img src={playlist.image} alt='playlist image'/>)
+                                    : (<img src={default_pic} alt='playlist image'/>)}
                                 <div id='playlist__name'>{playlist.name}</div>
                             </div>
                         </NavLink>

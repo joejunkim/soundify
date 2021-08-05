@@ -17,6 +17,7 @@ import DeletePlaylistModal from '../DeletePlaylistModal'
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { BiTrash } from "react-icons/bi"
 
+import default_pic from './default.png'
 import './PlaylistPage.css';
 
 function PlaylistPage() {
@@ -113,7 +114,9 @@ function PlaylistPage() {
             <div id='playlist-info__content'>
                 <NavigationTop />
                 <div id='playlist-info__header'>
-                    <img src={playlist?.image} alt='playlist image'/>
+                    { playlist?.image
+                        ? (<img src={playlist?.image} alt='playlist image'/>)
+                        : (<img src={default_pic} alt='playlist image'/>)}
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
                         <div id='playlist-info__name'>{playlist?.name}</div>
@@ -131,15 +134,17 @@ function PlaylistPage() {
                     <div id='playlist-song__content'>
                         {mySongs?.map((song, i) => (
                             <div key={song?.id} id='playlist-song__bar'>
-                                <div id='playlist-song__click'>
+                                <div id='playlist-song__click' onClick={() => playSong(song)}>
                                     <div id='playlist-song__id'>{i + 1}</div>
                                     <img src={getAlbumArt(song)} alt='album'/>
-                                    <div id='playlist-song__info' onClick={() => playSong(song)}>
+                                    <div id='playlist-song__info'>
                                         <div id='playlist-song__name'>{song?.name}</div>
                                         <div id='playlist-song__sub'>{getArtistNameSong(song)} | {getAlbumName(song)}</div>
                                     </div>
                                 </div>
-                                <BiTrash id='playlist-song__trash' onClick={() => removeFromPlaylist(song)}/>
+                                { sessionUser.id === playlist?.libraryId
+                                    ? (<BiTrash id='playlist-song__trash' onClick={() => removeFromPlaylist(song)}/>)
+                                    : (<></>)}
                                 {(!checkSongInLibrary(song)
                                         ? (<AiOutlineHeart id='playlist-song__heart' onClick={() => addSongToLibrary(song)}/>)
                                         : (<AiFillHeart id='playlist-song__heart' onClick={() => removeSongFromLibrary(song)}/>))}

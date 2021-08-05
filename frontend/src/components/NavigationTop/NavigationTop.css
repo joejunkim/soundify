@@ -72,13 +72,17 @@
 
 #navbar-top__session {
   display: flex;
-  flex-direction: column;
+  flex-direction: flex-end;
+  justify-content: flex-end;
+  width: 40vw;
 }
 
 #navbar-top__welcome {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 50px;
 }
 
 #navbar-top__session button {
