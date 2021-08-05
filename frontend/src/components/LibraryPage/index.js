@@ -110,7 +110,7 @@ function LibraryPage() {
                     {myPlaylists?.map(playlist => (
                         <NavLink to={`/playlist/${playlist.id}`}>
                             <div className='library__card'>
-                                <img src={image} alt='playlist image'/>
+                                <img src={playlist.image} alt='playlist image'/>
                                 <div id='playlist__name'>{playlist.name}</div>
                             </div>
                         </NavLink>

@@ -40,6 +40,16 @@
 #artist-info__sub {
     font-size: 1.2rem;
     margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#artist-info__heart {
+    margin-left: 5px;
+}
+
+#artist-info__heart:hover {
+    cursor: pointer;
 }
 
 #album__container {
@@ -88,4 +98,8 @@
     width: 200px;
     height: 200px;
     object-fit: cover;
+}
+
+#album__name {
+    margin-top: 15px;
 }

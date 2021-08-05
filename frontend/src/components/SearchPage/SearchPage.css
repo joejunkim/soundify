@@ -96,7 +96,7 @@
 
 #search-song__bar:hover {
     cursor: pointer;
-    color: var(--text-bright-accent,#16aa4c);
+    color: rgb(54, 226, 63);
 }
 
 #search-song__bar img {
@@ -117,6 +117,6 @@
 }
 
 #song__heart {
-    font-size: 1.5rem;
-    color: var(--text-bright-accent,#16aa4c);
+    font-size: 1.3rem;
+    color: rgb(54, 226, 63);
 }

@@ -5,8 +5,8 @@ module.exports = {
     await queryInterface.bulkInsert('Artists', [
       {
         name: 'Run River North',
-        imgUrl: 'https://wsp-app-lifewtr.s3.amazonaws.com/images/default-source/life-unseen/industry/music/run-river-north/portraits-a_1x1_run-river-north.jpg?sfvrsn=15c914ca_2',
-        description: 'Run River North, formerly known as Monsters Calling Home, is an American/Korean indie folk-rock band from Los Angeles, California.',
+        imgUrl: 'https://images.squarespace-cdn.com/content/v1/52f97993e4b0cf116f77966b/1548446164801-JQAHFK3SU8ARSH1RYWTN/Banner02.jpg?format=1500w',
+        description: "Run River North, formerly known as Monsters Calling Home, are a Korean-American group from Los Angeles, California. Starting as a indie folk-rock band, they've transitioned to an alt-rock trio, consisting of Alex Hwang, Sally Kang, and Daniel Chae.",
         createdAt: new Date(),
         updatedAt: new Date()
       },

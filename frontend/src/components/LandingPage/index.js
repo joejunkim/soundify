@@ -38,7 +38,7 @@ function LandingPage() {
             <div id='landing__main'>
                 <div id='landing__content'>
                     <div id='landing__intro'>'life is one grand sweet song, so start the music'</div>
-                    <NavLink to='/home'>Let's Get Started</NavLink>
+                    <NavLink to='/home'>Start</NavLink>
                 </div>
             </div>
         </div>

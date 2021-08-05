@@ -77,7 +77,9 @@ function PlaylistPage() {
             <div id='playlist-info__content'>
                 <NavigationTop />
                 <div id='playlist-info__header'>
-                    <img src={playlist?.image} alt='playlist image'/>
+                    {playlist?.image
+                        ? (<img src={playlist?.image} alt='playlist image'/>)
+                        : (<img src={image} alt='playlist image'/>)}
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
                         <div id='playlist-info__name'>{playlist?.name}</div>

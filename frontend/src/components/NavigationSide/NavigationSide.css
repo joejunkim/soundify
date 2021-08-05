@@ -37,12 +37,17 @@
 }
 
 #navbar-side__container #navbar-side__logo {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin: 10px 10px 10px 0px;
 }
 
 #navbar-side__container #navbar-side__logo:hover {
     background-color:none;
+}
+
+#navbar-side__main-logo {
+    margin-right: 10px;
+    font-size: 2.9rem;
 }
 
 #navbar-side__playlists {

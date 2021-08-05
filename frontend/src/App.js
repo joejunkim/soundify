@@ -34,7 +34,7 @@ function App() {
             <Route path='/search' exact>
               <SearchPage />
             </Route>
-            <Route path='/:library/collection/:type' >
+            <Route path='/:library/collection/:type' exact>
               <LibraryPage />
             </Route>
             <Route path='/playlist/:id' exact>

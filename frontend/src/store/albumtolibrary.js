@@ -14,9 +14,9 @@ const addLibraryAlbum = (libraryAlbum) => ({
     libraryAlbum
 })
 
-const removeLibraryAlbum = (librarySong) => ({
+const removeLibraryAlbum = (libraryAlbum) => ({
     type: REMOVE_LIBRARYALBUM,
-    librarySong
+    libraryAlbum
 })
 
 export const getLibraryAlbums = () => async dispatch => {
@@ -43,11 +43,13 @@ export const createLibraryAlbum = (data) => async dispatch => {
 }
 
 export const deleteLibraryAlbum = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/albumstolibraries/`,
+    const res = await csrfFetch(`/api/albumstolibraries/`,
         { method: 'DELETE', body: JSON.stringify(data) });
 
-    if (response.ok) {
-        dispatch(removeLibraryAlbum());
+    if (res.ok) {
+        const libraryAlbum = await res.json();
+        dispatch(removeLibraryAlbum(libraryAlbum));
+        return;
     }
 }
 
@@ -74,7 +76,12 @@ const libraryAlbumReducer = (state = initialState, action) => {
             return { ...newState };
         case REMOVE_LIBRARYALBUM:
             newState = { ...state }
-            delete newState[action.libraryAlbum]
+            for (let key in newState) {
+                let value = newState[key]
+                if (value.libraryId === action.libraryAlbum.libraryId && value.albumId === action.libraryAlbum.albumId) {
+                    delete newState[key]
+                }
+            }
             return { ...newState }
         default:
             return state;

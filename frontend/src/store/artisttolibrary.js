@@ -43,11 +43,13 @@ export const createLibraryArtist = (data) => async dispatch => {
 }
 
 export const deleteLibraryArtist = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/artiststolibraries/`,
+    const res = await csrfFetch(`/api/artiststolibraries/`,
         { method: 'DELETE', body: JSON.stringify(data) });
 
-    if (response.ok) {
-        dispatch(removeLibraryArtist());
+    if (res.ok) {
+        const libraryArtist = await res.json();
+        dispatch(removeLibraryArtist(libraryArtist));
+        return;
     }
 }
 
@@ -74,7 +76,12 @@ const libraryArtistReducer = (state = initialState, action) => {
             return { ...newState };
         case REMOVE_LIBRARYARTIST:
             newState = { ...state }
-            delete newState[action.libraryArtist]
+            for (let key in newState) {
+                let value = newState[key]
+                if (value.libraryId === action.libraryArtist.libraryId && value.artistId === action.libraryArtist.artistId) {
+                    delete newState[key]
+                }
+            }
             return { ...newState }
         default:
             return state;

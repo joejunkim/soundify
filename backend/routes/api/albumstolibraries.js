@@ -16,8 +16,9 @@ router.post('/', asyncHandler(async (req, res) => {
 
 router.delete('/', asyncHandler(async (req, res) => {
     const { albumId, libraryId } = req.body;
+    const libraryAlbum = await db.AlbumToLibrary.findOne({ where : { albumId, libraryId } });
     await db.AlbumToLibrary.destroy({ where: { albumId, libraryId }});
-    res.json();
+    return res.json(libraryAlbum);
 }));
 
 module.exports = router;

@@ -40,6 +40,16 @@
 #album-info__sub {
     font-size: 1.2rem;
     margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+#album-info__heart {
+    margin-left: 5px;
+}
+
+#album-info__heart:hover {
+    cursor: pointer;
 }
 
 #song__header {
@@ -63,16 +73,22 @@
 #song__bar {
     display: flex;
     align-items: center;
-    width: 95%;
+    width: 93%;
     height: 30px;
     padding: 10px;
     border-radius: 7px;
     font-size: 1.2rem;
+
 }
 
 #song__bar:hover {
     background-color: rgba(42, 42, 42, 0.4);
     cursor: pointer;
+}
+
+#song__info {
+    display: flex;
+    width: 100%
 }
 
 #song__id {
@@ -103,4 +119,12 @@
 #song__library {
     margin-left: 15px;
     font-size: 1.5rem;
+}
+
+#song-info__heart {
+    font-size: 1.3rem;
+}
+
+#song-info__heart:hover {
+    cursor: pointer;
 }

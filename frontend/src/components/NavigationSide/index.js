@@ -35,8 +35,8 @@ function NavigationSide({ library }) {
     return (
         <div id='navbar-side__container'>
                 <NavLink to='/' id='navbar-side__logo' activeClassName=''>
-                    <RiSoundcloudLine/>
-                    Soundify
+                    <RiSoundcloudLine id='navbar-side__main-logo'/>
+                    <div>Soundify</div>
                 </NavLink>
             <div id='navbar-side__links'>
                 <NavLink to='/home' >

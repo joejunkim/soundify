@@ -135,7 +135,7 @@ function SearchPage() {
                             : (<div>{searchPlaylists?.length} results</div>))
                         : (<div>0 results</div>)}
                     <div className='search__results'>
-                        {searchPlaylists?.map(playlist => (
+                        {searchPlaylists?.sort().map(playlist => (
                             <NavLink to={`/playlist/${playlist.id}`}>
                                 <div id='search__card'>
                                         <img alt='playlist image'/>
@@ -151,7 +151,7 @@ function SearchPage() {
                             : (<div>{searchArtists?.length} results</div>))
                         : (<div>0 results</div>)}
                     <div className='search__results'>
-                        {searchArtists?.map(artist => (
+                        {searchArtists?.sort().map(artist => (
                             <NavLink to={`/artist/${artist.id}`}>
                                 <div id='search__card'>
                                     <img src={artist?.imgUrl} alt='artist image'/>
