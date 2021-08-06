@@ -136,7 +136,7 @@ function SearchPage() {
                         : (<div>0 results</div>)}
                     <div className='search__results'>
                         {searchPlaylists?.sort().map(playlist => (
-                            <NavLink to={`/playlist/${playlist.id}`}>
+                            <NavLink key={playlist.id} to={`/playlist/${playlist.id}`}>
                                 <div id='search__card'>
                                         { playlist?.image
                                             ? (<img src={playlist?.image} alt='playlist'/>)
@@ -154,9 +154,9 @@ function SearchPage() {
                         : (<div>0 results</div>)}
                     <div className='search__results'>
                         {searchArtists?.sort().map(artist => (
-                            <NavLink to={`/artist/${artist.id}`}>
+                            <NavLink key={artist.id} to={`/artist/${artist.id}`}>
                                 <div id='search__card'>
-                                    <img src={artist?.imgUrl} alt='artist image'/>
+                                    <img src={artist?.imgUrl} alt='artist'/>
                                     {artist.name}
                                 </div>
                             </NavLink>
@@ -170,9 +170,9 @@ function SearchPage() {
                         : (<div>0 results</div>)}
                     <div className='search__results'>
                         {searchAlbums?.map(album => (
-                            <NavLink to={`/album/${album.id}`}>
+                            <NavLink key={album.id} to={`/album/${album.id}`}>
                                 <div id='search__card'>
-                                    <img src={album?.imgUrl} alt='album cover'/>
+                                    <img src={album?.imgUrl} alt='album'/>
                                     <div id='search__card-name'>{album.name}</div>
                                     <div id='search__card-info'>{getArtistNameAlbum(album)}</div>
                                 </div>

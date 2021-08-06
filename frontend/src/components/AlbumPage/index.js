@@ -36,7 +36,7 @@ function AlbumPage() {
 
     const songs = useSelector((state) => Object.values(state.songs))
     const albumSongs = songs?.filter(song => (
-        song.albumId == id
+        song.albumId === parseInt(id)
     ))
 
     const dispatch = useDispatch();

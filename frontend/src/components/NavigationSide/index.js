@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import CreatePlaylistModal from '../CreatePlaylistModal';
 
 import { BiSearch, BiHomeAlt } from "react-icons/bi";
 import { VscLibrary } from "react-icons/vsc"
-import { RiPlayListLine } from "react-icons/ri"
-import { CgPlayListAdd } from "react-icons/cg"
-
-import { RiSoundcloudLine } from "react-icons/ri"
+import { RiPlayListLine, RiSoundcloudLine } from "react-icons/ri"
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai"
 import './NavigationSide.css';
 
 function NavigationSide({ library }) {
@@ -26,6 +24,10 @@ function NavigationSide({ library }) {
     }
 
     const dispatch = useDispatch();
+
+    // const toGithub = () => {
+    //     window.location.href = `https://github.com';
+    // }
 
     useEffect(() => {
         dispatch(getLibraries())
@@ -64,8 +66,22 @@ function NavigationSide({ library }) {
                             </NavLink>
                         ))}
                     </div>)
-                : (<></>)
+                : (<div id='navbar-side__playlists'></div>)
             }
+            <div id='personal__info'>
+                <Link
+                    to={{ pathname: 'https://github.com/joejunkim' }}
+                    target="_blank"
+                    rel="noreferrer noopener">
+                    <AiFillGithub />
+                </Link>
+                <Link
+                    to={{ pathname: 'https://www.linkedin.com/in/josephkim6a/' }}
+                    target="_blank"
+                    rel="noreferrer noopener">
+                    <AiFillLinkedin />
+                </Link>
+            </div>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom";
 import { getArtists } from '../../store/artists';
 import { getAlbums } from '../../store/albums'
-import { getLibrarySongs, createLibrarySong, deleteLibrarySong } from '../../store/songtolibrary'
+import { getLibrarySongs } from '../../store/songtolibrary'
 import { getLibraryArtists, createLibraryArtist, deleteLibraryArtist } from '../../store/artisttolibrary'
 import NavigationTop from '../NavigationTop'
 import NavigationSide from '../NavigationSide'
@@ -25,7 +25,7 @@ function ArtistPage() {
     const libraryArtists = useSelector((state) => Object.values(state.libraryArtists))
 
     const artistAlbums = albums?.filter(album => (
-        album.artistId == id
+        album.artistId === parseInt(id)
     ))
 
     const dispatch = useDispatch();
@@ -92,10 +92,11 @@ function ArtistPage() {
                 <div id='album__header'>Albums</div>
                 <div id='album__container'>
                     <div id='album__content'>
+                        {console.log('-------> ARTISTALBUMS', artistAlbums)}
                         {artistAlbums?.map(album => (
                             <NavLink to={`/album/${album.id}`}>
                                 <div id='album__card'>
-                                    <img src={album?.imgUrl} alt='album cover'/>
+                                    <img src={album?.imgUrl} alt='album'/>
                                     <div id='album__name'>{album.name}</div>
                                     {album.year}
                                 </div>

@@ -115,8 +115,8 @@ function PlaylistPage() {
                 <NavigationTop />
                 <div id='playlist-info__header'>
                     { playlist?.image
-                        ? (<img src={playlist?.image} alt='playlist image'/>)
-                        : (<img src={default_pic} alt='playlist image'/>)}
+                        ? (<img src={playlist?.image} alt='playlist'/>)
+                        : (<img src={default_pic} alt='playlist'/>)}
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
                         <div id='playlist-info__name'>{playlist?.name}</div>
@@ -124,12 +124,19 @@ function PlaylistPage() {
                     </div>
                 </div>
                 <div id='playlist-info__edit'>
-                    { sessionUser.id === playlist?.libraryId
+                    { sessionUser?.id === playlist?.libraryId
                         ? (<><div><EditPlaylistModal playlist={playlist} setTrigger={setTrigger}/></div>
                             <div><DeletePlaylistModal mySongs={mySongs}/></div></>)
                         : (<></>)}
                 </div>
-                <div id='playlist-song__header'>Tracks</div>
+                <div id='playlist-song__main'>
+                    <div id='playlist-song__header'>Tracks</div>
+                        {mySongs
+                            ? (mySongs.length === 1
+                                ? (<div className='playlist-song__count'>1 track</div>)
+                                : (<div className='playlist-song__count'>{mySongs?.length} tracks</div>))
+                                : (<div>0 tracks</div>)}
+                </div>
                 <div id='playlist-song__container'>
                     <div id='playlist-song__content'>
                         {mySongs?.map((song, i) => (
@@ -142,7 +149,7 @@ function PlaylistPage() {
                                         <div id='playlist-song__sub'>{getArtistNameSong(song)} | {getAlbumName(song)}</div>
                                     </div>
                                 </div>
-                                { sessionUser.id === playlist?.libraryId
+                                { sessionUser?.id === playlist?.libraryId
                                     ? (<BiTrash id='playlist-song__trash' onClick={() => removeFromPlaylist(song)}/>)
                                     : (<></>)}
                                 {(!checkSongInLibrary(song)
