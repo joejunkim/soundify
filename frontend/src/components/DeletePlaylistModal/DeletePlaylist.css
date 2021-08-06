@@ -1,0 +1,30 @@
+#delete__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#delete__form h1 {
+    color: white;
+    text-align: center;
+    width: 85%;
+    margin: 50px;
+    font-size: 2.7rem;
+}
+
+#delete__form button {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    width: 300px;
+    border-radius: 100px;
+    padding: 15px 50px 15px 50px;
+    background-color: rgba(54, 226, 63, 0.85);
+}
+
+#delete__form button:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}

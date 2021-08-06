@@ -125,6 +125,7 @@ function LibraryPage() {
                             : (<div>0 playlists</div>)}
                 </div>
                 <div className='library__content'>
+                    <div id='library__test'>
                     {myPlaylists?.map(playlist => (
                         <NavLink key={playlist.id} to={`/playlist/${playlist.id}`}>
                             <div className='library__card'>
@@ -135,6 +136,7 @@ function LibraryPage() {
                             </div>
                         </NavLink>
                     ))}
+                    </div>
                 </div>
             </>)
     } else if ( type === 'artists') {

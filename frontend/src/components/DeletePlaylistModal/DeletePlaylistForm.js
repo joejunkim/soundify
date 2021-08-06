@@ -27,7 +27,7 @@ function DeletePlaylistForm({ mySongs }) {
     }
 
     return (
-        <div id='delete-playlist__form'>
+        <div id='delete__form'>
             <h1>Are you sure you want to delete this playlist?</h1>
             <form onSubmit={handleSubmit}>
                 <button type="submit">Delete Playlist</button>

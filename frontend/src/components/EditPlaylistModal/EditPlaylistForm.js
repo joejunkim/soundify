@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { editPlaylist } from "../../store/playlist"
 
+import default_pic from './default_playlist.png'
 import "./EditPlaylist.css";
 
 
@@ -40,33 +41,36 @@ function EditPlaylistForm({ playlist, setShowModal, setTrigger }) {
         <div id='edit__form'>
             <form onSubmit={handleSubmit}>
             <h1>Edit Details</h1>
-                <div id='edit__info'>
-                    <img src={playlist?.image} alt='playlist'/>
-                    <div id='edit__input'>
-                        <label>
-                            <div>Name</div>
-                            <input
-                                type="text"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                required
-                                />
-                        </label>
-                        <label>
-                            Description
-                            <textarea
-                                type="text"
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                required
-                                />
-                        </label>
+                <div id='edit__content'>
+                    <div id='edit__image'>
+                        { playlist?.image
+                            ? (<img src={playlist?.image} alt='playlist'/>)
+                            : (<img src={default_pic} alt='playlist'/>)}
                         <label>
                             <input type="file" onChange={updateFile} />
                         </label>
                     </div>
+                    <div id='edit__input'>
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            />
+                        <label>Description</label>
+                        <textarea
+                            type="text"
+                            id='edit__description'
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            required
+                            />
+                    </div>
                 </div>
-                <button type="submit">Confirm Changes</button>
+                <div id='edit__submit'>
+                    <button type="submit">Confirm Changes</button>
+                </div>
             </form>
         </div>
     )

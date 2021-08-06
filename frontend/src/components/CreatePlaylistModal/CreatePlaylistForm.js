@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createPlaylist } from "../../store/playlist"
 
+import default_pic from './default_playlist.png'
 import "./CreatePlaylist.css";
 
 function CreatePlaylistForm({ setShowModal }) {
@@ -31,31 +32,37 @@ function CreatePlaylistForm({ setShowModal }) {
       };
 
     return (
-        <div id='create-playlist__form'>
+        <div id='create__form'>
             <h1>Create Your Playlist</h1>
             <form onSubmit={handleSubmit}>
-                <label>
-                    Name
-                    <input
-                        type="text"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Description
-                    <textarea
-                        type="text"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    <input type="file" onChange={updateFile} />
-                </label>
-                <button type="submit">Create Playlist</button>
+                <div id='create__content'>
+                    <div id='create__image'>
+                        <img src={default_pic} alt='default' />
+                        <label>
+                            <input type="file" onChange={updateFile} />
+                        </label>
+                    </div>
+                    <div id='create__input'>
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                            />
+                        <label>Description</label>
+                        <textarea
+                            type="text"
+                            value={description}
+                            id='create__description'
+                            onChange={(e) => setDescription(e.target.value)}
+                            required
+                            />
+                    </div>
+                </div>
+                <div id='create__submit'>
+                    <button type="submit">Create Playlist</button>
+                </div>
             </form>
         </div>
     )

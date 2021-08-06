@@ -1,43 +1,74 @@
 #edit__form {
-    display: flex;
     color: white;
-    font-size: 1.5rem;
 }
 
-#edit__info {
+#edit__form h1 {
+    font-size: 3rem;
     display: flex;
+    justify-content: center;
 }
 
-#edit__img {
-    width: 200px;
-    height: 200px;
-    background-color:purple;
-    object-fit: cover;
+#edit__form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#edit__content {
+    display: flex;
 }
 
 #edit__input {
-    margin-left: 50px;
-}
-
-#edit__form label {
     display: flex;
     flex-direction: column;
+    margin: 30px 0px 20px 0px;
+}
+
+#edit__input label {
     font-size: 1.2rem;
-    margin: 10px 0px 10px 0px;
+    margin-top: 20px;
 }
 
-#edit__form input {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
-    height: 25px;
+#edit__input input {
+    width: 280px;
     font-size: 1.1rem;
 }
 
-#edit__form textarea {
-    display: flex;
-    flex-direction: column;
-    width: 400px;
+#edit__description {
+    width: 280px;
     height: 80px;
     font-size: 1.1rem;
+}
+
+#edit__image {
+    margin-top: 40px;
+    width: 235px;
+}
+
+#edit__image img {
+    height: 200px;
+    width: 200px;
+    border: 1px solid grey;
+    object-fit: cover;
+}
+
+#edit__submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+#edit__form button {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    width: 300px;
+    border-radius: 100px;
+    padding: 15px 50px 15px 50px;
+    background-color: rgba(54, 226, 63, 0.85);
+}
+
+#edit__form button:hover {
+    cursor: pointer;
+    transform: scale(1.02);
 }

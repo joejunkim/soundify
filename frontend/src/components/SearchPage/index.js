@@ -31,10 +31,10 @@ function SearchPage() {
     const songs = useSelector((state) => Object.values(state.songs))
     const librarySongs = useSelector((state) => Object.values(state.librarySongs))
 
-    let searchPlaylists;
-    let searchArtists;
-    let searchAlbums;
-    let searchSongs;
+    let searchPlaylists = [];
+    let searchArtists = [];
+    let searchAlbums = [];
+    let searchSongs = [];
 
     if (searchValue) {
         searchPlaylists = playlists?.filter(playlist => (playlist?.name?.toLowerCase().includes(searchValue.toLowerCase())))
@@ -135,7 +135,7 @@ function SearchPage() {
                             : (<div>{searchPlaylists?.length} results</div>))
                         : (<div>0 results</div>)}
                     <div className='search__results'>
-                        {searchPlaylists?.sort().map(playlist => (
+                        {searchPlaylists?.map(playlist => (
                             <NavLink key={playlist.id} to={`/playlist/${playlist.id}`}>
                                 <div id='search__card'>
                                         { playlist?.image

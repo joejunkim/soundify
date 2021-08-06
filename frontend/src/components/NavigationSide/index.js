@@ -25,10 +25,6 @@ function NavigationSide({ library }) {
 
     const dispatch = useDispatch();
 
-    // const toGithub = () => {
-    //     window.location.href = `https://github.com';
-    // }
-
     useEffect(() => {
         dispatch(getLibraries())
         dispatch(getPlayLists())

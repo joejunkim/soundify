@@ -83,13 +83,13 @@
 
 #playlist-song__click {
     display: flex;
-    width: 95%
+    width: 100%
 }
 
 #playlist-song__bar {
     display: flex;
     align-items: center;
-    width: 94%;
+    width: 95%;
     height: 40px;
     padding: 10px 15px 10px 15px;
     border-radius: 7px;
