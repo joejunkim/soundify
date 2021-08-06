@@ -107,8 +107,8 @@ function LibraryPage() {
         setSource(song.source)
     }
 
-    const getAlbumArt = (song) => albums[song.albumId]?.imgUrl
-    const getArtistNameAlbum = (album) => artists[album.artistId]?.name
+    const getAlbumArt = (song) => albums[song?.albumId]?.imgUrl
+    const getArtistNameAlbum = (album) => artists[album?.artistId]?.name
     const getArtistNameSong = (song) => artists[albums[song.albumId]?.artistId]?.name
     const getAlbumName = (song) => albums[song.albumId]?.name
 

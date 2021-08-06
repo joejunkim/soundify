@@ -6,7 +6,7 @@ import { deletePlaylist } from "../../store/playlist"
 
 import "./DeletePlaylist.css";
 
-function DeletePlaylistForm({ mySongs }) {
+function DeletePlaylistForm({ mySongs, setTrigger }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const { id } = useParams();
@@ -23,6 +23,7 @@ function DeletePlaylistForm({ mySongs }) {
             dispatch(deletePlaylistSong(payload))
         })
         dispatch(deletePlaylist(id))
+        setTrigger(prev => !prev)
         history.push('/library/collection/playlists')
     }
 

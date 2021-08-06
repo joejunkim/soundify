@@ -115,8 +115,8 @@ function PlaylistPage() {
                 <NavigationTop />
                 <div id='playlist-info__header'>
                     { playlist?.image
-                        ? (<img src={playlist?.image} alt='playlist'/>)
-                        : (<img src={default_pic} alt='playlist'/>)}
+                            ? (<img src={playlist?.image} alt='playlist'/>)
+                            : (<img src={default_pic} alt='playlist'/>)}
                     <div id='playlist-info__info'>
                         <div id='playlist-info__sub'>{'PLAYLIST'}</div>
                         <div id='playlist-info__name'>{playlist?.name}</div>
@@ -126,7 +126,7 @@ function PlaylistPage() {
                 <div id='playlist-info__edit'>
                     { sessionUser?.id === playlist?.libraryId
                         ? (<><div><EditPlaylistModal playlist={playlist} setTrigger={setTrigger}/></div>
-                            <div><DeletePlaylistModal mySongs={mySongs}/></div></>)
+                            <div><DeletePlaylistModal mySongs={mySongs} setTrigger={setTrigger}/></div></>)
                         : (<></>)}
                 </div>
                 <div id='playlist-song__main'>

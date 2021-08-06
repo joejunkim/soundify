@@ -92,7 +92,6 @@ function ArtistPage() {
                 <div id='album__header'>Albums</div>
                 <div id='album__container'>
                     <div id='album__content'>
-                        {console.log('-------> ARTISTALBUMS', artistAlbums)}
                         {artistAlbums?.map(album => (
                             <NavLink to={`/album/${album.id}`}>
                                 <div id='album__card'>

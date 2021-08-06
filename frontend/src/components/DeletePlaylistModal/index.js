@@ -5,7 +5,7 @@ import DeletePlaylistForm from './DeletePlaylistForm'
 import { BiTrash } from "react-icons/bi"
 import "./DeletePlaylist.css";
 
-function DeletePlaylistModal({ mySongs }) {
+function DeletePlaylistModal({ mySongs, setTrigger }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -13,7 +13,7 @@ function DeletePlaylistModal({ mySongs }) {
           <button onClick={() => setShowModal(true)}><BiTrash /></button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <DeletePlaylistForm setShowModal={setShowModal} mySongs={mySongs}/>
+              <DeletePlaylistForm setShowModal={setShowModal} mySongs={mySongs} setTrigger={setTrigger}/>
             </Modal>
           )}
         </>

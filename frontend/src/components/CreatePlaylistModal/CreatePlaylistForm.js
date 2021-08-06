@@ -56,7 +56,6 @@ function CreatePlaylistForm({ setShowModal }) {
                             value={description}
                             id='create__description'
                             onChange={(e) => setDescription(e.target.value)}
-                            required
                             />
                     </div>
                 </div>

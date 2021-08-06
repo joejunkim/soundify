@@ -59,7 +59,6 @@ export const createPlaylist = (data) => async dispatch => {
 
 export const editPlaylist = (data, id) => async dispatch => {
     const { name, image, description, libraryId } = data;
-    console.log('name', name, 'image', image, 'id', id)
     const formData = new FormData();
     formData.append("name", name);
     formData.append("description", description);
