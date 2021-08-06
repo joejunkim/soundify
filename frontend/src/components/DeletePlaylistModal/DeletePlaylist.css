@@ -22,6 +22,7 @@
     border-radius: 100px;
     padding: 15px 50px 15px 50px;
     background-color: rgba(54, 226, 63, 0.85);
+    border:none;
 }
 
 #delete__form button:hover {

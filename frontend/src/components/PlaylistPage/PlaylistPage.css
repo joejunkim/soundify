@@ -116,6 +116,7 @@
 #playlist-song__bar img {
     height: 45px;
     width: 45px;
+    border: 1px solid grey;
 }
 
 #playlist-song__info {

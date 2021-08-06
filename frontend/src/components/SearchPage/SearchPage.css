@@ -101,6 +101,7 @@
 
 #search-song__bar img {
     height: 45px;
+    width: 45px;
     margin-right: 10px;
     border: 1px solid grey;
     object-fit: cover;

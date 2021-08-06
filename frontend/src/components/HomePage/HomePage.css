@@ -29,8 +29,42 @@
 
 .home__cards {
     display: flex;
-    overflow-x: scroll;
     height: 400px;
     width: 100%;
+    overflow-x: scroll;
     margin: 0px 0px 25px 0px;
+}
+
+#random__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    height: 250px;
+    margin: 30px;
+    padding: 25px;
+    border-radius: 7px;
+    background-color: rgba(42, 42, 42, 0.4);
+}
+
+#random__card:hover {
+    background-color: rgb(42, 42, 42);
+    cursor: pointer;
+}
+
+#random__card img {
+    background-color: grey;
+    border: 1px solid grey;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#random__card-name {
+    margin-top: 15px;
+}
+
+#random__card-sub {
+    font-size: 1rem;
 }

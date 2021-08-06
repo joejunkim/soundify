@@ -32,10 +32,45 @@ module.exports = {
         updatedAt: new Date()
       },
       { name: 'The Weeknd',
-        imgUrl: 'https://static.billboard.com/files/2020/06/the-weeknd-2020-cr-Pari-Dukovic-billboard-1548-1593528016-compressed.jpg',
+        imgUrl: 'https://c.tribune.com.pk/2017/06/the-weeknd-1497333370.jpg',
         description: 'Abel Makkonen Tesfaye, known professionally as the Weeknd, is a Canadian singer, songwriter and record producer. Born in Toronto and raised in Scarborough, Tesfaye began his recording career in 2009 by anonymously uploading his song "Do It" to YouTube. Two years later, he met music executives Sal Slaiby and Amir Esmailian, with whom he founded XO Records. The letter E was excluded to avoid trademark problems with Canadian band the Weekend.',
         createdAt: new Date(),
-        updatedAt: new Date()}
+        updatedAt: new Date() },
+      {
+        name: 'Taylor Swift',
+        imgUrl: 'https://i0.wp.com/www.onthecomeuptv.com/wp-content/uploads/2015/06/Swift.jpg?fit=800%2C450&ssl=1',
+        description: 'Taylor Alison Swift is an American singer-songwriter. Her narrative songwriting, which is often inspired by her personal experiences, has received widespread media coverage and critical praise. With sales of over 200 million records worldwide, Swift is one of the best-selling music artists of all time.',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'J. Cole',
+        imgUrl: 'https://www.biography.com/.image/t_share/MTQ3Mzg3MjY0ODg2OTA4NTk5/j_cole_photo_by_isaac_brekken_wireimage_getty_503069628.jpg',
+        description: 'Jermaine Lamarr Cole, known professionally as J. Cole, is an American rapper, singer, songwriter, and record producer. Cole is regarded as one of the most influential rappers of his generation. Cole has won a Grammy Award for Best Rap Song, a Billboard Music Award for Top Rap Album, three Soul Train Music Awards, and 8 BET Hip Hop Awards. All five of his albums have been certified platinum.',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Frank Ocean',
+        imgUrl: 'https://media.gq.com/photos/5c2e6f47523c603ec00dd150/master/w_1600%2Cc_limit/frank-ocean-cover-gq-february-2019-01.jpg',
+        description: 'Frank Ocean is an American singer, songwriter, record producer, rapper, photographer, and visual artist. He is recognized for his idiosyncratic musical style, introspective and elliptical songwriting, and wide vocal range. Music critics have credited him with revitalizing jazz and funk influenced R&B, as well as advancing the genre through his experimental approach. He is considered a representative artist of alternative R&B.',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'Olivia Rodrigo',
+        imgUrl: 'https://www.rollingstone.com/wp-content/uploads/2021/06/OLIVIA01_sour_Grant-Spanier.jpg?resize=1800,1200&w=1800',
+        description: 'Olivia Isabel Rodrigo is an American actress, singer, and songwriter. Her critically acclaimed debut album, Sour, was released on May 21, 2021. She released her singles "Drivers License", "Deja Vu", and "Good 4 U", with the first and third both reaching number one in both the US and UK.',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        name: 'My Chemical Romance',
+        imgUrl: 'https://pyxis.nymag.com/v1/imgs/30c/0e3/8deae1218769a4b90a5178cb23b610f219-24-mcr.rsquare.w330.jpg',
+        description: "My Chemical romance (commonly abbreviated to MCR or My Chem) is an American rock band from Newark, New Jersey. The band's current lineup consists of lead vocalist Gerard Way, guitarists Ray Toro and Frank Iero, and bassist Mikey Way. Founded by Gerard, Mikey, Toro, and Matt Pelissier (and later joined by Iero), the band signed with Eyeball Records and released their debut album, I Brought You My Bullets, You Brought Me Your Love, in 2002.",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
     ])
   },
 

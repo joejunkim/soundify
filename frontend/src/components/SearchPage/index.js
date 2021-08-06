@@ -31,6 +31,14 @@ function SearchPage() {
     const songs = useSelector((state) => Object.values(state.songs))
     const librarySongs = useSelector((state) => Object.values(state.librarySongs))
 
+    const orderedArtists = useSelector((state) => Object.values(state.artists))
+    const orderedAlbums = useSelector((state) => Object.values(state.albums))
+
+    playlists.sort((a, b) => (a.name?.toLowerCase() > b.name?.toLowerCase()) ? 1 : -1)
+    artists.sort((a, b) => (a.name?.toLowerCase() > b.name?.toLowerCase()) ? 1 : -1)
+    albums.sort((a, b) => (a.name?.toLowerCase() > b.name?.toLowerCase()) ? 1 : -1)
+    songs.sort((a, b) => (a.name?.toLowerCase() > b.name?.toLowerCase()) ? 1 : -1)
+
     let searchPlaylists = [];
     let searchArtists = [];
     let searchAlbums = [];
@@ -57,10 +65,10 @@ function SearchPage() {
         setSource(song.source)
     }
 
-    const getAlbumArt = (song) => albums[song.albumId - 1]?.imgUrl
-    const getArtistNameAlbum = (album) => artists[album.artistId - 1]?.name
-    const getArtistNameSong = (song) => artists[albums[song.albumId - 1]?.artistId - 1]?.name
-    const getAlbumName = (song) => albums[song.albumId - 1]?.name
+    const getAlbumArt = (song) => orderedAlbums[song.albumId - 1]?.imgUrl
+    const getArtistNameAlbum = (album) => orderedArtists[album.artistId - 1]?.name
+    const getArtistNameSong = (song) => orderedArtists[orderedAlbums[song.albumId - 1]?.artistId - 1]?.name
+    const getAlbumName = (song) => orderedAlbums[song.albumId - 1]?.name
 
     let myPlaylists;
     if (sessionUser) {
