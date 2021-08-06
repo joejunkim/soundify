@@ -11,9 +11,11 @@ function CreatePlaylistForm({ setShowModal }) {
     const [name, setName] = useState("");
     const [image, setImage] = useState(null);
     const [description, setDescription] = useState("");
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setErrors([]);
 
         const payload = {
             name,
@@ -22,7 +24,12 @@ function CreatePlaylistForm({ setShowModal }) {
             libraryId: sessionUser.id
         }
 
-        dispatch(createPlaylist(payload))
+        dispatch(createPlaylist(payload)).catch(
+            async (res) => {
+              const data = await res.json();
+              if (data && data.errors) setErrors(data.errors);
+            }
+          );
         setShowModal(false);
     }
 
@@ -58,6 +65,11 @@ function CreatePlaylistForm({ setShowModal }) {
                             onChange={(e) => setDescription(e.target.value)}
                             />
                     </div>
+                    <ul>
+                        {errors.map((error, idx) => (
+                        <li key={idx}>{error}</li>
+                        ))}
+                    </ul>
                 </div>
                 <div id='create__submit'>
                     <button type="submit">Create Playlist</button>
