@@ -2,51 +2,142 @@
     display: flex;
 }
 
-#library__content {
+#library__results {
     background-image: linear-gradient(blue, black);
     color: white;
     height: calc(100vh - 80px) !important;
-    width: 85%;
+    width: 90%;
+    overflow-y: scroll;
 }
 
-#collection__name {
-    font-size: 3rem;
-    font-weight: bold;
+.collection__info {
     margin: 130px 0px 25px 50px;
 }
 
-#playlist__container {
-    display: flex;
+.collection__name {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.collection__count {
+    font-size: 1rem;
+}
+
+.library__content {
     margin: 0px 0px 25px 50px;
 }
 
-#playlist__container a {
-    font-size: 1.3rem;
-    text-decoration: none;
+.library__content a {
     color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
 }
 
-#playlist__card {
+#library__test {
+    display: flex;
+    flex-direction: row;
+}
+
+.library__card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 220px;
+    width: 200px;
     height: 250px;
     margin: 30px;
-    padding: 30px;
+    padding: 25px;
     border-radius: 7px;
-    border: 1px solid white;
+    background-color: rgba(42, 42, 42, 0.4);
 }
 
-#playlist__card:hover {
-    background-color:var(--text-bright-accent,#17c757);
+.library__card:hover {
+    background-color: rgb(0, 0, 138);
     cursor: pointer;
 }
 
-#playlist__card img {
+.library__card img {
     background-color: grey;
-    border: 2px solid white;
+    border: 1px solid grey;
     width: 200px;
     height: 200px;
+    object-fit: cover;
+}
+
+#library__card-name {
+    margin-top: 15px;
+}
+
+#library__card-info {
+    font-size: 1rem;
+}
+
+#library__song-content {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 0px 25px 50px;
+}
+
+#library__song-content img {
+    height: 45px;
+    border: 1px solid grey;
+    object-fit: cover;
+}
+
+#library__song-content button {
+    background-color: rgba(0,0,0,0);
+    border: none;
+    font-size: 1.2rem;
+    color: white;
+}
+
+#library__song-content button:hover {
+    cursor: pointer;
+}
+
+
+#library-song__bar {
+    display: flex;
+    width: 95%;
+    height: 40px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    margin: 5px 0px 5px 25px;
+}
+
+#library-song__bar:hover {
+    cursor: pointer;
+    background-color: rgba(42, 42, 42, 0.4);
+}
+
+#library-song__click {
+    display: flex;
+    align-items: center;
+    width: 90%
+}
+
+#library-song__id {
+    width: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#library-song__bar img {
+    height: 45px;
+    width: 45px;
+    margin: 10px;
+    margin-left: 20px;
+    border: 1px solid grey;
+    object-fit: cover;
+}
+
+#library-song__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+#library-song__sub {
+    font-size: .95rem;
 }

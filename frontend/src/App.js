@@ -9,12 +9,12 @@ import LibraryPage from './components/LibraryPage'
 import PlaylistPage from './components/PlaylistPage'
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
+import ErrorPage from './components/ErrorPage'
 import { MusicPlayer } from './context/MusicPlayer.js'
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
@@ -34,7 +34,7 @@ function App() {
             <Route path='/search' exact>
               <SearchPage />
             </Route>
-            <Route path='/:library/collection/:type' >
+            <Route path='/:library/collection/:type' exact>
               <LibraryPage />
             </Route>
             <Route path='/playlist/:id' exact>
@@ -45,6 +45,9 @@ function App() {
             </Route>
             <Route path='/album/:id' exact>
               <AlbumPage />
+            </Route>
+            <Route path='/'>
+              <ErrorPage />
             </Route>
           </Switch>
         </>

@@ -22,11 +22,12 @@
     flex-direction: column;
     justify-content: center;
     height: 400px;
-    width: 350px;
+    width: 100%;
 }
 
 #signup__form input {
     height: 30px;
+    width: 100%;
     font-size: 1rem;
     margin-bottom: 10px;
 }
@@ -43,7 +44,7 @@
     font-size: 1.5rem;
     font-weight: bold;
     width: 300px;
-    background-color: var(--text-bright-accent,#16aa4c);
+    background-color: rgb(54, 226, 63);
     margin-bottom: 15px;
     padding: 15px 50px 15px 50px;
     border: none;
@@ -52,21 +53,21 @@
 
 #signup__form button:hover {
     transform: scale(1.02);
-    background-color:var(--text-bright-accent,#17c757);
     cursor: pointer;
 }
 
 #signup__form-login {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 #signup__form-login button {
     margin-left: 10px;
+    margin-top: 20px;
     height: 40px;
     width: 180px;
-    color: var(--text-bright-accent,#16aa4c);
+    color: rgb(54, 226, 63);
     background-color: white;
     font-size: 1.1rem;
     display: flex;

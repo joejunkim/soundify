@@ -12,11 +12,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(50)
       },
-      img: {
-        type: Sequelize.BLOB
+      imgUrl: {
+        type: Sequelize.STRING
       },
       description: {
-        allowNull: false,
         type: Sequelize.STRING(500)
       },
       createdAt: {

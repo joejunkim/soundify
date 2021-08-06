@@ -5,13 +5,19 @@
     flex-direction: column;
 }
 
+#landing__container img {
+    object-fit: fill;
+    height: calc(100vh - 90px) !important;
+    width: 100vw;
+}
+
 #landing__navbar {
     color: white;
     background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85px;
+    height: 90px;
 }
 
 #landing__navbar-content {
@@ -23,13 +29,28 @@
 #landing__navbar-content a {
     color: white;
     text-decoration: none;
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     font-weight: bold;
     padding: 25px
 }
 
 #landing__navbar-content a:hover {
-    color: var(--text-bright-accent,#16aa4c);
+    color: rgb(54, 226, 63);
+}
+
+#logo {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 3rem;
+}
+
+#logo-img {
+    font-size: 2.5rem;
+}
+
+#logo div {
+    margin: 10px;
 }
 
 #landing__navbar-session {
@@ -38,7 +59,7 @@
 }
 
 #landing__navbar-session button {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     color: white;
     background-color: black;
@@ -47,42 +68,43 @@
 }
 
 #landing__navbar-session button:hover {
-    color: var(--text-bright-accent,#16aa4c);
+    color:rgb(54, 226, 63);
     cursor: pointer;
 }
 
-#landing__content {
-    background-color: rgb(41, 65, 171);
+#landing__main {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100%;
+    background-image: url(./splash-soundify.jpg);
+    background-size: 100vw 130vh;
+    height: 100vh
 }
 
-#landing__content-main {
-    font-size: 8.5rem;
+#landing__content {
+    font-size: 6rem;
     font-weight: bold;
-    color: var(--text-bright-accent,#16aa4c);
-    width: 50%;
+    color: white;
+    width: 55%;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    margin-top: 170px;
 }
 
-#landing__content-main a {
+#landing__content a {
     display: flex;
     justify-content: center;
     font-size: 1.5rem;
-    color: rgb(41, 65, 171);
+    color: white;
     text-decoration: none;
-    background-color:var(--text-bright-accent,#16aa4c);
+    background-color: rgba(54, 226, 63, 0.85);
     border-radius: 100px;
     padding: 20px 50px 20px 50px;
-    width: 200px;
+    margin-top: 30px;
+    width: 150px;
 }
 
-#landing__content-main a:hover {
+#landing__content a:hover {
     transform: scale(1.02);
-    background-color:var(--text-bright-accent,#17c757);
 }

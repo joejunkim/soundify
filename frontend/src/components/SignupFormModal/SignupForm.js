@@ -73,7 +73,7 @@ function SignupForm() {
             <div id='signup__form-bottom'>
               <button type="submit">Sign Up</button>
               <div id='signup__form-login'>
-                Already have an account?
+                <div>Already have an account?</div>
                 <LoginFormModal />
               </div>
             </div>

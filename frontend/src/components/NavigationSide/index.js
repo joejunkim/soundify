@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { getLibraries } from '../../store/library';
 import { getPlayLists } from '../../store/playlist';
 import CreatePlaylistModal from '../CreatePlaylistModal';
 
 import { BiSearch, BiHomeAlt } from "react-icons/bi";
 import { VscLibrary } from "react-icons/vsc"
-import { RiPlayListLine } from "react-icons/ri"
-import { BiPlus } from "react-icons/bi"
-
+import { RiPlayListLine, RiSoundcloudLine } from "react-icons/ri"
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai"
 import './NavigationSide.css';
 
 function NavigationSide({ library }) {
@@ -34,7 +33,8 @@ function NavigationSide({ library }) {
     return (
         <div id='navbar-side__container'>
                 <NavLink to='/' id='navbar-side__logo' activeClassName=''>
-                    Soundify
+                    <RiSoundcloudLine id='navbar-side__main-logo'/>
+                    <div>Soundify</div>
                 </NavLink>
             <div id='navbar-side__links'>
                 <NavLink to='/home' >
@@ -50,12 +50,11 @@ function NavigationSide({ library }) {
             </div>
             { sessionUser
                 ? (<div id='navbar-side__playlists'>
+                        <div id='navbar-side__create'>
+                            <CreatePlaylistModal />
+                        </div>
                         <div id='navbar-side__playlists-name'>
                             Your Playlists
-                        </div>
-                        <div id='navbar-side__create'>
-                            <BiPlus className='navbar-icon'/>
-                            <CreatePlaylistModal />
                         </div>
                         {myPlaylists?.map(playlist => (
                             <NavLink to={`/playlist/${playlist.id}`} key={playlist.id}>
@@ -63,8 +62,22 @@ function NavigationSide({ library }) {
                             </NavLink>
                         ))}
                     </div>)
-                : (<></>)
+                : (<div id='navbar-side__playlists'></div>)
             }
+            <div id='personal__info'>
+                <Link
+                    to={{ pathname: 'https://github.com/joejunkim' }}
+                    target="_blank"
+                    rel="noreferrer noopener">
+                    <AiFillGithub />
+                </Link>
+                <Link
+                    to={{ pathname: 'https://www.linkedin.com/in/josephkim6a/' }}
+                    target="_blank"
+                    rel="noreferrer noopener">
+                    <AiFillLinkedin />
+                </Link>
+            </div>
         </div>
     )
 }

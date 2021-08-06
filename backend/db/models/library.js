@@ -16,7 +16,21 @@ module.exports = (sequelize, DataTypes) => {
         otherKey: 'songId'
       }
 
+      const columnMapping2 = {
+        through: 'AlbumToLibrary',
+        foreignKey: 'libraryId',
+        otherKey: 'albumId'
+      }
+
+      const columnMapping3 = {
+        through: 'ArtistToLibrary',
+        foreignKey: 'libraryId',
+        otherKey: 'artistId'
+      }
+
       Library.belongsToMany(models.Song, columnMapping);
+      Library.belongsToMany(models.Album, columnMapping2)
+      Library.belongsToMany(models.Artist, columnMapping3)
       Library.belongsTo(models.User, { foreignKey: 'userId' });
       Library.hasMany(models.Playlist, { foreignKey: 'libraryId' });
     }

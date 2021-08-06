@@ -5,7 +5,7 @@ import EditPlaylistForm from './EditPlaylistForm'
 import { BsPencil } from "react-icons/bs"
 import "./EditPlaylist.css";
 
-function EditPlaylistModal({ playlist, onExit }) {
+function EditPlaylistModal({ playlist, setTrigger }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -13,7 +13,7 @@ function EditPlaylistModal({ playlist, onExit }) {
           <button onClick={() => setShowModal(true)}><BsPencil /></button>
           {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-              <EditPlaylistForm playlist={playlist} setShowModal={setShowModal} onExit={onExit}/>
+              <EditPlaylistForm playlist={playlist} setShowModal={setShowModal} setTrigger={setTrigger}/>
             </Modal>
           )}
         </>

@@ -43,11 +43,13 @@ export const createPlaylistSong = (data) => async dispatch => {
 }
 
 export const deletePlaylistSong = (data) => async dispatch => {
-    const response = await csrfFetch(`/api/songstoplaylists/`,
+    const res = await csrfFetch(`/api/songstoplaylists/`,
         { method: 'DELETE', body: JSON.stringify(data) });
 
-    if (response.ok) {
-        dispatch(removePlaylistSong());
+    if (res.ok) {
+        const playlistSong = await res.json();
+        dispatch(removePlaylistSong(playlistSong));
+        return;
     }
 }
 
@@ -64,7 +66,6 @@ const playlistSongReducer = (state = initialState, action) => {
                 count++
             })
             return {
-                ...state,
                 ...allPlaylistSongs,
             }
         case ADD_PLAYLISTSONG:
@@ -74,7 +75,12 @@ const playlistSongReducer = (state = initialState, action) => {
             return { ...newState };
         case REMOVE_PLAYLISTSONG:
             newState = { ...state }
-            delete newState[action.playlistSong]
+            for (let key in newState) {
+                let value = newState[key]
+                if (value.playlistId === action.playlistSong.playlistId && value.songId === action.playlistSong.songId) {
+                    delete newState[key]
+                }
+            }
             return { ...newState }
         default:
             return state;

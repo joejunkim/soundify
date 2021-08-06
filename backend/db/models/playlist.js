@@ -4,11 +4,15 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Playlist extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+    // static async createPlaylist({ name, profileImageUrl, description, libraryId }) {
+    //   const hashedPassword = bcrypt.hashSync(password);
+    //   const playlist = await Playlist.create({
+    //     name,
+    //     email,
+    //     hashedPassword,
+    //   });
+    //   return await User.scope('currentUser').findByPk(user.id);
+    // };
     static associate(models) {
       const columnMapping = {
         through: 'SongToPlaylist',
@@ -22,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Playlist.init({
     name: DataTypes.STRING,
-    imgUrl: DataTypes.STRING,
+    image: DataTypes.STRING,
     description: DataTypes.STRING
   }, {
     sequelize,

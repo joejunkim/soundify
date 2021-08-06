@@ -3,24 +3,22 @@
     background-image: linear-gradient(rgb(42, 42, 42), black);
 }
 
-#search__container a {
-    font-size: 1.3rem;
-    text-decoration: none;
-    color: white;
-}
-
-
-
 #search__content {
     background-image: linear-gradient(rgb(42, 42, 42), black);
     color: white;
     overflow-y: scroll;
     height: calc(100vh - 80px) !important;
-    width: 85%;
+    width: 90%;
 }
 
 #search__content-results {
     margin: 130px 50px 25px 50px;
+}
+
+#search__content-results a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: white;
 }
 
 .search__header {
@@ -38,12 +36,11 @@
     margin: 0px 0px 25px 0px;
 }
 
-
 .search__results-songs {
     overflow-y: scroll;
     height: 400px;
     width: 100%;
-    margin: 25px 0px 25px 0px;
+    margin: 25px 25px 25px 0px;
 }
 
 #search__card {
@@ -51,27 +48,76 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 220px;
+    width: 200px;
     height: 250px;
     margin: 30px;
-    padding: 30px;
+    padding: 25px;
     border-radius: 7px;
-    background-color: var(--text-bright-accent,#16aa4c);;
+    background-color: rgba(42, 42, 42, 0.4);
 }
 
 #search__card:hover {
-    background-color:var(--text-bright-accent,#17c757);
+    background-color: rgb(42, 42, 42);
     cursor: pointer;
 }
 
 #search__card img {
     background-color: grey;
+    border: 1px solid grey;
     width: 200px;
     height: 200px;
+    object-fit: cover;
+}
+
+#search__card-name {
+    margin-top: 15px;
+}
+
+#search__card-info {
+    font-size: 1rem;
 }
 
 #search__input {
     display: flex;
     align-items: center;
     font-size: 1.6rem;
+}
+
+#search-song__bar {
+    display: flex;
+    align-items: center;
+    width: 93%;
+    height: 30px;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    margin: 25px
+}
+
+#search-song__bar:hover {
+    cursor: pointer;
+    color: rgb(54, 226, 63);
+}
+
+#search-song__bar img {
+    height: 45px;
+    width: 45px;
+    margin-right: 10px;
+    border: 1px solid grey;
+    object-fit: cover;
+}
+
+#search-song__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+}
+
+#search-song__sub {
+    font-size: .95rem;
+}
+
+#song__heart {
+    font-size: 1.3rem;
+    color: rgb(54, 226, 63);
 }

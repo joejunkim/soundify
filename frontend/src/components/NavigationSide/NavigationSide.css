@@ -1,7 +1,7 @@
 #navbar-side__container {
     background-color: black;
     height: calc(100vh - 80px) !important;
-    width: 15%;
+    width: 320px;
     display: flex;
     flex-direction: column;
     font-weight: bold;
@@ -18,7 +18,7 @@
     font-size: 1.3rem;
     color: white;
     text-decoration: none;
-    padding: 12px 0px 12px 30px;
+    padding: 12px 0px 12px 25px;
 }
 
 #navbar-side__links {
@@ -32,12 +32,12 @@
 }
 
 .navbar-icon {
-    font-size: 1.4rem;
-    width: 40px;
+    font-size: 1.5rem;
+    width: 50px;
 }
 
 #navbar-side__container #navbar-side__logo {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     margin: 10px 10px 10px 0px;
 }
 
@@ -45,37 +45,57 @@
     background-color:none;
 }
 
+#navbar-side__main-logo {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-size: 3.5rem;
+}
+
 #navbar-side__playlists {
     border-top: 4px solid white;
     display: flex;
     flex-direction: column;
-    height: 100%
-}
-
-#navbar-side__playlists a {
-    padding-right: 30px;
+    height: 100%;
+    overflow-y: scroll;
 }
 
 #navbar-side__playlists a:hover {
     border-left: 4px solid white
 }
 
-#navbar-side__create button {
-    padding: 10px;
-    border: 0px;
-    background-color: black;
-    color: white;
-    font-size: 1.3rem;
-    font-weight: bold;
+#navbar-side__create {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
 }
 
-#navbar-side__create:hover {
+#navbar-side__create button {
+    border: 1px solid white;
+    padding: 10px 25px 10px 25px;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 10px;
+}
+
+#navbar-side__create button:hover {
     cursor: pointer;
-    border-left: 4px solid white
+    background-color: grey;
 }
 
 #navbar-side__playlists-name {
-    margin: 30px 30px 25px 30px;
+    margin: 0px 30px 15px 30px;
     display: flex;
     font-size: 1.3rem;
+}
+
+#pesronal__info {
+    display: flex;
+    flex-direction: row;
+}
+
+#personal__info a {
+    display: flex;
+    font-size: 1.8rem;
 }

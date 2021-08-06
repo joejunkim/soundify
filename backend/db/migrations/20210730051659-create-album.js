@@ -12,12 +12,8 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(50)
       },
-      source: {
-        allowNull: false,
-        type: Sequelize.STRING()
-      },
-      img: {
-        type: Sequelize.BLOB
+      imgUrl: {
+        type: Sequelize.STRING
       },
       year: {
         allowNull: false,

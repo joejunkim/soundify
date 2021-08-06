@@ -6,8 +6,10 @@ import playlistsReducer from './playlist';
 import artistsReducer from './artists'
 import albumsReducer from './albums'
 import songsReducer from './songs'
-import librarySongreducer from './songtolibrary'
+import librarySongReducer from './songtolibrary'
 import playlistSongReducer from './songtoplaylist'
+import libraryArtistReducer from './artisttolibrary'
+import libraryAlbumReducer from './albumtolibrary'
 
 const rootReducer = combineReducers({
   session,
@@ -16,8 +18,10 @@ const rootReducer = combineReducers({
   artists: artistsReducer,
   albums: albumsReducer,
   songs: songsReducer,
-  librarySongs: librarySongreducer,
-  playlistSongs: playlistSongReducer
+  librarySongs: librarySongReducer,
+  playlistSongs: playlistSongReducer,
+  libraryArtists: libraryArtistReducer,
+  libraryAlbums: libraryAlbumReducer
 });
 
 let enhancer;

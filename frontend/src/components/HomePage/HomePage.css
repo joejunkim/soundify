@@ -1,4 +1,70 @@
-#homepage__container {
+#home__container {
     display: flex;
     background-image: linear-gradient(rgb(42, 42, 42), black);
+}
+
+#home__content {
+    color: white;
+    overflow-y: scroll;
+    height: calc(100vh - 80px) !important;
+    width: 90%;
+}
+
+#home__results {
+    margin: 130px 50px 25px 50px;
+}
+
+#home__results a {
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: white;
+}
+
+.home__header {
+    margin-top: 50px;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+}
+
+.home__cards {
+    display: flex;
+    height: 400px;
+    width: 100%;
+    overflow-x: scroll;
+    margin: 0px 0px 25px 0px;
+}
+
+#random__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    height: 250px;
+    margin: 30px;
+    padding: 25px;
+    border-radius: 7px;
+    background-color: rgba(42, 42, 42, 0.4);
+}
+
+#random__card:hover {
+    background-color: rgb(42, 42, 42);
+    cursor: pointer;
+}
+
+#random__card img {
+    background-color: grey;
+    border: 1px solid grey;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+#random__card-name {
+    margin-top: 15px;
+}
+
+#random__card-sub {
+    font-size: 1rem;
 }
