@@ -3,7 +3,7 @@
 }
 
 #album-info__content {
-    background-image: linear-gradient(rgb(61, 253, 103), black);
+    background-image: linear-gradient(rgb(61, 253, 103), 20%, black);
     overflow-y: scroll;
     height: calc(100vh - 80px) !important;
     width: 90%;

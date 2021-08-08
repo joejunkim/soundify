@@ -3,7 +3,7 @@
 }
 
 #artist-info__content {
-    background-image: linear-gradient(yellow, black);
+    background-image: linear-gradient(yellow, 35%, black);
     height: calc(100vh - 80px) !important;
     width: 90%;
     overflow-y: scroll;

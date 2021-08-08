@@ -52,8 +52,7 @@ export const createPlaylist = (data) => async dispatch => {
 
     if (res.ok) {
         const playlist = await res.json();
-        dispatch(addPlaylist(playlist))
-        return;
+        dispatch(addPlaylist(playlist));
     }
 }
 
@@ -76,6 +75,14 @@ export const editPlaylist = (data, id) => async dispatch => {
     if (res.ok) {
         const playlist = await res.json();
         dispatch(updatePlaylist(playlist));
+        return res;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors
+        }
+    } else {
+        return ['Server error occurred. Please try again.']
     }
 }
 

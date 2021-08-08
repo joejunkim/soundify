@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import { createLibrary } from '../../store/library'
+
+import { RiSoundcloudLine } from "react-icons/ri"
 import LoginFormModal from '../LoginFormModal';
 import "./SignupForm.css";
 
@@ -36,7 +38,7 @@ function SignupForm() {
 
     return (
       <div id='signup__form'>
-        <h1>Soundify</h1>
+        <h1><RiSoundcloudLine className='form__logo'/>Soundify</h1>
         <form onSubmit={handleSubmit}>
           <div id='signup__form-info'>
             Email
@@ -67,7 +69,7 @@ function SignupForm() {
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
               />
-            <ul>
+            <ul className='form__errors'>
               {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <div id='signup__form-bottom'>

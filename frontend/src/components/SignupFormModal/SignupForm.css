@@ -3,18 +3,20 @@
     flex-direction: column;
     align-items: center;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 #signup__form h1 {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 3rem;
 }
 
 #signup__form form {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 #signup__form-info {
@@ -22,11 +24,10 @@
     flex-direction: column;
     justify-content: center;
     height: 400px;
-    width: 100%;
+    width: 75%;
 }
 
 #signup__form input {
-    height: 30px;
     width: 100%;
     font-size: 1rem;
     margin-bottom: 10px;
@@ -78,4 +79,9 @@
 #signup__form-login button:hover {
     transform: scale(1.02);
     background-color: white;
+}
+
+.form__logo {
+    font-size: 4rem;
+    margin-right: 10px;
 }

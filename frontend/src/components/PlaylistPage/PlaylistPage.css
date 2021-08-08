@@ -3,7 +3,7 @@
 }
 
 #playlist-info__content {
-    background-image: linear-gradient(red, black);
+    background-image: linear-gradient(red, 20%, black);
     height: calc(100vh - 80px) !important;
     width: 90%;
     overflow-y: scroll;

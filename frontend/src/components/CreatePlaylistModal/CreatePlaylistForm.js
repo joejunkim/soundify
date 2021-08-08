@@ -13,10 +13,11 @@ function CreatePlaylistForm({ setShowModal }) {
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState([]);
 
+    let formErrors = [];
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
-
         const payload = {
             name,
             image,
@@ -24,13 +25,18 @@ function CreatePlaylistForm({ setShowModal }) {
             libraryId: sessionUser.id
         }
 
-        dispatch(createPlaylist(payload)).catch(
-            async (res) => {
-              const data = await res.json();
-              if (data && data.errors) setErrors(data.errors);
-            }
-          );
-        setShowModal(false);
+        if (name.length > 20) {
+            formErrors.push('Name must be 20 or fewer characters')
+        }
+        if (description.length > 200) {
+            formErrors.push('Description must be 200 or fewer characters')
+        }
+        if (formErrors.length) {
+            return setErrors(formErrors);
+        } else {
+            dispatch(createPlaylist(payload))
+            setShowModal(false)
+        }
     }
 
     const updateFile = (e) => {
@@ -65,12 +71,12 @@ function CreatePlaylistForm({ setShowModal }) {
                             onChange={(e) => setDescription(e.target.value)}
                             />
                     </div>
-                    <ul>
-                        {errors.map((error, idx) => (
-                        <li key={idx}>{error}</li>
-                        ))}
-                    </ul>
                 </div>
+                <ul className='form__errors'>
+                    {errors.map((error, idx) => (
+                    <li key={idx}>{error}</li>
+                    ))}
+                </ul>
                 <div id='create__submit'>
                     <button type="submit">Create Playlist</button>
                 </div>

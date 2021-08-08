@@ -3,7 +3,7 @@
 }
 
 #library__results {
-    background-image: linear-gradient(blue, black);
+    background-image: linear-gradient(blue, 20%, black);
     color: white;
     height: calc(100vh - 80px) !important;
     width: 90%;
@@ -33,9 +33,10 @@
     font-size: 1.1rem;
 }
 
-#library__test {
+#library__wrap {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .library__card {

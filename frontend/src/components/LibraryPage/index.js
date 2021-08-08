@@ -125,17 +125,17 @@ function LibraryPage() {
                             : (<div>0 playlists</div>)}
                 </div>
                 <div className='library__content'>
-                    <div id='library__test'>
-                    {myPlaylists?.map(playlist => (
-                        <NavLink key={playlist.id} to={`/playlist/${playlist.id}`}>
-                            <div className='library__card'>
-                                { playlist?.image
-                                    ? (<img src={playlist.image} alt='playlist'/>)
-                                    : (<img src={default_pic} alt='playlist'/>)}
-                                <div id='playlist__name'>{playlist.name}</div>
-                            </div>
-                        </NavLink>
-                    ))}
+                    <div id='library__wrap'>
+                        {myPlaylists?.map(playlist => (
+                            <NavLink key={playlist.id} to={`/playlist/${playlist.id}`}>
+                                <div className='library__card'>
+                                    { playlist?.image
+                                        ? (<img src={playlist.image} alt='playlist'/>)
+                                        : (<img src={default_pic} alt='playlist'/>)}
+                                    <div id='playlist__name'>{playlist.name}</div>
+                                </div>
+                            </NavLink>
+                        ))}
                     </div>
                 </div>
             </>)
@@ -151,14 +151,16 @@ function LibraryPage() {
                         : (<div>0 artists</div>)}
                 </div>
                 <div className='library__content'>
-                    {myArtists?.map(artist => (
-                        <NavLink key={artist.id} to={`/artist/${artist?.id}`}>
-                            <span className='library__card'>
-                                <img src={artist?.imgUrl} alt='artist'/>
-                                {artist?.name}
-                            </span>
-                        </NavLink>
-                    ))}
+                    <div id='library__wrap'>
+                        {myArtists?.map(artist => (
+                            <NavLink key={artist.id} to={`/artist/${artist?.id}`}>
+                                <span className='library__card'>
+                                    <img src={artist?.imgUrl} alt='artist'/>
+                                    {artist?.name}
+                                </span>
+                            </NavLink>
+                        ))}
+                    </div>
                 </div>
             </> )
     } else if ( type === 'albums') {
@@ -173,15 +175,17 @@ function LibraryPage() {
                         : (<div>0 albums</div>)}
                 </div>
                 <div className='library__content'>
-                    {myAlbums?.map(album => (
-                        <NavLink key={album.id} to={`/album/${album?.id}`}>
-                            <div className='library__card'>
-                                <img src={album?.imgUrl} alt='album'/>
-                                <div id='library__card-name'>{album.name}</div>
-                                <div id='library__card-info'>{getArtistNameAlbum(album)}</div>
-                            </div>
-                        </NavLink>
-                    ))}
+                    <div id='library__wrap'>
+                        {myAlbums?.map(album => (
+                            <NavLink key={album.id} to={`/album/${album?.id}`}>
+                                <div className='library__card'>
+                                    <img src={album?.imgUrl} alt='album'/>
+                                    <div id='library__card-name'>{album.name}</div>
+                                    <div id='library__card-info'>{getArtistNameAlbum(album)}</div>
+                                </div>
+                            </NavLink>
+                        ))}
+                    </div>
                 </div>
             </> )
     } else if ( type === 'songs') {

@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.STRING(500),
+        type: Sequelize.STRING(200),
       },
       libraryId: {
         type: Sequelize.INTEGER,
