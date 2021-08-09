@@ -27,6 +27,7 @@ module.exports = {
       {
         name: 'Running',
         description: 'Work up a sweat',
+        image: 'https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/04/18/15/run-header.jpg?width=1200',
         libraryId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -35,6 +36,7 @@ module.exports = {
         name: 'Dance Mix',
         description: 'Good vibes',
         libraryId: 2,
+        image: 'https://campusrec.fsu.edu/wp-content/uploads/2019/02/dance.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -42,6 +44,7 @@ module.exports = {
         name: 'Top Radio Hits',
         description: 'Popular songs',
         libraryId: 3,
+        image: 'https://i.scdn.co/image/ab67706c0000bebb35c81de812517af2a6ac1919',
         createdAt: new Date(),
         updatedAt: new Date()
       }
