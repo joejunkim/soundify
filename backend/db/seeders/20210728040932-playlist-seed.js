@@ -7,6 +7,7 @@ module.exports = {
         name: 'DJ JD',
         description: "It's always a kahoot",
         libraryId: 1,
+        image: 'https://joekim.s3.us-west-2.amazonaws.com/DJ.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -14,6 +15,7 @@ module.exports = {
         name: "Mylo's Dance",
         description: 'Track that progress!',
         libraryId: 1,
+        image: 'https://joekim.s3.us-west-2.amazonaws.com/party.png',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -21,13 +23,14 @@ module.exports = {
         name: 'Chill Coding Vibes',
         description: 'This is fine',
         libraryId: 1,
+        image: 'https://joekim.s3.us-west-2.amazonaws.com/thisisfine.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         name: 'Running',
         description: 'Work up a sweat',
-        image: 'https://static.standard.co.uk/s3fs-public/thumbnails/image/2017/04/18/15/run-header.jpg?width=1200',
+        image: 'https://joekim.s3.us-west-2.amazonaws.com/running.jpg',
         libraryId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -36,7 +39,7 @@ module.exports = {
         name: 'Dance Mix',
         description: 'Good vibes',
         libraryId: 2,
-        image: 'https://campusrec.fsu.edu/wp-content/uploads/2019/02/dance.jpg',
+        image: 'https://joekim.s3.us-west-2.amazonaws.com/dance-party.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -44,7 +47,7 @@ module.exports = {
         name: 'Top Radio Hits',
         description: 'Popular songs',
         libraryId: 3,
-        image: 'https://i.scdn.co/image/ab67706c0000bebb35c81de812517af2a6ac1919',
+        image: 'https://joekim.s3.us-west-2.amazonaws.com/topsongs.jpg',
         createdAt: new Date(),
         updatedAt: new Date()
       }
