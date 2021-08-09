@@ -88,15 +88,15 @@
     align-items: center;
     width: 93%;
     height: 30px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 7px;
     font-size: 1.2rem;
-    margin: 25px
+    margin: 15px
 }
 
 #search-song__bar:hover {
     cursor: pointer;
-    color: rgb(54, 226, 63);
+    background-color: rgba(42, 42, 42, 0.4);
 }
 
 #search-song__bar img {
@@ -113,11 +113,18 @@
     width: 100%
 }
 
+#search-song__info:hover {
+    color: rgb(54, 226, 63);
+}
+
 #search-song__sub {
     font-size: .95rem;
 }
 
 #song__heart {
     font-size: 1.3rem;
+}
+
+#song__heart:hover {
     color: rgb(54, 226, 63);
 }

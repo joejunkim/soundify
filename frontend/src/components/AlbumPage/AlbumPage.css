@@ -50,6 +50,7 @@
 
 #album-info__heart:hover {
     cursor: pointer;
+    color: rgb(54, 226, 63);
 }
 
 #song__header {
@@ -81,13 +82,17 @@
 }
 
 #song__bar:hover {
-    background-color: rgba(42, 42, 42, 0.4);
     cursor: pointer;
+    background-color: rgba(42, 42, 42, 0.4);
 }
 
 #song__info {
     display: flex;
     width: 100%
+}
+
+#song__info:hover {
+    color: rgb(54, 226, 63);
 }
 
 #song__id {
@@ -126,4 +131,5 @@
 
 #song-info__heart:hover {
     cursor: pointer;
+    color: rgb(54, 226, 63);
 }

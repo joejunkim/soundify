@@ -94,6 +94,7 @@
 
 #library__song-content button:hover {
     cursor: pointer;
+    color: rgb(54, 226, 63);
 }
 
 
@@ -116,6 +117,10 @@
     display: flex;
     align-items: center;
     width: 90%
+}
+
+#library-song__click:hover {
+    color: rgb(54, 226, 63);
 }
 
 #library-song__id {
@@ -141,4 +146,9 @@
 
 #library-song__sub {
     font-size: .95rem;
+}
+
+#song__playlist:hover {
+    color: rgb(54, 226, 63);
+    cursor: pointer;
 }

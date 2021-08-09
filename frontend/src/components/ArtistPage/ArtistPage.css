@@ -50,6 +50,7 @@
 
 #artist-info__heart:hover {
     cursor: pointer;
+    color: rgb(54, 226, 63);
 }
 
 #album__container {

@@ -15,7 +15,7 @@ function CreatePlaylistForm({ setShowModal }) {
 
     let formErrors = [];
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         setErrors([]);
         const payload = {
@@ -34,7 +34,7 @@ function CreatePlaylistForm({ setShowModal }) {
         if (formErrors.length) {
             return setErrors(formErrors);
         } else {
-            dispatch(createPlaylist(payload))
+            await dispatch(createPlaylist(payload))
             setShowModal(false)
         }
     }

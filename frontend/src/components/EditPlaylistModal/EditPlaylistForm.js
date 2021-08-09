@@ -40,7 +40,7 @@ function EditPlaylistForm({ playlist, setShowModal, setTrigger }) {
         if (formErrors.length) {
             return setErrors(formErrors);
         } else {
-            dispatch(editPlaylist(payload, id))
+            await dispatch(editPlaylist(payload, id))
             setTrigger((prev) => !prev)
             setShowModal(false)
             return;
