@@ -11,7 +11,7 @@ import { RiPlayListLine, RiSoundcloudLine } from "react-icons/ri"
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai"
 import './NavigationSide.css';
 
-function NavigationSide({ library }) {
+function NavigationSide() {
     const sessionUser = useSelector(state => state.session.user);
     const myLibrary = useSelector((state) => state.libraries[sessionUser?.id])
 
