@@ -127,6 +127,7 @@
 #playlist-song__info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin-left: 15px;
 }
 
