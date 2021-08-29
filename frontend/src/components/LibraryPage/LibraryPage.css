@@ -88,7 +88,7 @@
 #library__song-content button {
     background-color: rgba(0,0,0,0);
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: white;
 }
 
@@ -104,7 +104,7 @@
     height: 40px;
     padding: 10px 15px 10px 15px;
     border-radius: 7px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin: 5px 0px 5px 25px;
 }
 

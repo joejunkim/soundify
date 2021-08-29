@@ -1,6 +1,6 @@
 #navbar-top__container {
   height: 75px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: white;
   background-color: rgba(0, 0, 0, 0);
   border: none;
@@ -44,7 +44,7 @@
 #navbar-top__links input {
   text-decoration: none;
   margin: 10px;
-  padding: 15px;
+  padding: 10px;
   width: 30vw;
   border: none;
   border-top: 3px solid white;
@@ -74,13 +74,13 @@
   display: flex;
   flex-direction: flex-end;
   justify-content: flex-end;
-  width: 40vw;
+  width: 800px;
 }
 
 #navbar-top__welcome {
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin-right: 50px;
 }
@@ -89,7 +89,7 @@
   color: white;
   border: none;
   background-color: rgba(0, 0, 0, 0);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   margin: 10px;
   padding: 15px;
