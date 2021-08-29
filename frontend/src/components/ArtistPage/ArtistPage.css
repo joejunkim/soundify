@@ -33,7 +33,7 @@
 }
 
 #artist-info__name {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: bold;
 }
 
@@ -80,8 +80,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 200px;
-    height: 250px;
+    width: 180px;
+    height: 230px;
     margin: 30px;
     padding: 25px;
     border-radius: 7px;
@@ -96,8 +96,8 @@
 #album__card img {
     background-color: grey;
     border: 1px solid grey;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
 }
 

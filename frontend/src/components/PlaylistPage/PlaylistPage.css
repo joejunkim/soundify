@@ -33,7 +33,7 @@
 }
 
 #playlist-info__name {
-    font-size: 6rem;
+    font-size: 5rem;
     font-weight: bold;
 }
 
@@ -46,7 +46,7 @@
     margin: 0px 0px 0px 90px;
     display: flex;
     justify-content: space-evenly;
-    width: 200px;
+    width: 180px;
 }
 
 #playlist-info__edit button {

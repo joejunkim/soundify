@@ -3,7 +3,7 @@
 }
 
 #create__form h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     display: flex;
     justify-content: center;
 }
@@ -45,8 +45,8 @@
 }
 
 #create__image img {
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
     border: 1px solid grey;
     object-fit: cover;
 }

@@ -23,7 +23,7 @@
 
 .search__header {
     margin-top: 50px;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: white;
 }
@@ -31,7 +31,7 @@
 .search__results {
     display: flex;
     overflow-x: scroll;
-    height: 400px;
+    height: 365px;
     width: 100%;
     margin: 0px 0px 25px 0px;
 }
@@ -48,8 +48,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 200px;
-    height: 250px;
+    width: 180px;
+    height: 230px;
     margin: 30px;
     padding: 25px;
     border-radius: 7px;
@@ -64,8 +64,8 @@
 #search__card img {
     background-color: grey;
     border: 1px solid grey;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
 }
 
@@ -80,7 +80,7 @@
 #search__input {
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 }
 
 #search-song__bar {

@@ -22,14 +22,14 @@
 
 .home__header {
     margin-top: 50px;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: white;
 }
 
 .home__cards {
     display: flex;
-    height: 400px;
+    height: 365px;
     width: 100%;
     overflow-x: scroll;
     margin: 0px 0px 25px 0px;
@@ -39,11 +39,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    width: 200px;
-    height: 250px;
+    /* justify-content: space-between; */
+    width: 180px;
+    height: 230px;
     margin: 30px;
-    padding: 25px;
+    padding: 20px;
     border-radius: 7px;
     background-color: rgba(42, 42, 42, 0.4);
 }
@@ -56,13 +56,10 @@
 #random__card img {
     background-color: grey;
     border: 1px solid grey;
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     object-fit: cover;
-}
-
-#random__card-name {
-    margin-top: 15px;
+    margin-bottom: 12px;
 }
 
 #random__card-sub {
