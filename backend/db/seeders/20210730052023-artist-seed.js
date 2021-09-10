@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         name: 'John Mayer',
-        imgUrl: 'https://images1.westword.com/imager/u/745xauto/12037195/jm_by_mark_seliger.jpg',
+        imgUrl: 'https://cdns-images.dzcdn.net/images/artist/a6d0e250c8d4acb660d4c9b1a633778c.jpg',
         description: 'John Clayton Mayer is an American singer, songwriter, guitarist, and record producer. Born and raised in Fairfield County, Connecticut, Mayer attended Berklee College of Music in Boston, but left and moved to Atlanta in 1997 with Clay Cook. ',
         createdAt: new Date(),
         updatedAt: new Date()
