@@ -16,9 +16,11 @@ Explore and listen at soundify-aa.herokuapp.com
 
 ### Technologies
 - React.js
-- Redux
-- Express
+- Redux.js
+- Express.js
 - PostgreSQL
+- Sequelize
+- CSS3
 - Heroku
 - AWS API (image uploading)
 
