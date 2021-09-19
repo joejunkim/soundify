@@ -26,25 +26,25 @@ Explore and listen at soundify-aa.herokuapp.com
 Soundify is a single-page web application built with components using React. React works with Redux to make changes on the front-end, speeding up processes and rendering, creating a better user experience. Redux is also used to speak to the back-end.
 
 ### Splash / Landing Page:
-![splash](https://soundify-aa.herokuapp.com)
+![splash-soundify](https://user-images.githubusercontent.com/69053706/133916327-505e9a33-7231-4e7d-ae8a-0f5bdeaf75dc.jpg)
 
 ### Home Page:
-![home](https://soundify-aa.herokuapp.com/home)
+![home-soundify](https://user-images.githubusercontent.com/69053706/133916336-a0a70965-6d58-4cb1-ac0f-4a7441c4c56e.JPG)
 
 ### Search Page:
-![search](https://soundify-aa.herokuapp.com/search)
+![search-soundify](https://user-images.githubusercontent.com/69053706/133916340-6572742e-adb1-4cde-8128-99c0b8310a64.JPG)
 
 ### Library Page:
-![library](https://soundify-aa.herokuapp.com/library/collection/playlists)
+![library-soundify](https://user-images.githubusercontent.com/69053706/133916342-8e9b6a82-dc33-4c9f-8ee2-7dff58b2e55c.JPG)
 
 ### Artist Page:
-![artist](https://soundify-aa.herokuapp.com/artist/1)
+![artist-soundify](https://user-images.githubusercontent.com/69053706/133916343-5358a124-8e3f-4cbe-9281-8df4eedaa515.JPG)
 
 ### Album Page:
-![album](https://soundify-aa.herokuapp.com/album/1)
+![album-soundify](https://user-images.githubusercontent.com/69053706/133916345-a220556d-bd71-4385-b961-43516261ecba.JPG)
 
 ### Playlist Page:
-![playlist](https://soundify-aa.herokuapp.com/playlist/1)
+![playlist-soundify](https://user-images.githubusercontent.com/69053706/133916347-ed22ef1e-c76f-46c6-ba0f-88b264b0c702.JPG)
 
 ## Technical Details
 ### Music Player
