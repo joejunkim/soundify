@@ -26,7 +26,7 @@ Explore and listen at soundify-aa.herokuapp.com
 Soundify is a single-page web application built with components using React. React works with Redux to make changes on the front-end, speeding up processes and rendering, creating a better user experience. Redux is also used to speak to the back-end.
 
 ### Splash / Landing Page:
-![splash-soundify](https://user-images.githubusercontent.com/69053706/133916327-505e9a33-7231-4e7d-ae8a-0f5bdeaf75dc.jpg)
+![splash-soundify](https://user-images.githubusercontent.com/69053706/133916366-593a61b0-c83f-4196-a072-a28aa3f59fa4.jpg)
 
 ### Home Page:
 ![home-soundify](https://user-images.githubusercontent.com/69053706/133916336-a0a70965-6d58-4cb1-ac0f-4a7441c4c56e.JPG)
