@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         name: 'John Mayer',
-        imgUrl: 'https://cdns-images.dzcdn.net/images/artist/a6d0e250c8d4acb660d4c9b1a633778c.jpg',
+        imgUrl: 'https://www.rollingstone.com/wp-content/uploads/2021/07/JOHN_MAYER_SHOT_04_04482-11.jpg',
         description: 'John Clayton Mayer is an American singer, songwriter, guitarist, and record producer. Born and raised in Fairfield County, Connecticut, Mayer attended Berklee College of Music in Boston, but left and moved to Atlanta in 1997 with Clay Cook. ',
         createdAt: new Date(),
         updatedAt: new Date()
