@@ -7,12 +7,12 @@ Explore and listen at soundify-aa.herokuapp.com
 ## Features and Technology
 
 ### Features
-- Add / edit / delete playlists
+- Create / edit / delete playlists
 - Add tracks to your library collection
 - Add albums to your library collection
 - Add artists to your library collection
 - Search for playlists, artists, albums, and tracks
-
+- Continuous music streaming when navigating site
 
 ### Technologies
 - React.js
