@@ -2,7 +2,7 @@
 
 Soundify is a web application for users to listen to tracks and save their favorite tracks, either through a personal library of tracks, albums, and artists, or playlists that users can create and customize. Inspired by Spotify, Soundify was built using React, Redux, and Express, along with Spotify's public embedded music player.
 
-* Due to Heroku removing their free tier to Heroku dynos, Soundify is not able to be launched at this time.
+* Due to the removal of Heroku's free tier access to Heroku dynos, Soundify is not able to be launched at this time.
 
 ## Features and Technology
 
