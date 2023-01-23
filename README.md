@@ -22,7 +22,7 @@ Soundify is a web application for users to listen to tracks and save their favor
 - Sequelize
 - CSS3
 - Heroku
-- AWS API (image uploading)
+- AWS S3
 
 ## Main Components
 Soundify is a single-page web application built with components using React. React works with Redux to make changes on the front-end, speeding up processes and rendering, creating a better user experience. Redux is also used to speak to the back-end.
